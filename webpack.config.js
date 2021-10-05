@@ -1,7 +1,9 @@
 module.exports = {
    devServer: {
       proxy:{
-         '/LogIn': 'http://locahost:3000/LogIn'
+         '*': 'http://[::1]:3000/',
+         "secure": false,
+         "changeOrigin":true,
       }
    },
    entry:'./app/index',

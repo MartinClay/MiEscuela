@@ -2,29 +2,19 @@ const jwt = require("jsonwebtoken");
 
 let verificarToken = (req, res, next) => {
      let token = req.get("Authorization");//headers
-     console.log(token)
 
-   jwt.verify(token, "secret", (err, decoded) => {
+   jwt.verify(token, "nemesis", (err, decoded) => {
 
       if (err) {
          return res.status(401).json({
                     ok: false,
                     err
-                  
          });
-             
       }
-
-          req.usuariobd = decoded.usuariobd;
-
+          req.usuario = decoded.usuario;
           next();
-        
    });
-
-   
 };
-
 module.exports = {
      verificarToken
-   
 };

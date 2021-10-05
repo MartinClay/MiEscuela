@@ -1,24 +1,22 @@
 import React from 'react'
-import {Container,Row} from 'react-bootstrap'
 import Header from '../Components/header.jsx'
-import Menu from '../Components/menu.jsx'
 import Footer from '../Components/footer.jsx'
+import {Container, Row} from 'react-bootstrap'
 
-function Home () {
+function NotFoundPage() {
    return (
       <Container fluid>
          <Row>
             <Header/>
          </Row>
          <Row>
-            <Menu/>
+            <h1>Not Found Page</h1>
          </Row>
          <Row>
             <Footer/>
          </Row>
       </Container>
    )
-
 }
 
-export default Home
+export default NotFoundPage

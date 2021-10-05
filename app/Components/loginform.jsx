@@ -1,7 +1,8 @@
 import React , { useState }from 'react'
 import {Container,Col,Row,Form,Button} from 'react-bootstrap'
 import {postFetch} from '../Hooks/postFetch.js'
-
+import useAuth from '../Auth/useAuth.jsx'
+import {useHistory} from 'react-router-dom'
 const style = {
    form: {
       marginTop: 20,
@@ -10,9 +11,12 @@ const style = {
       marginTop: 20,
    }
 }
-   function loginform ({setToken}) {
+   function loginform () {
+
+   const history = useHistory()
    const [usuario,setUsuario] = useState('')
    const [password,setPassword] = useState('')
+   const {token,setToken} = useAuth()
 
    function handleChangeUser(event) {
       setUsuario(event.target.value)
@@ -22,9 +26,9 @@ const style = {
       setPassword(event.target.value)
    }
 
-   function handleSubmit(event) {
-      event.preventDefault()
-      postFetch(usuario,password).then(val => console.log(val.data.token))
+   function handleClick  ()  {
+      postFetch(usuario,password).then(val => setToken(val.data.token)),
+      history.push('/')
    }
 
    return (
@@ -33,7 +37,7 @@ const style = {
       <Col>
       </Col>
       <Col>
-      <Form onSubmit={handleSubmit}>
+         <Form> 
          <Form.Group>
             <Form.Label>Usuario</Form.Label>
             <Form.Control placeholder='Ingerse Usuario' type='text' onChange={handleChangeUser}/>
@@ -48,7 +52,7 @@ const style = {
                La contraseña es la misma que utiliza para iniciar sesion en la maquina.
             </Form.Text>
          </Form.Group>
-             <Button variant='primary' type='submit' style={style.button}>
+            <Button variant='primary' type='button' style={style.button} onClick={handleClick}>
                Ingresar
             </Button>
      </Form>

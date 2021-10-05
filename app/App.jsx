@@ -1,21 +1,13 @@
-import React, {useState} from 'react'
-import Home from './Pages/Home.jsx'
-import LogIn from './Pages/LogIn.jsx'
-import {BrowserRouter ,Route, Switch} from 'react-router-dom'
+import React from 'react'
+import AppRouter from './routes/AppRouter.jsx'
+import AuthProvider from './Auth/AuthProvider.jsx'
 function App () {
 
    return (
       <>
-         <BrowserRouter>
-            <Switch>
-               <Route path='/LogIn'>
-                  <LogIn/>
-               </Route>
-               <Route path='/Home'>
-                  <Home/>
-               </Route>
-            </Switch>
-         </BrowserRouter>
+         <AuthProvider>
+             <AppRouter/>
+         </AuthProvider>
       </>
    )
 }

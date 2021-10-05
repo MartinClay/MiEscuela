@@ -5,10 +5,6 @@ const jwt = require('jsonwebtoken')
 const {verificarToken} = require('../autentication')
 const login = require('../models/login')
 
-app.get('/',async (req, res)=> {
-   const loginres = await login.find()
-      res.json (loginres)
-});
 
 app.post('/', async (req,res)=>{
     let body = req.body
@@ -36,7 +32,7 @@ app.post('/', async (req,res)=>{
             usuario:usuario,
             password:usuario.password,
             role:usuario.role
-        },'secret',{expiresIn:'1h'})
+        },'nemesis',{expiresIn:'1h'})
 
         res.json({
             ok:true,
