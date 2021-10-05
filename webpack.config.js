@@ -1,4 +1,9 @@
 module.exports = {
+   devServer: {
+      proxy:{
+         '/LogIn': 'http://locahost:3000/LogIn'
+      }
+   },
    entry:'./app/index',
    output: {
       path: __dirname + '/public',

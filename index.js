@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path')
+const cors = require('cors')
 
 const {mongoose} = require('./database');
 
@@ -14,10 +15,13 @@ app.set('port',process.env.PORT || 3000) ;
 
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cors())
 
 //Routes
 
-app.use('/', require('./routes/login.routes'))
+app.use('/Api/Login',require('./routes/login.routes'))
+app.use('/Home', express.static(path.join(__dirname,'public')))
+app.use('/LogIn', express.static(path.join(__dirname,'public')))
 
 //Static files
 

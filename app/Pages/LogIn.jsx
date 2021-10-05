@@ -4,14 +4,14 @@ import Footer from '../Components/footer.jsx'
 import {Container, Row, Col} from 'react-bootstrap'
 import LogInForm from '../Components/loginform.jsx'
 
-function LogIn() {
+function LogIn({setToken}) {
    return (
       <Container fluid>
          <Row>
             <Header/>
          </Row>
          <Row>
-            <LogInForm/>
+            <LogInForm setToken={setToken}/>
          </Row>
          <Row>
             <Footer/>

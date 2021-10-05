@@ -7,22 +7,28 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "webpack": "webpack-dev-server --open --mode development "
+    "webpack": "webpack-dev-server --open --mode development ",
+    "webpackcreatebundle":"webpack --mode development"
+    
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.15.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.22.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.1.1",
+    "cors": "^2.8.5",
     "css-loader": "^6.3.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
@@ -42,6 +48,7 @@
     "webpack-dev-server": "^4.3.0"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.15.0",
     "nodemon": "^2.0.13",
     "webpack": "^5.55.1",
     "webpack-cli": "^4.8.0"

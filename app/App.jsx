@@ -3,11 +3,7 @@ import Home from './Pages/Home.jsx'
 import LogIn from './Pages/LogIn.jsx'
 import {BrowserRouter ,Route, Switch} from 'react-router-dom'
 function App () {
-   const [token, setToken] = useState()
 
-   if (!token) {
-      return <LogIn setToken={setToken} />
-   }
    return (
       <>
          <BrowserRouter>
