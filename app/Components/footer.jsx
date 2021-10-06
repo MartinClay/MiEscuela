@@ -20,7 +20,7 @@ function footer () {
             <Col>
             </Col>
             <Col>
-               <h7>Creado por Alejandro Rojas</h7>
+               <p>Creado por Alejandro Rojas</p>
             </Col>
          </Row>
       </Container>

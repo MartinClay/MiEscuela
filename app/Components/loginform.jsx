@@ -1,8 +1,9 @@
 import React , { useState }from 'react'
-import {Container,Col,Row,Form,Button} from 'react-bootstrap'
+import {Container,Col,Row,Form,Button,Alert} from 'react-bootstrap'
 import {postFetch} from '../Hooks/postFetch.js'
-import useAuth from '../Auth/useAuth.jsx'
-import {useHistory} from 'react-router-dom'
+import useAuth from '../Context/Store/useAuth.jsx'
+import {setCurrentUser,logoutUser} from '../Context/Actions/autentication.action.js'
+import jwt_decode from 'jwt-decode'
 const style = {
    form: {
       marginTop: 20,
@@ -13,11 +14,11 @@ const style = {
 }
    function loginform () {
 
-   const history = useHistory()
+   const context = useAuth()
+
    const [usuario,setUsuario] = useState('')
    const [password,setPassword] = useState('')
-   const {token,setToken} = useAuth()
-
+   
    function handleChangeUser(event) {
       setUsuario(event.target.value)
    }
@@ -26,11 +27,22 @@ const style = {
       setPassword(event.target.value)
    }
 
-   function handleClick  ()  {
-      postFetch(usuario,password).then(val => setToken(val.data.token)),
-      history.push('/')
+   function handleClick(){
+      postFetch(usuario,password).then(res => {
+         if(res.data.ok === true) {
+            jwtToken(res.data.token)
+         }else {
+            alert(res.data.err.message)
+            logoutUser(context.dispatch)
+         }
+      })
    }
 
+      const jwtToken = token => {
+         localStorage.setItem('jwt',token)
+         const decoded = jwt_decode(token)
+         context.dispatch(setCurrentUser(decoded))
+      }
    return (
    <Container style={style.form}>
       <Row>

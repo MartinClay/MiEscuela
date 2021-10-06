@@ -7,9 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "webpack": "webpack-dev-server --open --mode development ",
-    "webpackcreatebundle":"webpack -w --mode development"
-    
+    "webpack": "webpack -w --mode development"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +30,7 @@
     "css-loader": "^6.3.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
     "lottie-react": "^2.1.0",
     "mongoose": "^6.0.8",
     "moongoose": "^0.0.5",

@@ -36,7 +36,6 @@ app.post('/', async (req,res)=>{
 
         res.json({
             ok:true,
-            usuario:usuario,
             token
         })
 

@@ -1,7 +1,10 @@
 import React from 'react'
-import {Navbar,Nav,NavDropdown} from 'react-bootstrap'
-
+import {Navbar,Nav,NavDropdown,Container,Row,Col} from 'react-bootstrap'
+import useAuth from '../Context/Store/useAuth.jsx'
+import {logoutUser} from '../Context/Actions/autentication.action.js'
 function menu () {
+
+   const context = useAuth()
    return (
       <Navbar bg='dark' variant='dark'>
          <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -12,6 +15,9 @@ function menu () {
                <NavDropdown title='Generar'>
                   <NavDropdown.Item>Ratificacion de Inscripcion</NavDropdown.Item>
                </NavDropdown>
+            </Nav>
+            <Nav className = 'justify-content-end'>
+               <Nav.Link  onClick={() => logoutUser(context.dispatch)}>Salir</Nav.Link>
             </Nav>
          </Navbar.Collapse>
       </Navbar>

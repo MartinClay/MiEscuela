@@ -39,7 +39,7 @@ useEffect (() => {
             </Col>
             <Col>
                <h1 style={style.titleFont}>
-                  Mi Escuela App
+                  Mi Escuela
                </h1>
             </Col>
             <Col>

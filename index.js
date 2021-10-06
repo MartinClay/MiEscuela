@@ -19,12 +19,14 @@ app.use(cors())
 
 //Routes
 
-app.use('/Api/Login',require('./routes/login.routes'))
-app.use('/Home', express.static(path.join(__dirname,'public')))
-app.use('/LogIn', express.static(path.join(__dirname,'public')))
+app.use('/Api/LogIn',require('./routes/login.routes'))
+app.use('/Api/Matricula',require('./routes/matricula.routes'))
 
 //Static files
 
+app.use('/Home', express.static(path.join(__dirname,'public')))
+app.use('/LogIn', express.static(path.join(__dirname,'public')))
+app.use('/RatificacionInscripcion',express.static(path.join(__dirname,'public')))
 app.use(express.static(path.join(__dirname , 'public')));
 
 app.listen(app.get('port'), () => {
