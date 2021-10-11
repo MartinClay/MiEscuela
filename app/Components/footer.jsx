@@ -19,8 +19,8 @@ function footer () {
             </Col>
             <Col>
             </Col>
-            <Col>
-               <p>Creado por Alejandro Rojas</p>
+            <Col className='d-inline-flex'>
+               <p>Creado por Alejandro Rojas/Tel:2664705291/alejandrorojasit@icloud.com</p>
             </Col>
          </Row>
       </Container>

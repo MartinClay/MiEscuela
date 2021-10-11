@@ -2,16 +2,34 @@ import React from 'react'
 import Header from '../Components/header.jsx'
 import Footer from '../Components/footer.jsx'
 import {Container,Col,Row} from 'react-bootstrap'
+import Menu from '../Components/menu.jsx'
+import Ratificacion from '../Components/Ratificacion.jsx'
 
 const RatificacionInscripcion = () => {
    return (
-      <Container>
-         <Col>
-            <h1>RatificacionInscripcion</h1>
-         </Col>
+      <Container fluid>
+         <Row>
+            <Header/> 
+         </Row>
+         <Row>  
+            <Menu/>
+         </Row>
+         <Row>
+            <Ratificacion/>
+         </Row>
+         <Row>
+            <Footer/>
+         </Row>
       </Container>
 
    )
 }
 
 export default RatificacionInscripcion
+
+
+
+
+
+
+

@@ -37,7 +37,7 @@ useEffect (() => {
          <Row>
             <Col>
             </Col>
-            <Col>
+            <Col className='d-flex justify-content-center'>
                <h1 style={style.titleFont}>
                   Mi Escuela
                </h1>

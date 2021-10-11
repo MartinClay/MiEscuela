@@ -13,7 +13,7 @@ function Home () {
          <Row>
             <Menu/>
          </Row>
-         <Row>
+         <Row> 
             <Footer/>
          </Row>
       </Container>

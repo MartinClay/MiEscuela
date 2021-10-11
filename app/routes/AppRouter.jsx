@@ -31,7 +31,7 @@ const AppRouter = () => {
             />
             <Route path='/RatificacionInscripcion'
                render={() =>
-                     stateUser.isAuthenticated ? <RatificacionInscripcion/> : <Redirect to='LogIn'/>
+                     stateUser.isAuthenticated ? <RatificacionInscripcion/> : <Redirect to='/LogIn'/>
                }
             />
          </Switch>

@@ -1,10 +1,14 @@
 import React , {useReducer}from 'react'
 import authReducer from '../Reducers/autentication.reducer'
-import {setCurrentUser} from '../Actions/autentication.action'
+import {setCurrentUser,logoutUser} from '../Actions/autentication.action'
 import {createContext} from 'react'
 import jwt_decode from 'jwt-decode'
 
 export const AuthContext = createContext()
+
+window.addEventListener('beforeunload' ,(ev) => {
+   logoutUser()
+})
 
 const initialState = {
       isAuthenticated : false,

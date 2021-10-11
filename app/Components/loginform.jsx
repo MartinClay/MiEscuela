@@ -1,9 +1,11 @@
 import React , { useState }from 'react'
 import {Container,Col,Row,Form,Button,Alert} from 'react-bootstrap'
-import {postFetch} from '../Hooks/postFetch.js'
+import {postFetchLogIn} from '../Hooks/postFetch.js'
 import useAuth from '../Context/Store/useAuth.jsx'
 import {setCurrentUser,logoutUser} from '../Context/Actions/autentication.action.js'
+import AlertBootstrap from '../Components/Alert.jsx'
 import jwt_decode from 'jwt-decode'
+import {logInUrl} from '../Helpers/Urls.js'
 const style = {
    form: {
       marginTop: 20,
@@ -28,7 +30,7 @@ const style = {
    }
 
    function handleClick(){
-      postFetch(usuario,password).then(res => {
+      postFetchLogIn(usuario,password,logInUrl).then(res => {
          if(res.data.ok === true) {
             jwtToken(res.data.token)
          }else {
