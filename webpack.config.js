@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 module.exports = {
    devServer: {
       proxy:{
@@ -6,7 +7,7 @@ module.exports = {
          "changeOrigin":true,
       }
    },
-   entry:'./app/index',
+   entry:['react-hot-loader/patch','./app/index'],
    output: {
       path: __dirname + '/public',
       filename: 'bundle.js'
@@ -23,6 +24,19 @@ module.exports = {
          use: ['style-loader','css-loader']
          }
       ],
-   }
+   },
+   resolve: {
+        alias: {
+            process: 'process/browser',
+            stream: "stream-browserify",
+            zlib: "browserify-zlib"
+        }
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
+            Buffer: ['buffer', 'Buffer'],
+        }),
+    ]
 }
 

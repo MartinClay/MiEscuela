@@ -27,6 +27,7 @@ app.use('/Api/Matricula',require('./routes/matricula.routes'))
 app.use('/Home', express.static(path.join(__dirname,'public')))
 app.use('/LogIn', express.static(path.join(__dirname,'public')))
 app.use('/RatificacionInscripcion',express.static(path.join(__dirname,'public')))
+app.use('/Pdf',express.static(path.join(__dirname,'public')))
 app.use(express.static(path.join(__dirname , 'public')));
 
 app.listen(app.get('port'), () => {

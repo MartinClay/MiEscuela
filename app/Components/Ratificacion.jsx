@@ -8,13 +8,16 @@ import {ratificacionUrl} from '../Helpers/Urls.js'
 import {postFetchRatificacion} from '../Hooks/postFetch.js'
 
 import ModalRatificacion from './ModalRatificacion.jsx'
+import ModalPdf from './ModalPdf.jsx'
 
 const Ratificacion = () => { 
    const [grado,setGrado] = useState('Grado')
    const [division, setDivision] = useState('Division')
    const [nivel,setNivel] = useState('Nivel')
    const [datosAlumno,setDatosAlumno] = useState([])
-   const [show, setShow] = useState(false)
+   const [showModalItems, setShowModalItems] = useState(false)
+   const [showModalPdf,setShowModalPdf] = useState(false)
+   const [selectedItems, setSelectedItems] = useState([])
 
    function handleClickNivel (item) {
       setNivel(item)
@@ -43,7 +46,7 @@ const Ratificacion = () => {
    }
 
    function handleClickGenerar () {
-      setShow(true)
+      setShowModalItems(true)
    }
 
    function handleDelete(dni) {
@@ -57,6 +60,10 @@ const Ratificacion = () => {
       setDatosAlumno(filtrado)
    }
 
+   function handleClickImprimir () {
+      setShowModalPdf(true)
+   }
+
       return ( 
          <Container 
             fluid
@@ -64,8 +71,15 @@ const Ratificacion = () => {
          >
             <Row> 
                <ModalRatificacion
-                  show={show}
-                  setShow={setShow}
+                  showModalItems={showModalItems}
+                  setShowModalItems={setShowModalItems}
+                  setSelectedItems={setSelectedItems}
+               />
+               <ModalPdf
+                  setShowModalPdf={setShowModalPdf}
+                  showModalPdf={showModalPdf}
+                  selectedItems={selectedItems}
+                  datosAlumno={datosAlumno}
                />
                <Col className='d-flex justify-content-center'>
                   <DropdownButton 
@@ -132,6 +146,9 @@ const Ratificacion = () => {
             <Row>
                <Col className='d-flex justify-content-end'>
                   <Button variant='primary' onClick={()=> handleClickGenerar()}>Generar</Button>
+            </Col>
+               <Col>
+                  <Button variant='primary' onClick={()=> handleClickImprimir()}>Imprimir</Button>
                </Col>
             </Row>
          </Container>

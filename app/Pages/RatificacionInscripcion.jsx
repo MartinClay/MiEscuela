@@ -18,7 +18,6 @@ const RatificacionInscripcion = () => {
             <Ratificacion/>
          </Row>
          <Row>
-            <Footer/>
          </Row>
       </Container>
 

@@ -3,24 +3,24 @@ import {Modal, InputGroup,Button} from 'react-bootstrap'
 
 import {datosRatificacion} from '../Helpers/HardCodeData.js'
 
-function handleClickModal (ratificacionesRef,setShow,setSelectedItems,selectedItems) {
-   console.log(ratificacionesRef)
-   ratificacionesRef.map((item,index)=>{
-      if(item.current.checked === true){
-        setSelectedItems([...selectedItems,item.current]) 
+const handleClickModal = (ratificacionesRef,setSelectedItems,setShowModalItems) => {
+   let selected = []
+   for(var i = 0 ; i < ratificacionesRef.current.length ; i++){
+      if (ratificacionesRef.current[i].children[0].checked === true){
+         selected = [...selected,ratificacionesRef.current[i].children[1].textContent]
+         setSelectedItems(selected)
       }
    }
-   ) 
+   setShowModalItems(false)
 }
-const ModalRatificacion = ({show,setShow}) => { 
+const ModalRatificacion = ({showModalItems,setShowModalItems,selectedItems,setSelectedItems}) => { 
 
-   const handleClose = () => setShow(false)
-   const handleShow = () => setShow(true)
-   const [selectedItems, setSelectedItems] = useState([])
+   const handleClose = () => setShowModalItems(false)
+   const handleShow = () => setShowModalItems(true)
    const ratificacionesRef = useRef([])
 
    return ( 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={showModalItems} onHide={handleClose}>
          <Modal.Header>
             <Modal.Title>Seleccionar que datos desea imprimir</Modal.Title>
          </Modal.Header>
@@ -35,7 +35,7 @@ const ModalRatificacion = ({show,setShow}) => {
                   )}
                </Modal.Body>
          <Modal.Footer>
-            <Button variant='primary' onClick={()=> handleClickModal(ratificacionesRef,setShow,setSelectedItems,selectedItems)}>Aceptar</Button>
+            <Button variant='primary' onClick={()=> handleClickModal(ratificacionesRef,setSelectedItems,setShowModalItems)}>Aceptar</Button>
          </Modal.Footer>
             </Modal>
                   )
