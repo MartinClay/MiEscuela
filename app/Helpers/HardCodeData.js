@@ -41,3 +41,90 @@ export const datosRatificacion = [
    'Relacion parentesco',
    'DNI alumno'
 ]
+
+export const datosRatificacion2 = {
+   APELLIDO:{
+      label:'Apellido',
+      isTrue: true,
+   },
+   NOMBRE:{
+      label:'Nombre',
+      isTrue: true,
+   },
+   NRO_LEGAJO:{
+      label:'Legajo',
+      isTrue: true,
+   },
+   GRADO:{
+      label:'Grado',
+      isTrue: true,
+   },
+   DENOMINACION:{
+      label:'Agrupamiento',
+      isTrue: true,
+   },
+   LUGAR_NACIMIENTO:{
+      label:'Nacido en',
+      isTrue: true,
+   },
+   PROVINCIA:{
+      label:'Provincia',
+      isTrue: true,
+   },
+   FECHA_NACIMIENTO:{
+      label:'Fecha Nacimiento',
+      isTrue: true,
+   },
+   CALLE:{
+      label:'Calle',
+      isTrue: false,
+   },
+   NRO:{
+      label:'Numero calle',
+      isTrue: false,
+   },
+   BARRIO:{
+      label:'Barrio',
+      isTrue: false,
+   },
+   MANZANA:{
+      label:'Manzana',
+      isTrue: false,
+   },
+   CASA_N:{
+      label:'Casa Nº',
+      isTrue: false,
+   },
+   LOCALIDAD:{
+      label:'Localidad',
+      isTrue: true,
+   },
+   TEL_FIJO:{
+      label:'Tel Fijo',
+      isTrue: false,
+   },
+   TEL_CELULAR:{
+      label:'Tel Celular',
+      isTrue: false,
+   },
+   NOMBRE_TUTOR:{
+      label:'Nombre tutor',
+      isTrue: true,
+   },
+   APELLIDO_TUTOR:{
+      label:'Apellido tutor',
+      isTrue: true,
+   },
+   DNI_TUTOR:{
+      label:'Dni tutor',
+      isTrue:true,
+   },
+   RELACION_TUTOR:{
+      label:'Relacion parentesco',
+      isTrue:true,
+   },
+   DNI_ALUMNO:{
+      label:'DNI Alumno',
+      isTrue:true,
+   }
+}

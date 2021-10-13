@@ -18,6 +18,7 @@ const Ratificacion = () => {
    const [showModalItems, setShowModalItems] = useState(false)
    const [showModalPdf,setShowModalPdf] = useState(false)
    const [selectedItems, setSelectedItems] = useState([])
+   const [arrayForPdf,setArrayForPdf] = useState([])
 
    function handleClickNivel (item) {
       setNivel(item)
@@ -43,9 +44,6 @@ const Ratificacion = () => {
       }else {
          alert('La seleccion de Nivel,Grado y Division son obligatorias')
       }
-   }
-
-   function handleClickGenerar () {
       setShowModalItems(true)
    }
 
@@ -144,9 +142,6 @@ const Ratificacion = () => {
                </Col>
             </Row>
             <Row>
-               <Col className='d-flex justify-content-end'>
-                  <Button variant='primary' onClick={()=> handleClickGenerar()}>Generar</Button>
-            </Col>
                <Col>
                   <Button variant='primary' onClick={()=> handleClickImprimir()}>Imprimir</Button>
                </Col>
@@ -154,5 +149,4 @@ const Ratificacion = () => {
          </Container>
                 )
 }
-
 export default Ratificacion
