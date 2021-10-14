@@ -1,6 +1,7 @@
 export const Nivel = [
    'SECUNDARIO',
-   'PRIMARIO'
+   'PRIMARIO',
+   'INICIAL'
 ]
 
 export const Division = [
@@ -57,6 +58,10 @@ export const datosRatificacion2 = {
    },
    GRADO:{
       label:'Grado',
+      isTrue: true,
+   },
+   DIVISION:{
+      label:'Division',
       isTrue: true,
    },
    DENOMINACION:{
