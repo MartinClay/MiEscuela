@@ -9,6 +9,11 @@ const login = require('../models/login')
 app.post('/', async (req,res)=>{
     let body = req.body
     login.findOne({usuario:body.usuario},(err,usuario)=>{
+
+       const passwordnewuser = bcrypt.hash(body.password,8,(err,hash) => 
+            console.log(hash)
+       )
+       
     
         if(!usuario){
             return res.status(400).send({

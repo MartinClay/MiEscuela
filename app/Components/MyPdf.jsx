@@ -80,7 +80,7 @@ const Pdf = ({datosAlumno,selectedItems}) => (
                <View style={styles.body}>
                   <View style={styles.header}>
                      <Text style={styles.headerText1}>RATIFICACIÓN INSCRIPCÍON PARA CICLO LECTIVO 2022</Text>
-                     <Text style={styles.headertText2}>ESCUELA PÚBLICA AUTOGESTIONADA Nº 9 "DR. HORACIO DE LA MOTA"</Text>
+                     <Text style={styles.headertText2}>ESCUELA PÚBLICA AUTOGESTIONADA Nº 9 "DR. HORACIO de la MOTA"</Text>
                   </View>
                   <View style={styles.contentBody}>
                      <Text style={[styles.contentBodyText1,{width:'30vw'}]}>Apellido/s</Text>
@@ -92,7 +92,7 @@ const Pdf = ({datosAlumno,selectedItems}) => (
                      <View style={styles.marginTop}>
                         <Text style={[styles.contentBodyText1,{width:'10vw'}]}>Grado:</Text>
                         <Text style={[styles.contentBodyText1,{width:'10vw'}]}>{selectedItems[3] === 'GRADO' ? dato.GRADO : ''}</Text>
-                        <Text style={[styles.contentBodyText1,{width:'10vw'}]}>Division:</Text>
+                        <Text style={[styles.contentBodyText1,{width:'10vw'}]}>División:</Text>
                         <Text style={[styles.contentBodyText1,{width:'10vw'}]}>{selectedItems[4] === 'DIVISION' ? dato.DIVISION : ''}</Text>
 
                         <Text style={[styles.contentBodyText1,{width:'20vw'}]}>Agrupamiento:</Text>
@@ -133,7 +133,7 @@ const Pdf = ({datosAlumno,selectedItems}) => (
                               <Text style={[styles.contentBodyText1,{width:'65vw'}]}>{selectedItems[17] === 'NOMBRE_TUTOR' ? `${dato.NOMBRE_TUTOR} ${dato.APELLIDO_TUTOR}` : ''}</Text>
                               <Text style={[styles.contentBodyText1,{width:'25vw'}]}>DNI:</Text>
                               <Text style={[styles.contentBodyText1,{width:'65vw'}]}>{selectedItems[19] === 'DNI_TUTOR' ? dato.DNI_TUTOR : ''}</Text>
-                              <Text style={[styles.contentBodyText1,{width:'25vw'}]}>Relacion de Parentesco:</Text>
+                              <Text style={[styles.contentBodyText1,{width:'25vw'}]}>Relación de Parentesco:</Text>
                               <Text style={[styles.contentBodyText1,{width:'65vw'}]}>{selectedItems[20] === 'RELACION_TUTOR' ? dato.RELACION_TUTOR : ''}</Text>
                               <Text style={[styles.contentBodyText1,{width:'25vw'}]}>Tel:</Text>
                               <Text style={[styles.contentBodyText1,{width:'20vw',textAlign:'left'}]}>Fijo:</Text>
@@ -144,7 +144,7 @@ const Pdf = ({datosAlumno,selectedItems}) => (
                               <Text style={[styles.contentBodyText1,{width:'65vw',marginTop:10}]}></Text>
                               <Text style={[styles.contentBodyText1,{width:'25vw'}]}>DNI:</Text>
                               <Text style={[styles.contentBodyText1,{width:'65vw'}]}></Text>
-                              <Text style={[styles.contentBodyText1,{width:'25vw'}]}>Relacion de Parentesco:</Text>
+                              <Text style={[styles.contentBodyText1,{width:'25vw'}]}>Relación de Parentesco:</Text>
                               <Text style={[styles.contentBodyText1,{width:'65vw'}]}></Text>
                               <Text style={[styles.contentBodyText1,{width:'25vw'}]}>Tel:</Text>
                               <Text style={[styles.contentBodyText1,{width:'20vw',textAlign:'left'}]}>Fijo:</Text>
@@ -153,12 +153,12 @@ const Pdf = ({datosAlumno,selectedItems}) => (
                               <Text style={[styles.contentBodyText1,{width:'65vw',paddingTop:12}]}></Text>
                               <View style={styles.marginTop2}>
                                  <Text style={[styles.contentBodyText2,{textDecoration:'underline',fontWeight:700}]}>Adjuntar</Text>
-                                 <Text style={styles.contentBodyText2}>Fotocopia de Libreta Salud con Apto Fisico con control medico acorde a la edad.</Text>
-                                 <Text style={styles.contentBodyText2}>Fotocoia de Control Bucodental (en el caso de que figure en el control médico no es necesario el certificado)</Text>
+                                 <Text style={styles.contentBodyText2}>Fotocopia de Libreta Salud con Apto Físico con control médico acorde a la edad.</Text>
+                                 <Text style={styles.contentBodyText2}>Fotocopia de Control Bucodental (en el caso de que figure en el control médico no es necesario el certificado)</Text>
                                  <Text style={styles.contentBodyText2}>Fotocopia de Vacunas Completas</Text>
                                  <Text style={styles.contentBodyText2}>Fotocopia de DNI actualizado del Alumno y Tutor</Text>
                                  <Text style={[styles.contentBodyText2,{textDecoration:'underline',fontWeight:700}]}>(Traer todo en un folio)</Text>
-                                 <Text style={styles.contentBodyText2}>En mi carácter de Tutor del Alumno................................................................................................. DNI..................................................................... me comprometo a favorecer el cumplimiento, del "Acuerdo Institucional de Convivenvia" del Establecimiento.</Text>
+                                 <Text style={styles.contentBodyText2}>En mi carácter de Tutor del Alumno................................................................................................. DNI..................................................................... me comprometo a favorecer el cumplimiento del "Acuerdo Institucional de Convivenvia" del Establecimiento.</Text>
                                  <View style={styles.footer}>
                                     <Text style={[styles.contentBodyText2,{paddingTop:20}]}>Firma:.......................................... Aclaración:............................................................................................. DNI:..................................................</Text>
                                  </View>
