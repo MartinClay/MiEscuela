@@ -6,9 +6,12 @@ import jwt_decode from 'jwt-decode'
 
 export const AuthContext = createContext()
 
+export const baseUrl = window.location.hostname
+
 window.addEventListener('beforeunload' ,(ev) => {
    logoutUser()
 })
+
 
 const initialState = {
       isAuthenticated : false,
@@ -16,7 +19,6 @@ const initialState = {
    }
 
 const AuthProvider = (props) => {
-
    if(localStorage.jwt) {
       initialState.isAuthenticated = true
       initialState.user = jwt_decode(localStorage.jwt)
