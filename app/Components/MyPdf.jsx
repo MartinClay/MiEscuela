@@ -124,7 +124,7 @@ const Pdf = ({datosAlumno,selectedItems}) => (
                            <Text style={[styles.contentBodyText1,{width:'10vw'}]}></Text>
                            <Text style={[styles.contentBodyText1,{width:'9vw'}]}>Localidad</Text>
                            <Text style={[styles.contentBodyText1,{width:'15vw',fontSize:9}]}>{selectedItems[14] === 'LOCALIDAD' ? dato.LOCALIDAD : ''}</Text>
-                           <Text style={[styles.contentBodyText1,{width:'13vw'}]}>Telefonos: Fijo:</Text>
+                           <Text style={[styles.contentBodyText1,{width:'13vw'}]}>Teléfonos: Fijo:</Text>
                            <Text style={[styles.contentBodyText1,{width:'20vw'}]}>{selectedItems[15] === 'TEL_FIJO' ? dato.TEL_FIJO : ''}</Text>
                            <Text style={[styles.contentBodyText1,{width:'8vw'}]}>Celular:</Text>
                            <Text style={[styles.contentBodyText1,{width:'25vw'}]}>{selectedItems[16] === 'TEL_CELULAR' ? dato.TEL_CELULAR : ''}</Text>
@@ -158,7 +158,7 @@ const Pdf = ({datosAlumno,selectedItems}) => (
                                  <Text style={styles.contentBodyText2}>Fotocopia de Vacunas Completas</Text>
                                  <Text style={styles.contentBodyText2}>Fotocopia de DNI actualizado del Alumno y Tutor</Text>
                                  <Text style={[styles.contentBodyText2,{textDecoration:'underline',fontWeight:700}]}>(Traer todo en un folio)</Text>
-                                 <Text style={styles.contentBodyText2}>En mi carácter de Tutor del Alumno................................................................................................. DNI..................................................................... me comprometo a favorecer el cumplimiento del "Acuerdo Institucional de Convivenvia" del Establecimiento.</Text>
+                                 <Text style={[styles.contentBodyText2,{textAlign:'justify'}]}>En mi carácter de Tutor del Alumno: {selectedItems[0] === 'APELLIDO' && selectedItems[1] === 'NOMBRE' ? `${dato.NOMBRE} ${dato.APELLIDO}` : '....................................................................................'}, DNI: {selectedItems[21] === 'DNI_ALUMNO' ? dato.N_DNI_ALUMNO : '...................................................................................................' }, me comprometo a favorecer el cumplimiento del "Acuerdo Institucional de Convivenvia" del Establecimiento.</Text>
                                  <View style={styles.footer}>
                                     <Text style={[styles.contentBodyText2,{paddingTop:20}]}>Firma:.......................................... Aclaración:............................................................................................. DNI:..................................................</Text>
                                  </View>
