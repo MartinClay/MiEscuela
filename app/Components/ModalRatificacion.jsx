@@ -1,4 +1,4 @@
-import React, {useState,useRef} from 'react'
+import {useState,useRef} from 'react'
 import {Modal, InputGroup,Button} from 'react-bootstrap'
 
 import {datosRatificacion,datosRatificacion2} from '../Helpers/HardCodeData.js'
@@ -14,7 +14,6 @@ const handleClickModal = (ratificacionesRef,setSelectedItems,setShowModalItems,d
          setSelectedItems(selected)
       }
    }
-   console.log(selected)
    setShowModalItems(false)
 }
 

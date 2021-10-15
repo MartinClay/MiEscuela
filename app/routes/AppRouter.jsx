@@ -4,6 +4,7 @@ import {BrowserRouter,Switch,Route,Redirect} from 'react-router-dom'
 import Home from '../Pages/Home.jsx'
 import LogIn from '../Pages/LogIn.jsx'
 import RatificacionInscripcion from '../Pages/RatificacionInscripcion.jsx'
+import AdminPannel from '../Pages/AdminPannel.jsx'
 
 import useAuth from '../Context/Store/useAuth.jsx'
 
@@ -32,6 +33,11 @@ const AppRouter = () => {
             <Route path='/RatificacionInscripcion'
                render={() =>
                      stateUser.isAuthenticated ? <RatificacionInscripcion/> : <Redirect to='/LogIn'/>
+               }
+            />
+            <Route path='/AdminPannel'
+                  render={() =>
+                        stateUser.isAuthenticated ? <AdminPannel/> : <Redirect to='/LogIn'/>
                }
             />
          </Switch>

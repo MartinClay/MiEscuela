@@ -1,5 +1,3 @@
-import React from 'react'
-
 import {Col,Row,Modal,CloseButton} from 'react-bootstrap'
 
 import Pdf from './MyPdf.jsx'

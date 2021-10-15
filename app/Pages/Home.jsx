@@ -1,4 +1,3 @@
-import React from 'react'
 import {Container,Row} from 'react-bootstrap'
 import Header from '../Components/header.jsx'
 import Menu from '../Components/menu.jsx'

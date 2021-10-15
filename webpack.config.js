@@ -1,7 +1,11 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+
 module.exports = {
    devServer: {
-      proxy:{
+         open: true,
+         port: 3001,
+         proxy:{
          '*': 'http://[::1]:3000/',
          "secure": false,
          "changeOrigin":true,
@@ -16,7 +20,7 @@ module.exports = {
       rules:[
          {
          test: /\.(js|jsx)$/,
-         use:'babel-loader',
+         loader:'babel-loader',
          exclude: /node_modules/
          },  
          {
@@ -37,6 +41,7 @@ module.exports = {
             process: 'process/browser',
             Buffer: ['buffer', 'Buffer'],
         }),
+       new HtmlWebpackPlugin({template: './app/index.html'})
     ]
 }
 

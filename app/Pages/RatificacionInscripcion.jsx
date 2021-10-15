@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from '../Components/header.jsx'
 import Footer from '../Components/footer.jsx'
 import {Container,Col,Row} from 'react-bootstrap'

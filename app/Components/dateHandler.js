@@ -15,19 +15,15 @@ export const ageCalculate = (date) => {
 
    switch(true){
       case (month > parseInt(date[1])):
-         console.log('month > datemonth')
          let anios = year - parseInt(date[2])
          return anios
       case (month === parseInt(date[1]) && day < parseInt(date[0])):
-         console.log('month === datemont and day < dateday')
          let anios2 = (year - parseInt(date[2])) - 1
          return anios2
       case (month === parseInt(date[1]) && day >= parseInt(date[0])):
-         console.log('month === datemonth && day >= dateday')
          let anios4 = year - (parseInt(date[2]))
          return anios4
       case (month < parseInt(date[1])):
-         console.log('month < datemonth')
          let anios3 = (year - parseInt(date[2])) - 1
          return anios3
    }

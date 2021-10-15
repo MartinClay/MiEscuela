@@ -1,9 +1,9 @@
 import React from 'react'
-import {Navbar,Nav,NavDropdown,Container,Row,Col} from 'react-bootstrap'
+import {Navbar,Nav,NavDropdown} from 'react-bootstrap'
 import useAuth from '../Context/Store/useAuth.jsx'
 import {logoutUser} from '../Context/Actions/autentication.action.js'
 
-import RatificacionInscripcion from '../Pages/RatificacionInscripcion.jsx'
+import {DecodeToken} from './tokenhandler'
 
 import {Link} from 'react-router-dom'
 function menu () {
@@ -20,7 +20,10 @@ function menu () {
                   <NavDropdown.Item as={Link} to='/RatificacionInscripcion'>Ratificacion de Inscripcion</NavDropdown.Item>
                </NavDropdown>
             </Nav>
-            <Nav className = 'justify-content-end'>
+            {
+               DecodeToken(1).usuario.role === 'admin' ? <Nav><Nav.Link as={Link} to='/AdminPannel'>Adm.Panel</Nav.Link></Nav> : null
+
+            }             <Nav className = 'justify-content-end'>
                <Nav.Link  onClick={() => logoutUser(context.dispatch)}>Salir</Nav.Link>
             </Nav>
          </Navbar.Collapse>

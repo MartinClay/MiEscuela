@@ -3,7 +3,6 @@ import {baseUrl} from '../Context/Store/AuthProvider.jsx'
 
 export const postFetchLogIn = async (usuario,password,apiUrl) => {
    const url= `http://${baseUrl}:3000${apiUrl}`  
-   console.log(url)
    const dataPost = {usuario:usuario,password:password}
    try{
    const resData = await axios.post(url,dataPost)

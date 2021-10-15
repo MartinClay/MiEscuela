@@ -1,4 +1,3 @@
-import React from 'react'
 import {PDFViewer,Text,Page,Document,View,Font,StyleSheet} from '@react-pdf/renderer'
 
 import {splitDate,ageCalculate} from './dateHandler.js'

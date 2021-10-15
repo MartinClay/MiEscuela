@@ -1,4 +1,3 @@
-import React  from 'react'
 import {useEffect} from 'react'
 import {Container,Row,Col} from 'react-bootstrap'
 import Lottie from 'lottie-react'

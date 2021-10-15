@@ -1,4 +1,4 @@
-import React,{useState}  from "react";
+import {useState}  from "react";
 
 import {Container,Col,Row,DropdownButton,Dropdown,ButtonGroup,Button,Table,CloseButton} from 'react-bootstrap'
 
@@ -141,11 +141,9 @@ const Ratificacion = () => {
                   </Table>
                </Col>
             </Row>
-            <Row>
-               <Col>
+            <Col className='d-flex justify-content-end'>
                   <Button variant='primary' onClick={()=> handleClickImprimir()}>Imprimir</Button>
                </Col>
-            </Row>
          </Container>
                 )
 }
