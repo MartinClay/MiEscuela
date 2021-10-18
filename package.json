@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "webpack": "webpack -w --mode development",
-    "serve": "webpack-dev-server --open --mode development"
+    "server": "nodemon index.js",
+    "build": "webpack -w --mode development",
+    "dev": "webpack-dev-server --open --mode development"
   },
   "keywords": [],
   "author": "",
@@ -24,11 +24,15 @@
     "lottie-react": "^2.1.0",
     "mongoose": "^6.0.11",
     "morgan": "^1.10.0",
+    "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-rc.1",
+    "react-dom": "^17.0.2",
     "react-hot-loader": "^4.13.0",
+    "react-icons": "^4.3.1",
     "react-router-dom": "^5.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.8",
     "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
     "@babel/runtime": "^7.15.4",

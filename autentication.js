@@ -11,7 +11,6 @@ let verificarToken = (req, res, next) => {
                     err
          });
       }
-          req.usuario = decoded.usuario;
           next();
    });
 };

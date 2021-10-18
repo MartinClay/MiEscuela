@@ -41,9 +41,7 @@ const style = {
    }
 
       const jwtToken = token => {
-         localStorage.setItem('jwt',token)
-         const decoded = jwt_decode(token)
-         context.dispatch(setCurrentUser(decoded))
+         context.dispatch(setCurrentUser(token))
       }
    return (
    <Container style={style.form}>

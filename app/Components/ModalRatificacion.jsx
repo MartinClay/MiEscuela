@@ -21,6 +21,7 @@ const ModalRatificacion = ({showModalItems,setShowModalItems,selectedItems,setSe
 
    const handleClose = () => setShowModalItems(false)
    const handleShow = () => setShowModalItems(true)
+
    const ratificacionesRef = useRef([])
    return ( 
       <Modal show={showModalItems} onHide={handleClose}>

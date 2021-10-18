@@ -7,6 +7,7 @@ export default function(state , action ){
             return {
                 ...state,
                 isAuthenticated: !isEmpty(action.payload),
+                token: action.payload
             }
         default: 
             return state;

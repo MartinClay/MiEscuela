@@ -8,6 +8,5 @@ export const setCurrentUser = user => {
 }
 
 export const logoutUser = (dispatch) => {
-   localStorage.removeItem("jwt")
    dispatch(setCurrentUser({}))
 }

@@ -4,6 +4,8 @@ import Footer from '../Components/footer.jsx'
 
 import {Container,Col,Row} from 'react-bootstrap'
 
+import AdminOptions from '../Components/AdminOptions.jsx'
+
 const AdminPannel = () => {
    return(
       <Container fluid>
@@ -12,6 +14,9 @@ const AdminPannel = () => {
          </Row>
          <Row>
             <Menu/>
+         </Row>
+         <Row>
+            <AdminOptions/>
          </Row>
          <Row>
             <Footer/>
