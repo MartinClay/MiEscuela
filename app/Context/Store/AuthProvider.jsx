@@ -33,9 +33,7 @@ const AuthProvider = (props) => {
                   dispatch(setCurrentUser(''))
                }
             }
-         ).catch(function (error){
-            resolve(error)
-         })
+         )
       }
    },[stateUser])
 

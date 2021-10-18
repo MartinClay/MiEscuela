@@ -1,6 +1,25 @@
 import axios from 'axios'
 import {baseUrl} from '../Context/Store/AuthProvider.jsx'
 
+export const postFetchAddUser = async (token,usuario,password,role,apiUrl) => {
+   const url= `http://${baseUrl}:3000${apiUrl}`  
+   const dataPost = {usuario:usuario,password:password,role:role}
+   const config = {
+      headers: {                    
+         "Accept": "application/json",                    
+         "Content-Type": "application/json",
+         "Authorization": token                
+      }           
+   }
+   try{
+   const resData = await axios.post(url,dataPost,config)
+   return resData
+   }
+   catch(err) {
+         return(err.response)
+      }
+}
+
 export const postFetchLogIn = async (usuario,password,apiUrl) => {
    const url= `http://${baseUrl}:3000${apiUrl}`  
    const dataPost = {usuario:usuario,password:password}

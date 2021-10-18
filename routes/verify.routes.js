@@ -8,12 +8,13 @@ app.get('/', verificarToken, async (req,res) => {
    })
 
 app.post('/', verificarToken, async (req,res) => {
-      res.json(res)
+        res.json({
+            ok:true,
+        })
 })
 
 app.post('/:usuario', async (req,res)=> {
    let body = req.body
-   
 })
 
 module.exports = app

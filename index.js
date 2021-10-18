@@ -20,6 +20,7 @@ app.use('/Api/LogIn',require('./routes/login.routes'))
 app.use('/Api/Matricula',require('./routes/matricula.routes'))
 app.use('/Api/Usuarios',require('./routes/usuarios.routes'))
 app.use('/Api/VerifyToken',require('./routes/verify.routes'))
+app.use('/Api/AddUser',require('./routes/addUsers.routes'))
 
 //Static files
 app.use(express.static(path.join(__dirname , 'public')));

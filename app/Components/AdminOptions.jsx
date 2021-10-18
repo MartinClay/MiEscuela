@@ -17,6 +17,7 @@ const AdminOptions = () => {
             setAddUserModal={setAddUserModal}
          />
          <ModalAddUser
+            setUsuariosModal={setUsuariosModal}
             addUserModal={addUserModal}
             setAddUserModal={setAddUserModal}
          />

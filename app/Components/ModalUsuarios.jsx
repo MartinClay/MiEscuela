@@ -13,21 +13,22 @@ function handleAddUser(setAddUserModal,setUsuariosModal){
   setAddUserModal(true) 
 }
 
+function upDateUsers(token,setDataUsuarios){
+      getFetchUsuarios(token).then((data) =>
+         setDataUsuarios(data.data)
+      )
+}
+
+
 const ModalUsuarios = ({usuariosModal,setUsuariosModal,addUserModal,setAddUserModal}) => { 
 
    const context = useAuth()
    const handleClose = () => setUsuariosModal(false)
    const [dataUsuarios,setDataUsuarios] = useState([])
 
-   useEffect(()=> {
-      getFetchUsuarios(context.stateUser.token).then((data) =>
-         setDataUsuarios(data.data)
-      )
-   },[])
-
    return ( 
 
-      <Modal show={usuariosModal} onHide={handleClose}>
+      <Modal show={usuariosModal} onHide={handleClose} onShow={()=> upDateUsers(context.stateUser.token,setDataUsuarios)}>
          <Modal.Header closeButton>
             <h3>Usuarios en Mi Escuela</h3>
          </Modal.Header>

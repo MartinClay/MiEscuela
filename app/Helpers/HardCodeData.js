@@ -133,3 +133,8 @@ export const datosRatificacion2 = {
       isTrue:true,
    }
 }
+
+export const Role = [
+   'admin',
+   'secretaria'
+]
