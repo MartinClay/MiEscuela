@@ -3,6 +3,7 @@ import {Row,Col,Container,Button} from 'react-bootstrap'
 
 import ModalUsuarios from './ModalUsuarios.jsx'
 import ModalAddUser from './ModalAddUser.jsx'
+
 const AdminOptions = () => { 
 
    const [usuariosModal, setUsuariosModal] = useState(false)

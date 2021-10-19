@@ -4,6 +4,7 @@ import {getFetchUsuarios} from '../Hooks/getFetch.js'
 import {FaUserEdit} from 'react-icons/fa'
 import useAuth from '../Context/Store/useAuth.jsx'
 
+
 function handleEdit(value){
    console.log(value)
 }
@@ -44,11 +45,11 @@ const ModalUsuarios = ({usuariosModal,setUsuariosModal,addUserModal,setAddUserMo
                   </thead>
                   <tbody>
                      {dataUsuarios.map(
-                        (data) =>
-                           <tr key={data.usuario}>
-                              <th><Button onClick={()=> handleEdit(data.usuario)}><FaUserEdit/></Button></th>
-                              <th>{data.usuario}</th>
-                              <th>{data.role}</th>
+                        (dataMap) =>
+                           <tr key={dataMap.usuario}>
+                              <th><Button onClick={()=> handleEdit(dataMap.usuario)}><FaUserEdit/></Button></th>
+                              <th>{dataMap.usuario}</th>
+                              <th>{dataMap.role}</th>
                            </tr>
                      )}   
                   </tbody>
