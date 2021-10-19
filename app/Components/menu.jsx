@@ -16,7 +16,7 @@ function menu () {
          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
                <Nav.Link >Inicio</Nav.Link>
-               <Nav.Link >Matricula</Nav.Link>
+               <Nav.Link as={Link} to='/Matricula'>Matricula</Nav.Link>
                <NavDropdown title='Generar'>
                   <NavDropdown.Item as={Link} to='/RatificacionInscripcion'>Ratificacion de Inscripcion</NavDropdown.Item>
                </NavDropdown>

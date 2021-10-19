@@ -1,3 +1,4 @@
+export const userDeleteUrl = '/Api/Usuarios/Delete'
 
 export const logInUrl = '/Api/LogIn'
 
@@ -8,3 +9,5 @@ export const usuariosUrl = '/Api/Usuarios'
 export const verifyTokenUrl = '/Api/VerifyToken'
 
 export const addUserUrl = '/Api/AddUser'
+
+export const matriculaUrl = '/Api/Matricula'

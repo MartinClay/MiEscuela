@@ -6,6 +6,7 @@ import LogIn from '../Pages/LogIn.jsx'
 import RatificacionInscripcion from '../Pages/RatificacionInscripcion.jsx'
 import AdminPannel from '../Pages/AdminPannel.jsx'
 import Forbidden from '../Pages/Forbidden.jsx'
+import Matricula from '../Pages/MatriculaPage.jsx'
 
 import useAuth from '../Context/Store/useAuth.jsx'
 
@@ -35,6 +36,11 @@ const AppRouter = () => {
             <Route path='/RatificacionInscripcion'
                render={() =>
                      stateUser.isAuthenticated ? <RatificacionInscripcion/> : <Redirect to='/LogIn'/>
+               }
+            />
+            <Route path='/Matricula'
+               render={()=>
+                     stateUser.isAuthenticated ? <Matricula/> : <Redirect to='/LogIn'/>
                }
             />
             <AdminRoute path='/AdminPannel' component={AdminPannel}/>

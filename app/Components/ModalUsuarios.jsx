@@ -5,8 +5,10 @@ import {FaUserEdit} from 'react-icons/fa'
 import useAuth from '../Context/Store/useAuth.jsx'
 
 
-function handleEdit(value){
-   console.log(value)
+function handleEdit(value,userEditModal,setUserEditModal,setUsuariosModal,setSelectedUser){
+   setUsuariosModal(false) 
+   setUserEditModal(true)
+   setSelectedUser(value)
 }
 
 function handleAddUser(setAddUserModal,setUsuariosModal){
@@ -21,7 +23,7 @@ function upDateUsers(token,setDataUsuarios){
 }
 
 
-const ModalUsuarios = ({usuariosModal,setUsuariosModal,addUserModal,setAddUserModal}) => { 
+const ModalUsuarios = ({usuariosModal,setUsuariosModal,addUserModal,setAddUserModal,userEditModal,setUserEditModal,setSelectedUser}) => { 
 
    const context = useAuth()
    const handleClose = () => setUsuariosModal(false)
@@ -47,7 +49,7 @@ const ModalUsuarios = ({usuariosModal,setUsuariosModal,addUserModal,setAddUserMo
                      {dataUsuarios.map(
                         (dataMap) =>
                            <tr key={dataMap.usuario}>
-                              <th><Button onClick={()=> handleEdit(dataMap.usuario)}><FaUserEdit/></Button></th>
+                              <th><Button onClick={()=> handleEdit(dataMap.usuario,userEditModal,setUserEditModal,setUsuariosModal,setSelectedUser)}><FaUserEdit/></Button></th>
                               <th>{dataMap.usuario}</th>
                               <th>{dataMap.role}</th>
                            </tr>

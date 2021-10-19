@@ -1,10 +1,9 @@
 import {Alert} from 'react-bootstrap'
 
-function AlertBootstrap (text) {
-   console.log(text)
+function AlertBootstrap ({textAlert,handleShowAlert}) {
       return ( 
-         <Alert variant='danger' show={true}>
-            <p>{text}</p>
+         <Alert variant='danger' show={handleShowAlert}>
+            <p>{textAlert}</p>
          </Alert>
                 )
 }

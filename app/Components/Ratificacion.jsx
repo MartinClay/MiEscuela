@@ -10,6 +10,8 @@ import {postFetchRatificacion} from '../Hooks/postFetch.js'
 import ModalRatificacion from './ModalRatificacion.jsx'
 import ModalPdf from './ModalPdf.jsx'
 
+import useAuth from '../Context/Store/useAuth.jsx'
+
 const Ratificacion = () => { 
    const [grado,setGrado] = useState('Grado')
    const [division, setDivision] = useState('Division')
@@ -19,6 +21,7 @@ const Ratificacion = () => {
    const [showModalPdf,setShowModalPdf] = useState(false)
    const [selectedItems, setSelectedItems] = useState([])
    const [arrayForPdf,setArrayForPdf] = useState([])
+   const context = useAuth()
 
    function handleClickNivel (item) {
       setNivel(item)
@@ -38,7 +41,7 @@ const Ratificacion = () => {
 
    function generarInforme () {
       if(nivel !== 'Nivel' && division !== 'Division' && grado !== 'Grado'){
-         postFetchRatificacion(nivel,grado,division,ratificacionUrl).then((data)=> {
+         postFetchRatificacion(context.stateUser.token,nivel,grado,division,ratificacionUrl).then((data)=> {
                setDatosAlumno(data.data)
             })
       }else {

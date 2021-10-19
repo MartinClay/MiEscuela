@@ -3,6 +3,7 @@ const app = express.Router()
 const {verificarToken} = require('../autentication')
 
 const data = require('../models/usuarios')
+const dataDelete = require('../models/usuariosDelete')
 
 app.get('/', verificarToken, async (req,res) => {
    const dataRes = await data.find()
@@ -14,16 +15,17 @@ app.get('/:usuario',verificarToken,async(req,res) => {
    res.json(dataRes)
 })
 
-app.post('/', async (req,res) => {
-   let body =  req.body
-   data.find({NIVEL: body.NIVEL, GRADO: body.GRADO , DIVISION: body.DIVISION},(err,data)=>
-      res.json(data)
-   )
-})
-
-app.post('/:usuario', async (req,res)=> {
+app.post('/Delete', verificarToken,async (req,res) => {
    let body = req.body
-   
+   dataDelete.findOneAndRemove({usuario:body.usuario},(err,data)=>
+      {
+      if(err) return res.status(500).send(err)
+      const response = {
+      message: 'Usuario Eliminado con exito'
+      } 
+      return res.status(200).send(response)
+      }
+   )
 })
 
 module.exports = app
