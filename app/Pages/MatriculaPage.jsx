@@ -6,7 +6,7 @@ import Matricula from '../Components/Matricula.jsx'
 
 function MatriculaPage () {
    return (
-      <Container fluid>
+      <Container className='d-flex-column' fluid>
          <Row>
             <Header/>
          </Row>
@@ -15,9 +15,6 @@ function MatriculaPage () {
          </Row>
          <Row>
             <Matricula/>            
-         </Row>
-         <Row> 
-            <Footer/>
          </Row>
       </Container>
    )

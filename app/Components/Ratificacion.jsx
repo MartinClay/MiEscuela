@@ -20,7 +20,6 @@ const Ratificacion = () => {
    const [showModalItems, setShowModalItems] = useState(false)
    const [showModalPdf,setShowModalPdf] = useState(false)
    const [selectedItems, setSelectedItems] = useState([])
-   const [arrayForPdf,setArrayForPdf] = useState([])
    const context = useAuth()
 
    function handleClickNivel (item) {

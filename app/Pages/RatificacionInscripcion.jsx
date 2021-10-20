@@ -16,8 +16,6 @@ const RatificacionInscripcion = () => {
          <Row>
             <Ratificacion/>
          </Row>
-         <Row>
-         </Row>
       </Container>
 
    )
