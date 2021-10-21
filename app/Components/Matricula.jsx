@@ -1,4 +1,7 @@
-import {useState,useEffect} from 'react'
+import ModalEditAlumno from './ModalEditAlumno.jsx'
+import SelectFormStage1 from './SelectFormStage1.jsx'
+
+import {useState,useEffect,useRef} from 'react'
 
 import {Container,Row,Col,Button,Form,Table} from 'react-bootstrap'
 
@@ -8,125 +11,9 @@ import useAuth from '../Context/Store/useAuth.jsx'
 
 import {FaUserEdit} from 'react-icons/fa'
 
-import {Grado,Nivel,Division} from '../Helpers/HardCodeData.js'
+import {ageCalculate,splitDate} from './dateHandler.js'
 
-import {ageCalculate,splitDate,ageCalculate3006} from './dateHandler.js'
-
-const handleLastName = (event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2) => {
-   let newArray = []
-   if(event.target.value.length >= 3 && isFiltredStage1 === true){
-      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => dataFilter.APELLIDO.indexOf(event.target.value.toUpperCase()) > -1)
-      setIsFiltredStage2(true)
-      setFiltredDatosAlumnoStage2(newArray)
-   }
-   if(event.target.value.length >= 3 && isFiltredStage1 === false){
-      newArray = datosAlumno.filter((dataFilter) => dataFilter.APELLIDO.indexOf(event.target.value.toUpperCase()) > -1)
-      setIsFiltredStage2(true)
-      setFiltredDatosAlumnoStage2(newArray)
-   }
-   if(event.target.value.length === 0){
-      setFiltredDatosAlumnoStage2([])
-      setIsFiltredStage2(false)
-   }
-
-}
-
-const handleFirstName = (event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2) => {
-   let newArray = []
-    if(event.target.value.length >= 3 && isFiltredStage1 === true){
-      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => dataFilter.NOMBRE.indexOf(event.target.value.toUpperCase()) > -1)
-      setIsFiltredStage2(true)
-      setFiltredDatosAlumnoStage2(newArray)
-   }
-   if(event.target.value.length >= 3 && isFiltredStage1 === false){
-      newArray = datosAlumno.filter((dataFilter) => dataFilter.NOMBRE.indexOf(event.target.value.toUpperCase()) > -1)
-      setIsFiltredStage2(true)
-      setFiltredDatosAlumnoStage2(newArray)
-   }
-   if(event.target.value.length === 0){
-      setFiltredDatosAlumnoStage2([])
-      setIsFiltredStage2(false)
-   }
-
-}
-
-const handleNivelChange =(event,setNivel) => {
-   setNivel(event.nativeEvent.target.value)
-}
-
-const handleGradoChange =(event,setGrado) => {
-   setGrado(event.nativeEvent.target.value)
-}
-
-const handleDivisionChange =(event,setDivision) => {
-   setDivision(event.nativeEvent.target.value)
-}
-
-const handleEdad = (event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2) => {
-   let newArray = []
-    if(event.target.value.length >= 1 && isFiltredStage1 === true){
-       console.log('asdf')
-      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => ageCalculate(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
-      setIsFiltredStage2(true)
-      setFiltredDatosAlumnoStage2(newArray)
-   }
-   if(event.target.value.length >= 1 && isFiltredStage1 === false){
-      newArray = datosAlumno.filter((dataFilter) => ageCalculate(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
-      setIsFiltredStage2(true)
-      setFiltredDatosAlumnoStage2(newArray)
-   }
-   if(event.target.value.length === 0){
-      setFiltredDatosAlumnoStage2([])
-      setIsFiltredStage2(false)
-   }
-
-}
-
-const handleEdad3006 = (event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2) => {
-   let newArray = []
-    if(event.target.value.length >= 1 && isFiltredStage1 === true){
-       console.log('asdf')
-      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => ageCalculate3006(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
-      setIsFiltredStage2(true)
-      setFiltredDatosAlumnoStage2(newArray)
-   }
-   if(event.target.value.length >= 1 && isFiltredStage1 === false){
-      newArray = datosAlumno.filter((dataFilter) => ageCalculate3006(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
-      setIsFiltredStage2(true)
-      setFiltredDatosAlumnoStage2(newArray)
-   }
-   if(event.target.value.length === 0){
-      setFiltredDatosAlumnoStage2([])
-      setIsFiltredStage2(false)
-   }
-
-}
-
-const handleEdit = (data) => {
-   console.log(data)
-}
-
-const handleClickApplyFilter = (nivel,grado,division,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1) => {
-   let newArray = []     
-   switch(true){
-      case nivel !== 'Nivel' && grado === 'Grado' && division === 'Division':
-         newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivel)
-         setIsFiltredStage1(true)
-         setFiltredDatosAlumnoStage1(newArray)  
-         break
-      case nivel !== 'Nivel' && grado !== 'Grado' && division === 'Division':
-         console.log(grado)
-         newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivel && dataFilter.GRADO === parseInt(grado))
-         setIsFiltredStage1(true)
-         setFiltredDatosAlumnoStage1(newArray)
-         break
-      case nivel !== 'Nivel' && grado !== 'Grado' && division !== 'Division':
-         newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivel && dataFilter.GRADO === parseInt(grado) && dataFilter.DIVISION === division)
-         setIsFiltredStage1(true)
-         setFiltredDatosAlumnoStage1(newArray)
-         break
-   }
-}
+import {handleNivelChange,handleGradoChange,handleDivisionChange,handleLastName,handleFirstName,handleEdad,handleEdad3006,handleClickApplyFilter,handleClickLimpiarFiltros} from './Logic/matriculaLogic.js'
 
 const Matricula = () => { 
 
@@ -139,73 +26,61 @@ const Matricula = () => {
    const [grado,setGrado] = useState('Grado')
    const [division, setDivision] = useState('Division')
    const [nivel,setNivel] = useState('Nivel')
-
+   const [alumnoEditModal,setAlumnoEditModal] = useState(false)
+   const matriculaRef = useRef([]) 
 
    useEffect(()=> {
-      console.log('getMatricula')
       getMatricula(context.stateUser.token).then((res)=> 
          setDatosAlumno(res.data)
       ) 
    },[])
+
    return ( 
       <Container>
+         <ModalEditAlumno
+            alumnoEditModal={alumnoEditModal}
+            setAlumnoEditModal={setAlumnoEditModal}
+         />
+         <SelectFormStage1
+            setGrado={setGrado}                     
+            grado={grado}
+            setDivision={setDivision}
+            division={division}
+            setNivel={setNivel}
+            nivel={nivel}
+            matriculaRef={matriculaRef}
+            datosAlumno={datosAlumno}
+            setIsFiltredStage1={setIsFiltredStage1}
+            setFiltredDatosAlumnoStage1={setFiltredDatosAlumnoStage1}
+            setIsFiltredStage2={setIsFiltredStage2}
+            setFiltredDatosAlumnoStage2={setFiltredDatosAlumnoStage2}
+         />
          <Form>
-         <Row className='m-2 border border-primary p-1 pt-3 pb-3'>
-         <Col>
-         <Form.Select aria-label='Nivel' onChange={(event) => handleNivelChange(event,setNivel)}>
-         <option>Nivel</option>
-                     {Nivel.map((dataMap)=>
-                     <option value={dataMap} key={dataMap}>{dataMap} </option>
-                        )}
-         </Form.Select>
-         </Col>
-         <Col>
-         <Form.Select aria-label='Grado' onChange={(event) => handleGradoChange(event,setGrado)}>
-                        <option>Grado</option>
-                        {Grado.map((dataMap)=>
-                     <option value={dataMap} key={dataMap}>{dataMap}</option>
-                        )}
-         </Form.Select>
-         </Col>
-         <Col>
-         <Form.Select aria-label='Division' onChange={(event) => handleDivisionChange(event,setDivision)}>
-                        <option>Division</option>
-                        {Division.map((dataMap)=>
-                        <option value={dataMap} key={dataMap}>{dataMap}</option>
-                           )}
-         </Form.Select>       
-         </Col>
-                        <Row className='mt-2'>
-                        <Col md={{span:1,offset:11}}>
-                           <Button variant='outline-primary'size='sm' onClick={()=> handleClickApplyFilter(nivel,grado,division,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1)}>Aplicar</Button>
-                        </Col>
-                        </Row>
-         </Row>
             <Form.Group>
                <Row className='m-2 p-1 border border-primary pb-3'>
                   <Col>
                      <Form.Label>
                         Filtrar por Apellido
                      </Form.Label>
-                     <Form.Control type='text' placeholder='Ingrese Apellido' onChange={(event) => handleLastName(event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2)}/>
+                     <Form.Control type='text' placeholder='Ingrese Apellido' onChange={(event) => handleLastName(event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2)} ref={(element) => matriculaRef.current[3] = element}/>
                   </Col>
                   <Col>
                <Form.Label>
                   Filtrar por Nombre
                </Form.Label>
-                  <Form.Control type='text' placeholder='Ingrese Nombre' onChange={(event) => handleFirstName(event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2)}/>
+                     <Form.Control type='text' placeholder='Ingrese Nombre' onChange={(event) => handleFirstName(event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2)} ref={(element) => matriculaRef.current[4] = element}/>
                   </Col>
                   <Col>
                      <Form.Label>
                         Filtrar por Edad (Real)
                      </Form.Label>
-                     <Form.Control type='text' placeholder='Seleccione Edad' onChange={(event) => handleEdad(event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2)}/>
+                     <Form.Control type='text' placeholder='Seleccione Edad' onChange={(event) => handleEdad(event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2)} ref={(element) => matriculaRef.current[5] = element}/>
                   </Col>
                   <Col>
                      <Form.Label>
                         Filtrar por Edad (al 30/06)
                      </Form.Label>
-                     <Form.Control type='text' placeholder='Seleccione Edad' onChange={(event) => handleEdad3006(event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2)}/>
+                     <Form.Control type='text' placeholder='Seleccione Edad' onChange={(event) => handleEdad3006(event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2)} ref={(element) => matriculaRef.current[6] = element}/>
                   </Col>
                </Row>
             </Form.Group>
@@ -238,7 +113,7 @@ const Matricula = () => {
                                  filtredDatosAlumnoStage1.map(
                                  (dataMap) =>
                                     <tr key={dataMap._id}>
-                                       <th><Button onClick={()=> handleEdit(dataMap.N_DNI_ALUMNO)}><FaUserEdit/></Button></th>
+                                       <th><Button onClick={()=> handleEdit(dataMap.N_DNI_ALUMNO,setAlumnoEditModal)}><FaUserEdit/></Button></th>
                                        <th>{dataMap.NOMBRE}</th>
                                        <th>{dataMap.APELLIDO}</th>
                                        <th>{dataMap.N_DNI_ALUMNO}</th>
@@ -251,7 +126,7 @@ const Matricula = () => {
                                  filtredDatosAlumnoStage2.map(
                                  (dataMap) =>
                                     <tr key={dataMap._id}>
-                                       <th><Button onClick={()=> handleEdit(dataMap.N_DNI_ALUMNO)}><FaUserEdit/></Button></th>
+                                       <th><Button onClick={()=> handleEdit(dataMap.N_DNI_ALUMNO,setAlumnoEditModal)}><FaUserEdit/></Button></th>
                                        <th>{dataMap.NOMBRE}</th>
                                        <th>{dataMap.APELLIDO}</th>
                                        <th>{dataMap.N_DNI_ALUMNO}</th>
@@ -268,5 +143,4 @@ const Matricula = () => {
          </Container>
                   )
                   }
-
                   export default Matricula

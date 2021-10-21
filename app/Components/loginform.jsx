@@ -3,7 +3,6 @@ import {Container,Col,Row,Form,Button,Alert} from 'react-bootstrap'
 import {postFetchLogIn} from '../Hooks/postFetch.js'
 import useAuth from '../Context/Store/useAuth.jsx'
 import {setCurrentUser,logoutUser} from '../Context/Actions/autentication.action.js'
-import AlertBootstrap from '../Components/Alert.jsx'
 import jwt_decode from 'jwt-decode'
 import {logInUrl} from '../Helpers/Urls.js'
 const style = {

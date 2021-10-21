@@ -3,9 +3,9 @@ const webpack = require('webpack')
 
 module.exports = {
    devServer: {
-         open: true,
-         port: 3001,
-         proxy:{
+      open: true,
+      port: 3001,
+      proxy:{
          '*': 'http://[::1]:3000/',
          "secure": false,
          "changeOrigin":true,
@@ -19,29 +19,42 @@ module.exports = {
    module:{
       rules:[
          {
-         test: /\.(js|jsx)$/,
-         loader:'babel-loader',
-         exclude: /node_modules/
+            test: /\.(js|jsx)$/,
+            loader:'babel-loader',
+            exclude: /node_modules/
          },  
          {
-         test: /\.css$/,
-         use: ['style-loader','css-loader']
+            test: /\.css$/,
+            use: ['style-loader','css-loader']
          },
+         {
+            test: /\.(gif|png|jpe?g|svg)$/i,
+            use: [
+               'file-loader',
+               {
+                  loader: 'image-webpack-loader',
+                  options: {
+                     bypassOnDebug: true, // webpack@1.x
+                     disable: true, // webpack@2.x and newer
+                  },
+               },
+            ],
+         }
       ],
    },
    resolve: {
-        alias: {
-            process: 'process/browser',
-            stream: "stream-browserify",
-            zlib: "browserify-zlib"
-        }
-    },
-    plugins: [
-        new webpack.ProvidePlugin({
-            process: 'process/browser',
-            Buffer: ['buffer', 'Buffer'],
-        }),
-       new HtmlWebpackPlugin({template: './app/index.html'})
-    ]
+      alias: {
+         process: 'process/browser',
+         stream: "stream-browserify",
+         zlib: "browserify-zlib"
+      }
+   },
+   plugins: [
+      new webpack.ProvidePlugin({
+         process: 'process/browser',
+         Buffer: ['buffer', 'Buffer'],
+      }),
+      new HtmlWebpackPlugin({template: './app/index.html'})
+   ]
 }
 

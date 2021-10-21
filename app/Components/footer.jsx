@@ -5,8 +5,6 @@ const style = {
       backgroundColor: 'rgb(120,120,120)',
       position: 'fixed',
       bottom: 0,
-
-
    }
 }
 function footer () {
@@ -14,7 +12,7 @@ function footer () {
       <Container style={style.footer} fluid>
          <Row>
             <Col>
-               <h5>Escuela Exp. Nº 9 Dr.Horacio De La Mota</h5>
+               <h5>Escuela E.P.A. Nº 9 "Dr. Horacio de la Mota"</h5>
             </Col>
             <Col>
             </Col>

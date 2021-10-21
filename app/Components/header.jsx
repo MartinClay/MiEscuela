@@ -1,9 +1,9 @@
 import {useEffect} from 'react'
-import {Container,Row,Col} from 'react-bootstrap'
+import {Container,Row,Col,Image} from 'react-bootstrap'
 import Lottie from 'lottie-react'
 import HeaderAnimation from '../Assets/Header/Header.json'
 import WebFont from 'webfontloader'
-
+import LogoEscuela from '../Assets/jpg/LogoEPA.jpg'
 
 const style = {
 
@@ -34,7 +34,8 @@ useEffect (() => {
    return (
       <Container style={style.header} fluid>
          <Row>
-            <Col>
+            <Col className='d-flex justify-content-center'>
+               <Image src={LogoEscuela} style={{height:80}}/>
             </Col>
             <Col className='d-flex justify-content-center'>
                <h1 style={style.titleFont}>
