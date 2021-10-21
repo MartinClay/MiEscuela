@@ -10,7 +10,7 @@ import {FaUserEdit} from 'react-icons/fa'
 
 import {Grado,Nivel,Division} from '../Helpers/HardCodeData.js'
 
-import {ageCalculate,splitDate} from './dateHandler.js'
+import {ageCalculate,splitDate,ageCalculate3006} from './dateHandler.js'
 
 const handleLastName = (event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2) => {
    let newArray = []
@@ -65,12 +65,33 @@ const handleDivisionChange =(event,setDivision) => {
 const handleEdad = (event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2) => {
    let newArray = []
     if(event.target.value.length >= 1 && isFiltredStage1 === true){
-      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => ageCalculate(dataFilter.FECHA_NACIMIENTO) === parseInt(event.target.value))
+       console.log('asdf')
+      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => ageCalculate(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
    }
    if(event.target.value.length >= 1 && isFiltredStage1 === false){
-      newArray = datosAlumno.filter((dataFilter) => ageCalculate(splitDate(dataFilter.FECHA_NACIMIENTO,3))) === parseInt(event.target.value)
+      newArray = datosAlumno.filter((dataFilter) => ageCalculate(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
+      setIsFiltredStage2(true)
+      setFiltredDatosAlumnoStage2(newArray)
+   }
+   if(event.target.value.length === 0){
+      setFiltredDatosAlumnoStage2([])
+      setIsFiltredStage2(false)
+   }
+
+}
+
+const handleEdad3006 = (event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2) => {
+   let newArray = []
+    if(event.target.value.length >= 1 && isFiltredStage1 === true){
+       console.log('asdf')
+      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => ageCalculate3006(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
+      setIsFiltredStage2(true)
+      setFiltredDatosAlumnoStage2(newArray)
+   }
+   if(event.target.value.length >= 1 && isFiltredStage1 === false){
+      newArray = datosAlumno.filter((dataFilter) => ageCalculate3006(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
    }
@@ -209,6 +230,7 @@ const Matricula = () => {
                                  <th>Nivel</th>
                                  <th>Grado</th>
                                  <th>Division</th>
+                                 <th>Edad</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -223,6 +245,7 @@ const Matricula = () => {
                                        <th>{dataMap.NIVEL}</th>
                                        <th>{dataMap.GRADO}</th>
                                        <th>{dataMap.DIVISION}</th>
+                                       <th>{ageCalculate(splitDate(dataMap.FECHA_NACIMIENTO,3))}</th>
                                     </tr>
                                  ):
                                  filtredDatosAlumnoStage2.map(
@@ -235,6 +258,7 @@ const Matricula = () => {
                                        <th>{dataMap.NIVEL}</th>
                                        <th>{dataMap.GRADO}</th>
                                        <th>{dataMap.DIVISION}</th>
+                                       <th>{ageCalculate(splitDate(dataMap.FECHA_NACIMIENTO,3))}</th>
                                     </tr>
                               )}   
                            </tbody>

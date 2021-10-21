@@ -29,3 +29,20 @@ export const ageCalculate = (date) => {
    }
 }
 
+export const ageCalculate3006 = (date) => {
+
+   const dateToday = new Date()
+   const year = dateToday.getFullYear() + 1
+   switch(true){
+      case (parseInt(date[1]) < 6):
+         let anios = year - parseInt(date[2])
+         return anios
+      case (parseInt(date[1]) === 6 && parseInt(date[0]) <= 30 ):
+         let anios2 = year - parseInt(date[2])
+         return anios2
+      case (parseInt(date[1]) > 6):
+         let anios3 = (year - parseInt(date[2])) - 1
+         return anios3
+   }
+}
+
