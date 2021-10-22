@@ -117,7 +117,18 @@ export const handleClickApplyFilter = (nivel,grado,division,datosAlumno,setIsFil
    }
 }
 
-export const handleClickLimpiarFiltros = (setIsFiltredStage1,setIsFiltredStage2,setFiltredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,matriculaRef) => {
+export const handleClickLimpiarFiltros = (
+   setIsFiltredStage1,
+   setIsFiltredStage2,
+   setFiltredDatosAlumnoStage1,
+   setFiltredDatosAlumnoStage2,
+   matriculaRef,
+   setNivel,
+   setGrado,
+   setDivision) => {
+   setNivel('Nivel')
+   setGrado('Grado')
+   setDivision('Division')
    setIsFiltredStage1(false)
    setIsFiltredStage2(false)
    setFiltredDatosAlumnoStage1([])
@@ -129,5 +140,4 @@ export const handleClickLimpiarFiltros = (setIsFiltredStage1,setIsFiltredStage2,
    matriculaRef.current[4].value = ''
    matriculaRef.current[5].value = ''
    matriculaRef.current[6].value = ''
-   console.log(matriculaRef)
 }

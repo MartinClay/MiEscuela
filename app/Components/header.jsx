@@ -35,7 +35,7 @@ useEffect (() => {
       <Container style={style.header} fluid>
          <Row>
             <Col className='d-flex justify-content-center'>
-               <Image src={LogoEscuela} style={{height:80}}/>
+               <Image className='p-2'src={LogoEscuela} style={{height:80}}/>
             </Col>
             <Col className='d-flex justify-content-center'>
                <h1 style={style.titleFont}>

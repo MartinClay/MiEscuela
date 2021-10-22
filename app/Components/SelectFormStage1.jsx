@@ -35,7 +35,7 @@ const SelectFormStage1 = ({nivel,grado,division,setNivel,setGrado,setDivision,ma
                         <Row className='mt-2'>
                            <Col className='d-inline-flex justify-content-end'>
                               <Button className='m-2'variant='outline-primary'size='sm' onClick={()=> handleClickApplyFilter(nivel,grado,division,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1)}>Aplicar</Button>
-                              <Button className='m-2' variant='outline-primary' size='sm' onClick={()=> handleClickLimpiarFiltros(setIsFiltredStage1,setIsFiltredStage2,setFiltredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,matriculaRef)}>Limpiar Filtros</Button>
+                              <Button className='m-2' variant='outline-primary' size='sm' onClick={()=> handleClickLimpiarFiltros(setIsFiltredStage1,setIsFiltredStage2,setFiltredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,matriculaRef,setNivel,setGrado,setDivision)}>Limpiar Filtros</Button>
                            </Col>
                         </Row>
          </Row>
