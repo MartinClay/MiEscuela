@@ -1,5 +1,11 @@
 import {useState} from 'react'
-import {Row,Col,Container,Button} from 'react-bootstrap'
+
+import {
+   Row,
+   Col,
+   Container,
+   Button
+} from 'react-bootstrap'
 
 import ModalUsuarios from './ModalUsuarios.jsx'
 import ModalAddUser from './ModalAddUser.jsx'
@@ -36,8 +42,15 @@ const AdminOptions = () => {
             setAddUserModal={setAddUserModal}
          />
          <Row>
-            <Col className='mt-3'>
-               <Button variant='primary' onClick={() => setUsuariosModal(true) }>Usuarios</Button>
+            <Col 
+               className='mt-3'
+            >
+               <Button 
+                  variant='primary' 
+                  onClick={() => setUsuariosModal(true) }
+               >
+                  Usuarios
+               </Button>
             </Col>
          </Row>
       </Container>

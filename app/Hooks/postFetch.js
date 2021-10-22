@@ -1,7 +1,11 @@
 import axios from 'axios'
 import {baseUrl} from '../Context/Store/AuthProvider.jsx'
 
-export const postFetchDeleteUser = async (token,usuario,apiUrl) => {
+export const postFetchDeleteUser = async (
+   token,
+   usuario,
+   apiUrl
+) => {
    const url= `http://${baseUrl}:3000${apiUrl}`
    const dataPost={
       usuario:usuario
@@ -14,7 +18,11 @@ export const postFetchDeleteUser = async (token,usuario,apiUrl) => {
       }           
    }
    try{
-      const resData = await axios.post(url,dataPost,config)
+      const resData = await axios.post(
+         url,
+         dataPost,
+         config
+      )
       return resData
    }
    catch(err) {
@@ -22,9 +30,20 @@ export const postFetchDeleteUser = async (token,usuario,apiUrl) => {
    }
 }
 
-export const postFetchAddUser = async (token,usuario,password,role,apiUrl) => {
+export const postFetchAddUser = async (
+   token,
+   usuario,
+   password,
+   role,
+   apiUrl
+) => {
    const url= `http://${baseUrl}:3000${apiUrl}`  
-   const dataPost = {usuario:usuario,password:password,role:role}
+
+   const dataPost = {
+      usuario:usuario,
+      password:password,
+      role:role
+   }
    const config = {
       headers: {                    
          "Accept": "application/json",                    
@@ -33,7 +52,11 @@ export const postFetchAddUser = async (token,usuario,password,role,apiUrl) => {
       }           
    }
    try{
-      const resData = await axios.post(url,dataPost,config)
+      const resData = await axios.post(
+         url,
+         dataPost,
+         config
+      )
       return resData
    }
    catch(err) {
@@ -41,11 +64,21 @@ export const postFetchAddUser = async (token,usuario,password,role,apiUrl) => {
    }
 }
 
-export const postFetchLogIn = async (usuario,password,apiUrl) => {
+export const postFetchLogIn = async (
+   usuario,
+   password,
+   apiUrl
+) => {
    const url= `http://${baseUrl}:3000${apiUrl}`  
-   const dataPost = {usuario:usuario,password:password}
+   const dataPost = {
+      usuario:usuario,
+      password:password
+   }
    try{
-      const resData = await axios.post(url,dataPost)
+      const resData = await axios.post(
+         url,
+         dataPost
+      )
       return resData
    }
    catch(err) {
@@ -53,7 +86,13 @@ export const postFetchLogIn = async (usuario,password,apiUrl) => {
    }
 }
 
-export const postFetchRatificacion = async (token,nivel,grado,division,apiUrl) => {
+export const postFetchRatificacion = async (
+   token,
+   nivel,
+   grado,
+   division,
+   apiUrl
+) => {
    const url= `http://${baseUrl}:3000${apiUrl}`  
    const dataPost = {
       NIVEL:nivel,
@@ -68,7 +107,11 @@ export const postFetchRatificacion = async (token,nivel,grado,division,apiUrl) =
       }
    }
    try{
-      const resData = await axios.post(url,dataPost,config)
+      const resData = await axios.post(
+         url,
+         dataPost,
+         config
+      )
       return resData
    }
    catch(err){
@@ -76,7 +119,10 @@ export const postFetchRatificacion = async (token,nivel,grado,division,apiUrl) =
    }
 }
 
-export const postFetchVerifyToken = async (token,apiUrl) => {
+export const postFetchVerifyToken = async (
+   token,
+   apiUrl
+) => {
    const url= `http://${baseUrl}:3000${apiUrl}`  
    const dataPost = {}
    const config = {
@@ -87,7 +133,11 @@ export const postFetchVerifyToken = async (token,apiUrl) => {
       }           
    }
    try{
-      const resData = await axios.post(url,dataPost,config)
+      const resData = await axios.post(
+         url,
+         dataPost,
+         config
+      )
       return resData
    }catch(err){
       return(err.response)

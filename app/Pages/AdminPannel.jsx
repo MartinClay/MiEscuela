@@ -2,15 +2,21 @@ import Header from '../Components/header.jsx'
 import Menu from '../Components/menu.jsx'
 import Footer from '../Components/footer.jsx'
 
-import {Container,Col,Row} from 'react-bootstrap'
+import {
+   Container,
+   Col,
+   Row
+} from 'react-bootstrap'
 
 import AdminOptions from '../Components/AdminOptions.jsx'
 
 const AdminPannel = () => {
    return(
-      <Container fluid>
+      <Container 
+         fluid
+      >
          <Row>
-               <Header/>
+            <Header/>
          </Row>
          <Row>
             <Menu/>
@@ -22,7 +28,7 @@ const AdminPannel = () => {
             <Footer/>
          </Row>
       </Container>
-         
+
    )
 }
 

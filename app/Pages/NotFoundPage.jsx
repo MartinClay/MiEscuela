@@ -1,10 +1,15 @@
 import Header from '../Components/header.jsx'
 import Footer from '../Components/footer.jsx'
-import {Container, Row} from 'react-bootstrap'
+import {
+   Container, 
+   Row
+} from 'react-bootstrap'
 
-function NotFoundPage() {
+const NotFoundPage = () => {
    return (
-      <Container fluid>
+      <Container 
+         fluid
+      >
          <Row>
             <Header/>
          </Row>

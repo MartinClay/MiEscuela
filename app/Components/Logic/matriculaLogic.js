@@ -1,6 +1,15 @@
-import {ageCalculate,splitDate,ageCalculate3006} from '../dateHandler'
+import {ageCalculate,splitDate,ageCalculate3006} from './dateHandler'
 
-export const handleLastName = (event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2) => {
+export const handleLastName = (
+   event,
+   datosAlumno,
+   setIsFiltredStage1,
+   setFiltredDatosAlumnoStage1,
+   isFiltredStage1,
+   filtredDatosAlumnoStage1,
+   setFiltredDatosAlumnoStage2,
+   setIsFiltredStage2
+)=> {
    let newArray = []
    if(event.target.value.length >= 3 && isFiltredStage1 === true){
       newArray = filtredDatosAlumnoStage1.filter((dataFilter) => dataFilter.APELLIDO.indexOf(event.target.value.toUpperCase()) > -1)
@@ -16,12 +25,20 @@ export const handleLastName = (event,datosAlumno,setIsFiltredStage1,setFiltredDa
       setFiltredDatosAlumnoStage2([])
       setIsFiltredStage2(false)
    }
-
 }
 
-export const handleFirstName = (event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2) => {
+export const handleFirstName = (
+   event,
+   datosAlumno,
+   setIsFiltredStage1,
+   setFiltredDatosAlumnoStage1,
+   isFiltredStage1,
+   filtredDatosAlumnoStage1,
+   setFiltredDatosAlumnoStage2,
+   setIsFiltredStage2
+)=> {
    let newArray = []
-    if(event.target.value.length >= 3 && isFiltredStage1 === true){
+   if(event.target.value.length >= 3 && isFiltredStage1 === true){
       newArray = filtredDatosAlumnoStage1.filter((dataFilter) => dataFilter.NOMBRE.indexOf(event.target.value.toUpperCase()) > -1)
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
@@ -35,7 +52,6 @@ export const handleFirstName = (event,datosAlumno,setIsFiltredStage1,setFiltredD
       setFiltredDatosAlumnoStage2([])
       setIsFiltredStage2(false)
    }
-
 }
 
 export const handleNivelChange =(event,setNivel) => {
@@ -50,10 +66,19 @@ export const handleDivisionChange =(event,setDivision) => {
    setDivision(event.nativeEvent.target.value)
 }
 
-export const handleEdad = (event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2) => {
+export const handleEdad = (
+   event,
+   datosAlumno,
+   setIsFiltredStage1,
+   setFiltredDatosAlumnoStage1,
+   isFiltredStage1,
+   filtredDatosAlumnoStage1,
+   setFiltredDatosAlumnoStage2,
+   setIsFiltredStage2
+)=> {
    let newArray = []
-    if(event.target.value.length >= 1 && isFiltredStage1 === true){
-       console.log('asdf')
+   if(event.target.value.length >= 1 && isFiltredStage1 === true){
+      console.log('asdf')
       newArray = filtredDatosAlumnoStage1.filter((dataFilter) => ageCalculate(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
@@ -67,13 +92,21 @@ export const handleEdad = (event,datosAlumno,setIsFiltredStage1,setFiltredDatosA
       setFiltredDatosAlumnoStage2([])
       setIsFiltredStage2(false)
    }
-
 }
 
-export const handleEdad3006 = (event,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1,isFiltredStage1,filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage2,setIsFiltredStage2) => {
+export const handleEdad3006 = (
+   event,
+   datosAlumno,
+   setIsFiltredStage1,
+   setFiltredDatosAlumnoStage1,
+   isFiltredStage1,
+   filtredDatosAlumnoStage1,
+   setFiltredDatosAlumnoStage2,
+   setIsFiltredStage2
+)=> {
    let newArray = []
-    if(event.target.value.length >= 1 && isFiltredStage1 === true){
-       console.log('asdf')
+   if(event.target.value.length >= 1 && isFiltredStage1 === true){
+      console.log('asdf')
       newArray = filtredDatosAlumnoStage1.filter((dataFilter) => ageCalculate3006(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
@@ -87,7 +120,6 @@ export const handleEdad3006 = (event,datosAlumno,setIsFiltredStage1,setFiltredDa
       setFiltredDatosAlumnoStage2([])
       setIsFiltredStage2(false)
    }
-
 }
 
 export const handleEdit = (data,setAlumnoEditModal) => {
@@ -95,7 +127,14 @@ export const handleEdit = (data,setAlumnoEditModal) => {
    console.log(data)
 }
 
-export const handleClickApplyFilter = (nivel,grado,division,datosAlumno,setIsFiltredStage1,setFiltredDatosAlumnoStage1) => {
+export const handleClickApplyFilter = (
+   nivel,
+   grado,
+   division,
+   datosAlumno,
+   setIsFiltredStage1,
+   setFiltredDatosAlumnoStage1
+)=> {
    let newArray = []     
    switch(true){
       case nivel !== 'Nivel' && grado === 'Grado' && division === 'Division':
@@ -125,7 +164,8 @@ export const handleClickLimpiarFiltros = (
    matriculaRef,
    setNivel,
    setGrado,
-   setDivision) => {
+   setDivision
+)=> {
    setNivel('Nivel')
    setGrado('Grado')
    setDivision('Division')

@@ -1,11 +1,17 @@
-import {Container,Row} from 'react-bootstrap'
+import {
+   Container,
+   Row
+} from 'react-bootstrap'
+
 import Header from '../Components/header.jsx'
 import Menu from '../Components/menu.jsx'
 import Footer from '../Components/footer.jsx'
 
-function Home () {
+const Home = () => {
    return (
-      <Container fluid>
+      <Container 
+         fluid
+      >
          <Row>
             <Header/>
          </Row>

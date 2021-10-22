@@ -1,16 +1,23 @@
 import Header from '../Components/header.jsx'
 import Footer from '../Components/footer.jsx'
-import {Container, Row} from 'react-bootstrap'
-import LogInForm from '../Components/loginform.jsx'
 
-function LogIn() {
+import {
+   Container,
+   Row
+} from 'react-bootstrap'
+
+import Login from '../Components/Login.jsx'
+
+const LogInPage = () => {
    return (
-      <Container fluid>
+      <Container 
+         fluid
+      >
          <Row>
             <Header/>
          </Row>
          <Row>
-            <LogInForm/>
+            <Login/>
          </Row>
          <Row>
             <Footer/>
@@ -19,4 +26,4 @@ function LogIn() {
    )
 }
 
-export default LogIn
+export default LogInPage

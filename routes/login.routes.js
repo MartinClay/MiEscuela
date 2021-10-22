@@ -8,7 +8,11 @@ const login = require('../models/login')
 
 app.post('/', async (req,res)=>{
     let body = req.body
-    login.findOne({usuario:body.usuario},(err,usuario)=>{
+    login.findOne(
+   {
+      usuario:body.usuario
+   },
+      (err,usuario)=>{
 
         if(!usuario){
             return res.status(400).send({
@@ -19,7 +23,10 @@ app.post('/', async (req,res)=>{
             })
         }
 
-        if(!bcrypt.compareSync(body.password,usuario.password)){
+        if(!bcrypt.compareSync(
+         body.password,
+            usuario.password
+      )){
             return res.status(400).send({
                 ok:false,
                 err:{

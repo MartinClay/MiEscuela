@@ -1,4 +1,5 @@
 export const splitDate = (date,number) => {
+
    const myArr = date.split("/");
    if(number === 3){
       return myArr
@@ -8,6 +9,7 @@ export const splitDate = (date,number) => {
 }
 
 export const ageCalculate = (date) => {
+
    const dateToday = new Date()
    const day = dateToday.getDate()
    const month = dateToday.getMonth() + 1
@@ -32,7 +34,7 @@ export const ageCalculate = (date) => {
 export const ageCalculate3006 = (date) => {
 
    const dateToday = new Date()
-   const year = dateToday.getFullYear() + 1
+   const year = dateToday.getFullYear() 
    switch(true){
       case (parseInt(date[1]) < 6):
          let anios = year - parseInt(date[2])

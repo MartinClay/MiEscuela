@@ -1,6 +1,15 @@
-import {useReducer,useEffect}from 'react'
+import {
+   useReducer,
+   useEffect
+}from 'react'
+
 import authReducer from '../Reducers/autentication.reducer'
-import {setCurrentUser,logoutUser} from '../Actions/autentication.action'
+
+import {
+   setCurrentUser,
+   logoutUser
+} from '../Actions/autentication.action'
+
 import {createContext} from 'react'
 
 import {postFetchVerifyToken} from '../../Hooks/postFetch.js'
@@ -27,7 +36,10 @@ const AuthProvider = (props) => {
       if(stateUser.token === ''){
          return null
       }else{
-         postFetchVerifyToken(stateUser.token,verifyTokenUrl).then((res)=>
+         postFetchVerifyToken(
+            stateUser.token,
+            verifyTokenUrl
+         ).then((res)=>
             {
                if(res.statusText === 'Unauthorized'){
                   dispatch(setCurrentUser(''))
@@ -36,7 +48,6 @@ const AuthProvider = (props) => {
          )
       }
    },[stateUser])
-
 
    return (
       <AuthContext.Provider 

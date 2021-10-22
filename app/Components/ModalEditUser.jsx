@@ -1,5 +1,14 @@
 import {useState} from 'react'
-import {Modal,Col,Row,Container,InputGroup,FormControl,Button,Form} from 'react-bootstrap'
+import {
+   Modal,
+   Col,
+   Row,
+   Container,
+   InputGroup,
+   FormControl,
+   Button,
+   Form
+} from 'react-bootstrap'
 
 import useAuth from '../Context/Store/useAuth.jsx'
 
@@ -11,7 +20,13 @@ import {postFetchDeleteUser} from '../Hooks/postFetch'
 
 import {userDeleteUrl} from '../Helpers/Urls.js'
 
-const ModalEditUser = ({userEditModal,setUserEditModal,usuariosModal,setUsuariosModal,selectedUser}) => { 
+const ModalEditUser = ({
+   userEditModal,
+   setUserEditModal,
+   usuariosModal,
+   setUsuariosModal,
+   selectedUser
+}) => { 
 
    const context = useAuth()
    const [dataUser,setDataUser] = useState({})
@@ -28,13 +43,20 @@ const ModalEditUser = ({userEditModal,setUserEditModal,usuariosModal,setUsuarios
    }
 
    const handleShow = () => {
-      getFetchUsuarioSingle(context.stateUser.token,selectedUser).then((res) => 
+      getFetchUsuarioSingle(
+         context.stateUser.token,
+         selectedUser
+      ).then((res) => 
          setDataUser(res.data)
       )
    }
 
    const handleClickDelete = () => {
-      postFetchDeleteUser(context.stateUser.token,selectedUser,userDeleteUrl).then((res) =>
+      postFetchDeleteUser(
+         context.stateUser.token,
+         selectedUser,
+         userDeleteUrl
+      ).then((res) =>
          alert(res.data.message)
       ) 
       handleClose()
@@ -45,8 +67,13 @@ const ModalEditUser = ({userEditModal,setUserEditModal,usuariosModal,setUsuarios
    }
 
    return ( 
-      <Modal show={userEditModal} onHide={handleClose} onShow={handleShow}>
-         <Modal.Header closeButton>
+      <Modal 
+         show={userEditModal} 
+         onHide={handleClose} 
+         onShow={handleShow}>
+         <Modal.Header 
+            closeButton
+         >
             <h3>Editar Usuario</h3>
          </Modal.Header>
 
@@ -54,59 +81,91 @@ const ModalEditUser = ({userEditModal,setUserEditModal,usuariosModal,setUsuarios
             <Container>
                <Row>
                   <Col>
-                     <Row className="mb-3 mt-2"> 
+                     <Row 
+                        className="mb-3 mt-2"
+                     > 
                         <h4>Usuario:</h4>     
                      </Row>
-                     <Row className="mb-3 mt-2">
+                     <Row 
+                        className="mb-3 mt-2"
+                     >
                         <h4>Password:</h4> 
                      </Row>
-                     <Row className="mb-3 mt-2">
+                     <Row 
+                        className="mb-3 mt-2"
+                     >
                         <h4>Role:</h4> 
                      </Row>
                   </Col>
                   <Col>
                      <Row> 
-                        <InputGroup className="mb-3">
+                        <InputGroup 
+                           className="mb-3"
+                        >
                            <FormControl
                               placeholder={dataUser?.usuario}
                               aria-label="usuario"
                               aria-describedby="basic-addon2"
                               readOnly={switchUsuario}
                            />
-                           <Button variant="outline-secondary" id="button-addon2" onClick={()=> setSwitchUsuario(false)}>
+                           <Button 
+                              variant="outline-secondary" 
+                              id="button-addon2" 
+                              onClick={()=> setSwitchUsuario(false)}
+                           >
                               Editar
                            </Button>
                         </InputGroup> 
                      </Row>
                      <Row>
-                        <InputGroup className="mb-3">
+                        <InputGroup 
+                           className="mb-3">
                            <FormControl
                               placeholder={dataUser?.password}
                               aria-label="password"
                               aria-describedby="basic-addon2"
                               readOnly={switchPassword}
                            />
-                           <Button variant="outline-secondary" id="button-addon2" onClick={()=> setSwitchPassword(false)}>
+                           <Button 
+                              variant="outline-secondary" 
+                              id="button-addon2" 
+                              onClick={()=> setSwitchPassword(false)}
+                           >
                               Editar
                            </Button>
                         </InputGroup>
                      </Row>
                      <Row>
-                        <InputGroup className="mb-3">
+                        <InputGroup 
+                           className="mb-3"
+                        >
                            <Form.Select
                               placeholder={dataUser?.role}
                               aria-label="role"
                               disabled={switchRole}
                            >
-                              <option value={dataUser.role}>{dataUser.role}</option>
+                              <option 
+                                 value={dataUser.role}
+                              >
+                                 {dataUser.role}
+                              </option>
                               {Role.map((dataMap)=> 
                                  dataMap !== dataUser.role ? 
-                                    <option key={dataMap} value={dataMap}>{dataMap}</option>
+                                    <option 
+                                       key={dataMap} 
+                                       value={dataMap}
+                                    >
+                                       {dataMap}
+                                    </option>
                                     :
                                  null
                               )}
                            </Form.Select>
-                           <Button variant="outline-secondary" id="button-addon2" onClick={()=> setSwitchRole(false)}>
+                           <Button 
+                              variant="outline-secondary" 
+                              id="button-addon2" 
+                              onClick={()=> setSwitchRole(false)}
+                           >
                               Editar
                            </Button>
                         </InputGroup>
@@ -114,13 +173,28 @@ const ModalEditUser = ({userEditModal,setUserEditModal,usuariosModal,setUsuarios
                   </Col>
                </Row>
                <Row>
-                  <Col className='d-flex justify-content-center'>
-                     <Button variant='primary' onClick={()=> handleClickDelete()}>Eliminar Usuario</Button>
+                  <Col 
+                     className='d-flex justify-content-center'
+                  >
+                     <Button 
+                        variant='primary' 
+                        onClick={()=> handleClickDelete()}
+                     >
+                        Eliminar Usuario
+                     </Button>
                   </Col>
                </Row>
-               <Row className='mt-3'>
-                  <Col className='d-flex justify-content-center'>
-                     <Button variant='primary' onClick={()=> handleClickAccept()}>Aceptar cambios</Button>
+               <Row 
+                  className='mt-3'>
+                  <Col 
+                     className='d-flex justify-content-center'
+                  >
+                     <Button 
+                        variant='primary' 
+                        onClick={()=> handleClickAccept()}
+                     >
+                        Aceptar cambios
+                     </Button>
                   </Col>
                </Row>
             </Container>

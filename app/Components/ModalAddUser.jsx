@@ -1,5 +1,16 @@
 import {useState} from 'react'
-import {Modal,Container,Row,Col,Form,Button,DropdownButton,ButtonGroup,Dropdown} from 'react-bootstrap'
+
+import {
+   Modal,
+   Container,
+   Row,
+   Col,
+   Form,
+   Button,
+   DropdownButton,
+   ButtonGroup,
+   Dropdown
+} from 'react-bootstrap'
 
 import useAuth from '../Context/Store/useAuth.jsx'
 
@@ -18,7 +29,11 @@ const style = {
    }
 }
 
-const ModalAddUser = ({addUserModal,setAddUserModal,setUsuariosModal}) => { 
+const ModalAddUser = ({
+   addUserModal,
+   setAddUserModal,
+   setUsuariosModal
+}) => { 
 
    const context = useAuth()
 
@@ -40,7 +55,13 @@ const ModalAddUser = ({addUserModal,setAddUserModal,setUsuariosModal}) => {
    }
 
    function handleClick(){
-      postFetchAddUser(context.stateUser.token,usuario,password,role,addUserUrl).then(res => {
+      postFetchAddUser(
+         context.stateUser.token,
+         usuario,
+         password,
+         role,
+         addUserUrl
+      ).then(res => {
          if(res.statusText === 'OK') {
             alert('Usuario añadido con exito')
             handleClose()
@@ -52,27 +73,47 @@ const ModalAddUser = ({addUserModal,setAddUserModal,setUsuariosModal}) => {
    }
 
    return ( 
-      <Modal show={addUserModal} onHide={handleClose}>
-         <Modal.Header closeButton>
+      <Modal 
+         show={addUserModal} 
+         onHide={handleClose}
+      >
+         <Modal.Header 
+            closeButton
+         >
             <h3> 
                Añadir usuaro nuevo
             </h3>
          </Modal.Header>
          <Modal.Body>
-            <Container style={style.form} fluid>
+            <Container 
+               style={style.form} 
+               fluid
+            >
                <Col>
                   <Form> 
                      <Form.Group>
                         <Form.Label>Usuario</Form.Label>
-                        <Form.Control placeholder='Ingerse Usuario' type='text' onChange={handleChangeUser}/>
-                        <Form.Text className='text-muted'>
+                        <Form.Control 
+                           placeholder='Ingerse Usuario' 
+                           type='text' 
+                           onChange={handleChangeUser}
+                        />
+                        <Form.Text 
+                           className='text-muted'
+                        >
                            Ingrese el usuario.
                         </Form.Text>
                      </Form.Group>
                      <Form.Group>
                         <Form.Label>Contraseña</Form.Label>
-                        <Form.Control placeholder='Ingerse Contraseña' type='password' onChange={handleChangePassowrd}/>
-                        <Form.Text className='text-muted'>
+                        <Form.Control 
+                           placeholder='Ingerse Contraseña' 
+                           type='password' 
+                           onChange={handleChangePassowrd}
+                        />
+                        <Form.Text 
+                           className='text-muted'
+                        >
                            Ingrese la contraseña.
                         </Form.Text>
                      </Form.Group>
@@ -83,17 +124,25 @@ const ModalAddUser = ({addUserModal,setAddUserModal,setUsuariosModal}) => {
                         >    
                            {Role.map(
                               (item) =>
-                                 <Dropdown.Item key={item} onClick={ () => handleClickRole(item)}>{item}</Dropdown.Item>
+                                 <Dropdown.Item 
+                                    key={item} 
+                                    onClick={ () => handleClickRole(item)}
+                                 >
+                                    {item}
+                                 </Dropdown.Item>
                            )}
                         </DropdownButton>
-
                      </Row>
                      <Row>
-                        <Button variant='primary' type='button' style={style.button} onClick={handleClick}>
+                        <Button 
+                           variant='primary' 
+                           type='button' 
+                           style={style.button} 
+                           onClick={handleClick}
+                        >
                            Añadir
                         </Button> 
                      </Row>
-
                   </Form>
                </Col>
             </Container>

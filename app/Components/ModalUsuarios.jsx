@@ -1,29 +1,57 @@
-import {useState,useEffect} from 'react'
-import {Modal,Container,Row,Col,Table,CloseButton,Button} from 'react-bootstrap'
+import {
+   useState,
+} from 'react'
+
+import {
+   Modal,
+   Col,
+   Table,
+   Button
+} from 'react-bootstrap'
+
 import {getFetchUsuarios} from '../Hooks/getFetch.js'
 import {FaUserEdit} from 'react-icons/fa'
 import useAuth from '../Context/Store/useAuth.jsx'
 
 
-function handleEdit(value,userEditModal,setUserEditModal,setUsuariosModal,setSelectedUser){
+function handleEdit(
+   dataMap,
+   userEditModal,
+   setUserEditModal,
+   setUsuariosModal,
+   setSelectedUser
+){
    setUsuariosModal(false) 
    setUserEditModal(true)
-   setSelectedUser(value)
+   setSelectedUser(dataMap.usuario)
 }
 
-function handleAddUser(setAddUserModal,setUsuariosModal){
-  setUsuariosModal(false)
-  setAddUserModal(true) 
+function handleAddUser(
+   setAddUserModal,
+   setUsuariosModal
+){
+   setUsuariosModal(false)
+   setAddUserModal(true) 
 }
 
-function upDateUsers(token,setDataUsuarios){
-      getFetchUsuarios(token).then((data) =>
-         setDataUsuarios(data.data)
-      )
+function upDateUsers(
+   token,
+   setDataUsuarios
+){
+   getFetchUsuarios(token).then((data) =>
+      setDataUsuarios(data.data)
+   )
 }
 
 
-const ModalUsuarios = ({usuariosModal,setUsuariosModal,addUserModal,setAddUserModal,userEditModal,setUserEditModal,setSelectedUser}) => { 
+const ModalUsuarios = ({
+   usuariosModal,
+   setUsuariosModal,
+   setAddUserModal,
+   userEditModal,
+   setUserEditModal,
+   setSelectedUser
+}) => { 
 
    const context = useAuth()
    const handleClose = () => setUsuariosModal(false)
@@ -31,13 +59,26 @@ const ModalUsuarios = ({usuariosModal,setUsuariosModal,addUserModal,setAddUserMo
 
    return ( 
 
-      <Modal show={usuariosModal} onHide={handleClose} onShow={()=> upDateUsers(context.stateUser.token,setDataUsuarios)}>
-         <Modal.Header closeButton>
+      <Modal 
+         show={usuariosModal} 
+         onHide={handleClose} 
+         onShow={()=> upDateUsers(context.stateUser.token,setDataUsuarios)}
+      >
+         <Modal.Header 
+            closeButton
+         >
             <h3>Usuarios en Mi Escuela</h3>
          </Modal.Header>
-         <Modal.Body>
-            <Col className='d-flex justify-content-center'>
-               <Table bordered striped hover size="sm">
+            <Modal.Body>
+            <Col 
+               className='d-flex justify-content-center'
+            >
+               <Table 
+                  bordered 
+                  striped 
+                  hover 
+                  size="sm"
+               >
                   <thead>
                      <tr>
                         <th>#</th>
@@ -48,8 +89,22 @@ const ModalUsuarios = ({usuariosModal,setUsuariosModal,addUserModal,setAddUserMo
                   <tbody>
                      {dataUsuarios.map(
                         (dataMap) =>
-                           <tr key={dataMap.usuario}>
-                              <th><Button onClick={()=> handleEdit(dataMap.usuario,userEditModal,setUserEditModal,setUsuariosModal,setSelectedUser)}><FaUserEdit/></Button></th>
+                           <tr 
+                              key={dataMap.usuario}
+                           >
+                              <th>
+                                 <Button 
+                                    onClick={()=> handleEdit(
+                                       dataMap,
+                                       userEditModal,
+                                       setUserEditModal,
+                                       setUsuariosModal,
+                                       setSelectedUser
+                                    )}
+                                 >
+                                    <FaUserEdit/>
+                                 </Button>
+                              </th>
                               <th>{dataMap.usuario}</th>
                               <th>{dataMap.role}</th>
                            </tr>
@@ -57,9 +112,13 @@ const ModalUsuarios = ({usuariosModal,setUsuariosModal,addUserModal,setAddUserMo
                   </tbody>
                </Table>
             </Col>
-         </Modal.Body>
+            </Modal.Body>
          <Modal.Footer>
-            <Button onClick={()=> handleAddUser(setAddUserModal,setUsuariosModal)}>Nuevo Usuario</Button>
+            <Button 
+               onClick={()=> handleAddUser(setAddUserModal,setUsuariosModal)}
+            >
+               Nuevo Usuario
+            </Button>
          </Modal.Footer>
       </Modal>
    )

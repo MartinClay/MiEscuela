@@ -11,13 +11,20 @@ app.get('/', verificarToken, async (req,res) => {
    })
 
 app.get('/:usuario',verificarToken,async(req,res) => {
-   const dataRes = await data.findOne({usuario:req.params.usuario})
+   const dataRes = await data.findOne(
+   {
+      usuario:req.params.usuario
+   })
    res.json(dataRes)
 })
 
 app.post('/Delete', verificarToken,async (req,res) => {
    let body = req.body
-   dataDelete.findOneAndRemove({usuario:body.usuario},(err,data)=>
+   dataDelete.findOneAndRemove(
+      {
+         usuario:body.usuario
+      },
+      (err,data)=>
       {
       if(err) return res.status(500).send(err)
       const response = {

@@ -1,12 +1,18 @@
-import {Container,Row} from 'react-bootstrap'
+import {
+   Container,
+   Row
+} from 'react-bootstrap'
+
 import Header from '../Components/header.jsx'
 import Menu from '../Components/menu.jsx'
-import Footer from '../Components/footer.jsx'
 import Matricula from '../Components/Matricula.jsx'
 
-function MatriculaPage () {
+const MatriculaPage = () => {
    return (
-      <Container className='d-flex-column' fluid>
+      <Container 
+         className='d-flex-column' 
+         fluid
+      >
          <Row>
             <Header/>
          </Row>

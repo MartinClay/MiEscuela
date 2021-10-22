@@ -1,19 +1,28 @@
 const jwt = require("jsonwebtoken");
 
-let verificarToken = (req, res, next) => {
-     let token = req.get("Authorization");//headers
+let verificarToken = (
+   req, 
+   res, 
+   next
+) => {
+   let token = req.get("Authorization");//headers
 
-   jwt.verify(token, "nemesis", (err, decoded) => {
-
-      if (err) {
-         return res.status(401).json({
-                    ok: false,
-                    err
-         });
-      }
-          next();
-   });
+   jwt.verify(
+      token, 
+      "nemesis", 
+      (
+         err, 
+         decoded
+      ) => {
+         if (err) {
+            return res.status(401).json({
+               ok: false,
+               err
+            });
+         }
+         next();
+      });
 };
 module.exports = {
-     verificarToken
+   verificarToken
 };

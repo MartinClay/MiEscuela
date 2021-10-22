@@ -2,11 +2,17 @@ import Header from '../Components/header.jsx'
 import Menu from '../Components/menu.jsx'
 import Footer from '../Components/footer.jsx'
 
-import {Container,Col,Row} from 'react-bootstrap'
+import {
+   Container,
+   Col,
+   Row
+} from 'react-bootstrap'
 
 const Forbidden = () => {
    return(
-      <Container fluid >
+      <Container 
+         fluid
+      >
          <Row>
                <Header/>
          </Row>

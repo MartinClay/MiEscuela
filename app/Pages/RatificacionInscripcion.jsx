@@ -1,12 +1,18 @@
 import Header from '../Components/header.jsx'
 import Footer from '../Components/footer.jsx'
-import {Container,Col,Row} from 'react-bootstrap'
+import {
+   Container,
+   Col,
+   Row
+} from 'react-bootstrap'
 import Menu from '../Components/menu.jsx'
 import Ratificacion from '../Components/Ratificacion.jsx'
 
 const RatificacionInscripcion = () => {
    return (
-      <Container fluid>
+      <Container 
+         fluid
+      >
          <Row>
             <Header/> 
          </Row>

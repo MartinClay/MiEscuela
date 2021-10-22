@@ -1,14 +1,25 @@
-import {Col,Row,Modal,CloseButton} from 'react-bootstrap'
+import {Modal} from 'react-bootstrap'
 
 import Pdf from './MyPdf.jsx'
 
-const ModalPdf = ({selectedItems,datosAlumno,showModalPdf,setShowModalPdf}) => {
+const ModalPdf = ({
+   selectedItems,
+   datosAlumno,
+   showModalPdf,
+   setShowModalPdf
+}) => {
 
    const handleClose = () => setShowModalPdf(false)
 
    return (
-      <Modal show={showModalPdf} fullscreen={true} onHide={handleClose}>
-         <Modal.Header closeButton>
+      <Modal 
+         show={showModalPdf} 
+         fullscreen={true} 
+         onHide={handleClose}
+      >
+         <Modal.Header 
+            closeButton
+         >
          </Modal.Header>
          <Modal.Body>
             <Pdf
