@@ -18,7 +18,7 @@ const style = {
    }
 }
 
-const loginform = ({
+const Loginform = ({
    usuario,
    password,
    setUsuario,
@@ -88,4 +88,4 @@ const loginform = ({
    )
 }
 
-export default loginform
+export default Loginform

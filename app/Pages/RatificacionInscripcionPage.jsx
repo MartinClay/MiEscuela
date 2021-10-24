@@ -1,35 +1,37 @@
 import Header from '../Components/header.jsx'
-import Menu from '../Components/menu.jsx'
 import Footer from '../Components/footer.jsx'
-
 import {
    Container,
    Col,
    Row
 } from 'react-bootstrap'
+import Menu from '../Components/menu.jsx'
+import Ratificacion from '../Components/Ratificacion.jsx'
 
-const Forbidden = () => {
-   return(
+const RatificacionInscripcionPage = () => {
+   return (
       <Container 
          fluid
       >
          <Row>
-               <Header/>
+            <Header/> 
          </Row>
-         <Row>
+         <Row>  
             <Menu/>
          </Row>
          <Row>
-            <h1>
-               Ud no tiene autorizacion para esta pagina
-            </h1>
-         </Row>
-         <Row>
-            <Footer/>
+            <Ratificacion/>
          </Row>
       </Container>
-         
+
    )
 }
 
-export default Forbidden
+export default RatificacionInscripcionPage
+
+
+
+
+
+
+

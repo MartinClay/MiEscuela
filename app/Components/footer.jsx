@@ -11,7 +11,7 @@ const style = {
       bottom: 0,
    }
 }
-function footer () {
+const Footer = () => {
    return (
       <Container 
          style={style.footer} 
@@ -32,4 +32,4 @@ function footer () {
    )
 }
 
-export default footer
+export default Footer

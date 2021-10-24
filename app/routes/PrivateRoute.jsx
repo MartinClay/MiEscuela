@@ -1,10 +1,13 @@
-import {Route,Redirect} from 'react-router-dom'
+import {
+   Route,
+   Redirect
+} from 'react-router-dom'
 
 import useAuth from '../Context/Store/useAuth.jsx'
 
 import {DecodeToken} from '../Components/Logic/tokenhandler.js'
 
-export function AdminRoute (props) {
+export const AdminRoute = (props) => {
 
    const {stateUser} = useAuth()
 

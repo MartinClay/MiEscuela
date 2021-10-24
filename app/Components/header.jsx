@@ -26,7 +26,7 @@ const style = {
    }
 }
 
-function Header () {
+const Header = () => {
 
    useEffect (() => {
       WebFont.load({
