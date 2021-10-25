@@ -22,6 +22,7 @@ const Matricula = () => {
    const [isFiltredStage2,setIsFiltredStage2] = useState(false)
    const [filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage1] = useState([])
    const [filtredDatosAlumnoStage2,setFiltredDatosAlumnoStage2] = useState([])
+   const [selectedAlumnoForEdit,setSelectedAlumnoForEdit] = useState('')
    const [grado,setGrado] = useState('Grado')
    const [division, setDivision] = useState('Division')
    const [nivel,setNivel] = useState('Nivel')
@@ -40,6 +41,7 @@ const Matricula = () => {
          <ModalEditAlumno
             alumnoEditModal={alumnoEditModal}
             setAlumnoEditModal={setAlumnoEditModal}
+            selectedAlumnoForEdit={selectedAlumnoForEdit}
          />
          <SelectFormStage1
             setGrado={setGrado}                     
@@ -67,6 +69,8 @@ const Matricula = () => {
             matriculaRef={matriculaRef}
          />
          <TableAlumnosMatricula
+            setSelectedAlumnoForEdit={setSelectedAlumnoForEdit}
+            setAlumnoEditModal={setAlumnoEditModal}
             isFiltredStage2={isFiltredStage2}
             filtredDatosAlumnoStage1={filtredDatosAlumnoStage1}
             filtredDatosAlumnoStage2={filtredDatosAlumnoStage2}

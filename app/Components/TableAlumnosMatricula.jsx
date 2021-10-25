@@ -10,6 +10,10 @@ import {
    splitDate
 } from './Logic/dateHandler'
 
+import {
+   handleEdit,
+} from './Logic/matriculaLogic'
+
 import {FaUserEdit} from 'react-icons/fa'
 
 
@@ -17,6 +21,8 @@ const TableAlumnosMatricula = ({
    isFiltredStage2,
    filtredDatosAlumnoStage1,
    filtredDatosAlumnoStage2,
+   setAlumnoEditModal,
+   setSelectedAlumnoForEdit
 }) => { 
 
    return ( 
@@ -74,7 +80,8 @@ const TableAlumnosMatricula = ({
                                        <Button 
                                           onClick={()=> handleEdit(
                                              dataMap.N_DNI_ALUMNO,
-                                             setAlumnoEditModal
+                                             setAlumnoEditModal,
+                                             setSelectedAlumnoForEdit
                                           )}
                                        >
                                           <FaUserEdit/>
@@ -104,7 +111,8 @@ const TableAlumnosMatricula = ({
                                        <Button 
                                           onClick={()=> handleEdit(
                                              dataMap.N_DNI_ALUMNO,
-                                             setAlumnoEditModal
+                                             setAlumnoEditModal,
+                                             setSelectedAlumnoForEdit
                                           )}
                                        >
                                           <FaUserEdit/>

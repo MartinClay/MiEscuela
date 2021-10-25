@@ -122,9 +122,10 @@ export const handleEdad3006 = (
    }
 }
 
-export const handleEdit = (data,setAlumnoEditModal) => {
+
+export const handleEdit = (data,setAlumnoEditModal,setSelectedAlumnoForEdit) => {
+   setSelectedAlumnoForEdit(data)
    setAlumnoEditModal(true)
-   console.log(data)
 }
 
 export const handleClickApplyFilter = (

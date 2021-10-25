@@ -26,6 +26,14 @@ app.post('/Ratificacion',verificarToken, async (req,res) => {
    )
 })
 
+app.get('/:N_DNI_ALUMNO',verificarToken,async(req,res) => {
+   const dataRes = await data.findOne(
+   {
+      N_DNI_ALUMNO:req.params.N_DNI_ALUMNO
+   })
+   res.json(dataRes)
+})
+
 app.get('/',verificarToken,async(req,res) => {
    const dataRes = await data.find()
    res.json(dataRes)

@@ -57,3 +57,19 @@ export const getMatricula = async (token) => {
    )
    return dataRes
 }
+
+export const getMatriculaSingle = async (token,DNI) => {
+   const config = {
+      headers: {                    
+         "Accept": "application/json",                    
+         "Content-Type": "application/json",
+         "Authorization": token                
+      }           
+   } 
+   const url= `http://${baseUrl}:3000${matriculaUrl}/${DNI}` 
+   const dataRes = await axios.get(
+      url,
+      config
+   )
+   return dataRes
+}
