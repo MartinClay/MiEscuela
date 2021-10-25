@@ -35,7 +35,7 @@ app.get('/:N_DNI_ALUMNO',verificarToken,async(req,res) => {
 })
 
 app.get('/',verificarToken,async(req,res) => {
-   const dataRes = await data.find()
+   const dataRes = await data.find({ESTADO:' Activo '})
    res.json(dataRes)
 })
 

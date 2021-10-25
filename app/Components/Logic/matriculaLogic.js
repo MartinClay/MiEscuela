@@ -106,7 +106,6 @@ export const handleEdad3006 = (
 )=> {
    let newArray = []
    if(event.target.value.length >= 1 && isFiltredStage1 === true){
-      console.log('asdf')
       newArray = filtredDatosAlumnoStage1.filter((dataFilter) => ageCalculate3006(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)

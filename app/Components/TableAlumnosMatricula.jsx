@@ -6,7 +6,7 @@ import {
 } from 'react-bootstrap'
 
 import {
-   ageCalculate,
+   ageCalculate3006,
    splitDate
 } from './Logic/dateHandler'
 
@@ -94,7 +94,7 @@ const TableAlumnosMatricula = ({
                                     <th>{dataMap.GRADO}</th>
                                     <th>{dataMap.DIVISION}</th>
                                     <th>{
-                                          ageCalculate(
+                                          ageCalculate3006(
                                              splitDate(
                                                 dataMap.FECHA_NACIMIENTO,
                                                 3
@@ -125,7 +125,7 @@ const TableAlumnosMatricula = ({
                                     <th>{dataMap.GRADO}</th>
                                     <th>{dataMap.DIVISION}</th>
                                     <th>{
-                                       ageCalculate(
+                                       ageCalculate3006(
                                           splitDate(
                                              dataMap.FECHA_NACIMIENTO,
                                              3
