@@ -7,7 +7,7 @@ import Header from '../Components/header.jsx'
 import Menu from '../Components/menu.jsx'
 import Footer from '../Components/footer.jsx'
 
-const Home = () => {
+const HomePage = () => {
    return (
       <Container 
          fluid
@@ -26,4 +26,4 @@ const Home = () => {
 
 }
 
-export default Home
+export default HomePage

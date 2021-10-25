@@ -10,7 +10,7 @@ import {
 
 import AdminOptions from '../Components/AdminOptions.jsx'
 
-const AdminPannel = () => {
+const AdminPannelPage = () => {
    return(
       <Container 
          fluid
@@ -32,4 +32,4 @@ const AdminPannel = () => {
    )
 }
 
-export default AdminPannel
+export default AdminPannelPage

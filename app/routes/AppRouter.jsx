@@ -1,12 +1,17 @@
 import React from 'react'
-import {BrowserRouter,Switch,Route,Redirect} from 'react-router-dom'
+import {
+   BrowserRouter,
+   Switch,
+   Route,
+   Redirect
+} from 'react-router-dom'
 
-import Home from '../Pages/Home.jsx'
-import LogIn from '../Pages/LogIn.jsx'
-import RatificacionInscripcion from '../Pages/RatificacionInscripcion.jsx'
-import AdminPannel from '../Pages/AdminPannel.jsx'
-import Forbidden from '../Pages/Forbidden.jsx'
-import Matricula from '../Pages/MatriculaPage.jsx'
+import HomePage from '../Pages/HomePage.jsx'
+import LogInPage from '../Pages/LogInPage.jsx'
+import RatificacionInscripcionPage from '../Pages/RatificacionInscripcionPage.jsx'
+import AdminPannelPage from '../Pages/AdminPannelPage.jsx'
+import ForbiddenPage from '../Pages/ForbiddenPage.jsx'
+import MatriculaPage from '../Pages/MatriculaPage.jsx'
 
 import useAuth from '../Context/Store/useAuth.jsx'
 
@@ -15,36 +20,71 @@ import {AdminRoute} from './PrivateRoute.jsx'
 const AppRouter = () => {
 
    const {stateUser} = useAuth()
-   
+
    return (
       <BrowserRouter>
          <Switch>
-            <Route exact path='/'
+            <Route 
+               exact 
+               path='/'
                render={() => 
-                     stateUser.isAuthenticated ? <Home/> : <Redirect to='/LogIn'/>
-                  }
+                     stateUser.isAuthenticated ? 
+                        <HomePage/> 
+                        : 
+                        <Redirect 
+                           to='/LogIn'
+                        />
+               }
             />
-            <Route path='/Home' 
+            <Route 
+               path='/Home' 
                render={() => 
-                     stateUser.isAuthenticated ? <Home/> : <Redirect to='/LogIn'/>
-            } />
-            <Route path='/LogIn' 
+                     stateUser.isAuthenticated ? 
+                        <HomePage/> 
+                        : 
+                        <Redirect 
+                           to='/LogIn'
+                        />
+               } />
+            <Route 
+               path='/LogIn' 
                render={() => 
-                     !stateUser.isAuthenticated ? <LogIn/> : <Redirect to='/'/>
+                     !stateUser.isAuthenticated ? 
+                        <LogInPage/> 
+                        : 
+                        <Redirect 
+                           to='/'
+                        />
                } 
             />
-            <Route path='/RatificacionInscripcion'
+            <Route 
+               path='/RatificacionInscripcion'
                render={() =>
-                     stateUser.isAuthenticated ? <RatificacionInscripcion/> : <Redirect to='/LogIn'/>
+                     stateUser.isAuthenticated ? 
+                        <RatificacionInscripcionPage/> 
+                        : 
+                        <Redirect 
+                           to='/LogIn'
+                        />
                }
             />
-            <Route path='/Matricula'
+            <Route 
+               path='/Matricula'
                render={()=>
-                     stateUser.isAuthenticated ? <Matricula/> : <Redirect to='/LogIn'/>
+                     stateUser.isAuthenticated ? 
+                        <MatriculaPage/> 
+                        : 
+                        <Redirect 
+                           to='/LogIn'
+                        />
                }
             />
-            <AdminRoute path='/AdminPannel' component={AdminPannel}/>
-            <Route path='/Forbidden' component={Forbidden}/>
+            <AdminRoute 
+               path='/AdminPannel' 
+               component={AdminPannelPage}/>
+            <Route 
+               path='/Forbidden' 
+               component={ForbiddenPage}/>
          </Switch>
       </BrowserRouter>
    )

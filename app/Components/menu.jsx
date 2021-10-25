@@ -13,7 +13,7 @@ import {DecodeToken} from './Logic/tokenhandler'
 
 import {Link} from 'react-router-dom'
 
-const menu = () => {
+const Menu = () => {
 
    const context = useAuth()
    return (
@@ -75,4 +75,4 @@ const menu = () => {
    )
 }
 
-export default menu
+export default Menu
