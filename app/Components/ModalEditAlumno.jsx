@@ -122,7 +122,7 @@ const ModalEditAlumno = ({
                      >
                         <h6>Fecha Nacimiento:</h6>
                         <FormControl
-                           placeholder={dataAlumno.FECHA_NACIMIENTO}
+                           defaultValue={dataAlumno.FECHA_NACIMIENTO}
                            aria-label='FECHA_NACIMIENTO'
                            readOnly={switchEdit}
                            ref={(element) => modalEditRef.current[1] = element}
@@ -134,7 +134,7 @@ const ModalEditAlumno = ({
                      >
                         <h6>Nº Legajo:</h6>
                         <FormControl
-                           placeholder={dataAlumno.NRO_LEGAJO}
+                           defaultValue={dataAlumno.NRO_LEGAJO}
                            aria-label='NRO LEGAJO'
                            readOnly={switchEdit}
                            ref={(element) => modalEditRef.current[2] = element}
@@ -146,7 +146,7 @@ const ModalEditAlumno = ({
                      >
                         <h6>CUIL:</h6>
                         <FormControl
-                           placeholder={dataAlumno.CUIL}
+                           defaultValue={dataAlumno.CUIL}
                            aria-label='CUIL'
                            readOnly={switchEdit}
                            ref={(element) => modalEditRef.current[3] = element}
@@ -189,6 +189,7 @@ const ModalEditAlumno = ({
                            placeholder={dataAlumno?.GRADO}
                            aria-label="GRADO"
                            disabled={switchEdit}
+                           ref={(element) => modalEditRef.current[5] = element}
                         >
                            <option 
                               value={dataAlumno.GRADO}
@@ -214,6 +215,7 @@ const ModalEditAlumno = ({
                            placeholder={dataAlumno?.DIVISION}
                            aria-label="DIVISION"
                            disabled={switchEdit}
+                           ref={(element) => modalEditRef.current[6] = element}
                         >
                            <option 
                               value={dataAlumno.DIVISION}
@@ -236,9 +238,10 @@ const ModalEditAlumno = ({
                      <Col>
                         <h6>Denominacion:</h6>
                         <FormControl
-                           placeholder={dataAlumno.DENOMINACION}
+                           defaultValue={dataAlumno.DENOMINACION}
                            aria-label='DENOMINACION'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[7] = element}
                         /> 
                      </Col>
                   </Row>
@@ -248,25 +251,28 @@ const ModalEditAlumno = ({
                      <Col>
                         <h6>Lugar de nacimiento:</h6>
                         <FormControl
-                           placeholder={dataAlumno.LUGAR_NACIMIENTO}
+                           defaultValue={dataAlumno.LUGAR_NACIMIENTO}
                            aria-label='LUGAR_NACIMIENTO'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[8] = element}
                         /> 
                      </Col>
                      <Col>
                         <h6>Provincia de nacimiento:</h6>
                         <FormControl
-                           placeholder={dataAlumno.PROVINCIA_NACIMIENTO}
+                           defaultValue={dataAlumno.PROVINCIA_NACIMIENTO}
                            aria-label='PROVINCIA_NACIMIENTO'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[9] = element}
                         /> 
                      </Col>
                      <Col>
                         <h6>Nacionalidad:</h6>
                         <FormControl
-                           placeholder={dataAlumno.NACIONALIDAD}
+                           defaultValue={dataAlumno.NACIONALIDAD}
                            aria-label='DENOMINACION'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[10] = element}
                         /> 
                      </Col>
                   </Row>
@@ -279,6 +285,7 @@ const ModalEditAlumno = ({
                            placeholder={dataAlumno?.SEXO}
                            aria-label="SEXO"
                            disabled={switchEdit}
+                           ref={(element) => modalEditRef.current[11] = element}
                         >
                            <option 
                               value={dataAlumno.SEXO}
@@ -301,25 +308,27 @@ const ModalEditAlumno = ({
                      <Col>
                         <h6>Edad (Real):</h6>
                         <FormControl
-                           placeholder={dataAlumno.FECHA_NACIMIENTO ? 
+                           defaultValue={dataAlumno.FECHA_NACIMIENTO ? 
                                  ageCalculate(splitDate(dataAlumno.FECHA_NACIMIENTO,3))
                                  :
                                  dataAlumno.FECHA_NACIMIENTO
                            }
                            aria-label='Edad (Real)'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[12] = element}
                         /> 
                      </Col>
                      <Col>
                         <h6>Edadal 30/06:</h6>
                         <FormControl
-                           placeholder={dataAlumno.FECHA_NACIMIENTO ? 
+                           defaultValue={dataAlumno.FECHA_NACIMIENTO ? 
                                  ageCalculate3006(splitDate(dataAlumno.FECHA_NACIMIENTO,3))
                                  :
                                  dataAlumno.FECHA_NACIMIENTO
                            }
                            aria-label='Edad al 30/06'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[13] = element}
                         /> 
                      </Col>
                   </Row>
@@ -353,33 +362,37 @@ const ModalEditAlumno = ({
                      <Col>
                         <h6>Apellido Tutor:</h6>
                         <FormControl
-                           placeholder={dataAlumno.APELLIDO_TUTOR}
+                           defaultValue={dataAlumno.APELLIDO_TUTOR}
                            aria-label='APELLIDO_TUTOR'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[14] = element}
                         /> 
                      </Col>
                      <Col>
                         <h6>Nombre Tutor:</h6>
                         <FormControl
-                           placeholder={dataAlumno.NOMBRE_TUTOR}
+                           defaultValue={dataAlumno.NOMBRE_TUTOR}
                            aria-label='NOMBRE_TUTOR'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[15] = element}
                         /> 
                      </Col>
                      <Col>
                         <h6>Relacion:</h6>
                         <FormControl
-                           placeholder={dataAlumno.RELACION_TUTOR}
+                           defaultValue={dataAlumno.RELACION_TUTOR}
                            aria-label='RELACION_TUTOR'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[16] = element}
                         /> 
                      </Col>
                      <Col>
                         <h6>DNI Tutor:</h6>
                         <FormControl
-                           placeholder={dataAlumno.DNI_TUTOR}
+                           defaultValue={dataAlumno.DNI_TUTOR}
                            aria-label='DNI_TUTOR'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[17] = element}
                         /> 
                      </Col>
                   </Row>
@@ -389,17 +402,19 @@ const ModalEditAlumno = ({
                      <Col>
                         <h6>Tel Fijo:</h6>
                         <FormControl
-                           placeholder={dataAlumno.TEL_FIJO}
+                           defaultValue={dataAlumno.TEL_FIJO}
                            aria-label='TEL_FIJO'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[18] = element}
                         /> 
                      </Col>
                      <Col>
                         <h6>Tel Celular:</h6>
                         <FormControl
-                           placeholder={dataAlumno.TEL_CELULAR}
+                           defaultValue={dataAlumno.TEL_CELULAR}
                            aria-label='TEL_CELULAR'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[19] = element}
                         /> 
                      </Col>
                   </Row>
@@ -409,41 +424,46 @@ const ModalEditAlumno = ({
                      <Col>
                         <h6>Barrio:</h6>
                         <FormControl
-                           placeholder={dataAlumno.BARRIO}
+                           defaultValue={dataAlumno.BARRIO}
                            aria-label='BARRIO'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[20] = element}
                         /> 
                      </Col>
                      <Col>
                         <h6>Calle:</h6>
                         <FormControl
-                           placeholder={dataAlumno.CALLE}
+                           defaultValue={dataAlumno.CALLE}
                            aria-label='CALLE'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[21] = element}
                         /> 
                      </Col>
                      <Col>
                         <h6>NRO:</h6>
                         <FormControl
-                           placeholder={dataAlumno.NRO}
+                           defaultValue={dataAlumno.NRO}
                            aria-label='NRO'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[22] = element}
                         /> 
                      </Col>
                      <Col>
                         <h6>Localidad:</h6>
                         <FormControl
-                           placeholder={dataAlumno.LOCALIDAD}
+                           defaultValue={dataAlumno.LOCALIDAD}
                            aria-label='LOCALIDAD'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[23] = element}
                         /> 
                      </Col>
                      <Col>
                         <h6>Provincia:</h6>
                         <FormControl
-                           placeholder={dataAlumno.PROVINCIA}
+                           defaultValue={dataAlumno.PROVINCIA}
                            aria-label='PROVINCIA'
                            readOnly={switchEdit}
+                           ref={(element) => modalEditRef.current[24] = element}
                         /> 
                      </Col>
                   </Row>
@@ -483,6 +503,7 @@ const ModalEditAlumno = ({
                                  placeholder={dataAlumno?.VACUNAS_AL_DIA}
                                  aria-label="VACUNAS_AL_DIA"
                                  disabled={switchEdit}
+                                 ref={(element) => modalEditRef.current[25] = element}
                               >
                                  <option 
                                     value={dataAlumno.VACUNAS_AL_DIA}
@@ -508,6 +529,7 @@ const ModalEditAlumno = ({
                                  placeholder={dataAlumno?.CERT_SALUD}
                                  aria-label="CERT_SALUD"
                                  disabled={switchEdit}
+                                 ref={(element) => modalEditRef.current[26] = element}
                               >
                                  <option 
                                     value={dataAlumno.CERT_SALUD}
@@ -533,6 +555,7 @@ const ModalEditAlumno = ({
                                  placeholder={dataAlumno?.CERT_BUCO_DENTAL}
                                  aria-label="CERT_BUCO_DENTAL"
                                  disabled={switchEdit}
+                                 ref={(element) => modalEditRef.current[27] = element}
                               >
                                  <option 
                                     value={dataAlumno.CERT_BUCO_DENTAL}
@@ -562,7 +585,9 @@ const ModalEditAlumno = ({
                                  placeholder={dataAlumno?.ANTIVARIOLICA}
                                  aria-label="ANTIVARIOLICA"
                                  disabled={switchEdit}
+                                 ref={(element) => modalEditRef.current[28] = element}
                               >
+
                                  <option 
                                     value={dataAlumno.ANTIVARIOLICA}
                                  >
@@ -587,6 +612,7 @@ const ModalEditAlumno = ({
                                  placeholder={dataAlumno?.BCG}
                                  aria-label="BCG"
                                  disabled={switchEdit}
+                                 ref={(element) => modalEditRef.current[29] = element}
                               >
                                  <option 
                                     value={dataAlumno.BCG}
@@ -613,6 +639,7 @@ const ModalEditAlumno = ({
                                  placeholder={dataAlumno?.TRIPLE}
                                  aria-label="TRIPLE"
                                  disabled={switchEdit}
+                                 ref={(element) => modalEditRef.current[30] = element}
                               >
                                  <option 
                                     value={dataAlumno.TRIPLE}
@@ -643,6 +670,7 @@ const ModalEditAlumno = ({
                                  placeholder={dataAlumno?.DOBLE}
                                  aria-label="DOBLE"
                                  disabled={switchEdit}
+                                 ref={(element) => modalEditRef.current[31] = element}
                               >
                                  <option 
                                     value={dataAlumno.DOBLE}
@@ -668,6 +696,7 @@ const ModalEditAlumno = ({
                                  placeholder={dataAlumno?.SABIN}
                                  aria-label="SABIN"
                                  disabled={switchEdit}
+                                 ref={(element) => modalEditRef.current[32] = element}
                               >
                                  <option 
                                     value={dataAlumno.SABIN}
@@ -694,6 +723,7 @@ const ModalEditAlumno = ({
                                  placeholder={dataAlumno?.ANTI_SARAMPION}
                                  aria-label="ANTI_SARAMPION"
                                  disabled={switchEdit}
+                                 ref={(element) => modalEditRef.current[33] = element}
                               >
                                  <option 
                                     value={dataAlumno.ANTI_SARAMPION}
@@ -722,9 +752,11 @@ const ModalEditAlumno = ({
                                        dataAlumno.OTRAS.map((dataMap)=> 
                                        <FormControl
                                           className='mt-2'
-                                          placeholder={dataAlumno.dataMap}
+                                          defaultValue={dataAlumno.dataMap}
                                           aria-label='OTRAS'
                                           readOnly={switchEdit}
+                                          key={dataMap === "" ? Math.random() : dataMap}
+                                          ref={(element) => modalEditRef.current.push(element)}
                                        />
                                        )
                                        :
@@ -787,7 +819,9 @@ const ModalEditAlumno = ({
                         className='mt-2 border'
                      >
                         {dataAlumno.OBSERVACIONES?.map((dataMap) => 
-                        <p>{dataMap}</p>
+                        <p
+                           key={dataMap === "" ? Math.random() : dataMap}
+                           >{dataMap}</p>
                         )} 
                      </Col>
 
@@ -801,7 +835,9 @@ const ModalEditAlumno = ({
                      className='mt-2 border'
                   >
                      {dataAlumno.REGISTRO?.map((dataMap) => 
-                     <p>{dataMap}</p>
+                     <p
+                        key={dataMap === "" ? Math.random() : dataMap}
+                        >{dataMap}</p>
                      )}
                   </Col>
                </Tab>
