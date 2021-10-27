@@ -24,7 +24,6 @@ import {userDeleteUrl} from '../Helpers/Urls.js'
 const ModalEditUser = ({
    userEditModal,
    setUserEditModal,
-   usuariosModal,
    setUsuariosModal,
    selectedUser
 }) => { 

@@ -4,6 +4,18 @@ export const Nivel = [
    'INICIAL'
 ]
 
+export const Sexo = [
+   'Masculino',
+   'Femenino',
+   'No binario'
+]
+
+export const Vacunas = [
+   'Si',
+   'No',
+   'Esperando documentacion',
+]
+
 export const Division = [
     'A',
     'B' 
