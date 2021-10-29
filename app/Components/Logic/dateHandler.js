@@ -22,7 +22,7 @@ export const ageCalculate = (date) => {
       case (month === parseInt(date[1]) && day < parseInt(date[0])):
          let anios2 = (year - parseInt(date[2])) - 1
          return anios2
-      case (month === parseInt(date[1]) && day >= parseInt(date[0])):
+      case (month === parseInt(date[1]) && day >= parseInt(date[1])):
          let anios4 = year - (parseInt(date[2]))
          return anios4
       case (month < parseInt(date[1])):
@@ -48,3 +48,9 @@ export const ageCalculate3006 = (date) => {
    }
 }
 
+
+export const createISODate = (date) => {
+   const splitedDate = splitDate(date,3)
+   const ISOdate = new Date(splitedDate[2],splitedDate[1] - 1,splitedDate[0])
+   return ISOdate
+}

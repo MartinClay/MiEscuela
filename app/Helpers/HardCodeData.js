@@ -5,15 +5,15 @@ export const Nivel = [
 ]
 
 export const Sexo = [
-   'Masculino',
-   'Femenino',
-   'No binario'
+   'MASCULINO',
+   'FEMENINO',
+   'NO BINARIO'
 ]
 
 export const Vacunas = [
-   'Si',
-   'No',
-   'Esperando documentacion',
+   'SI',
+   'NO',
+   'ESPERANDO DOCUMENTACION',
 ]
 
 export const Division = [
