@@ -90,6 +90,8 @@ const ModalEditAlumno = ({
                      modalEditRef={modalEditRef}
                      setUpdatedData={setUpdatedData}
                      setShowModalUpdate={setShowModalUpdate}
+                     fechaNacimiento={fechaNacimiento}
+                     setFechaNacimiento={setFechaNacimiento}
 
                   />
                </Tab>
@@ -105,6 +107,7 @@ const ModalEditAlumno = ({
                      fechaNacimiento={fechaNacimiento}
                      setUpdatedData={setUpdatedData}
                      setShowModalUpdate={setShowModalUpdate}
+                     setFechaNacimiento={setFechaNacimiento}
 
                   />
                </Tab>

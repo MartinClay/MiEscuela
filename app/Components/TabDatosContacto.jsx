@@ -14,7 +14,12 @@ const TabDatosContacto = ({
    dataAlumno,
    switchEdit,
    setSwitchEdit,
-   modalEditRef
+   modalEditRef,
+   fechaNacimiento,
+   setFechaNacimiento,
+   updatedData,
+   setShowModalUpdate,
+   setUpdatedData,
 }) => { 
    return ( 
       <>

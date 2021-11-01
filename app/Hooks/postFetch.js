@@ -30,6 +30,34 @@ export const postFetchDeleteUser = async (
    }
 }
 
+export const postFetchUpdateAlumno = async (
+   token,
+   updatedData,
+   apiUrl
+
+) => {
+   const url= `http://${baseUrl}:3000${apiUrl}`  
+   console.log(url)
+   const config = {
+      headers: {                    
+         "Accept": "application/json",                    
+         "Content-Type": "application/json",
+         "Authorization": token                
+      }           
+   }
+   try{
+      const resData = await axios.post(
+         url,
+         updatedData,
+         config
+      )
+      return resData
+   }
+   catch(err) {
+      return(err.response)
+   }
+}
+
 export const postFetchAddUser = async (
    token,
    usuario,

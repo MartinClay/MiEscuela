@@ -17,7 +17,10 @@ const TabDatosSalud = ({
    setSwitchEdit,
    switchEdit,
    modalEditRef,
-   fechaNacimiento
+   fechaNacimiento,
+   updatedData,
+   setShowModalUpdate,
+   setUpdatedData,
 }) => { 
 
    return ( 

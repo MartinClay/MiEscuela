@@ -2,11 +2,18 @@ import {
    Modal,
    Button,
    Table,
+   Col,
+   Row,
 } from 'react-bootstrap'
 
 import {
-   handleShow
+   handleShow,
+   handleClickAccept,
 } from './Logic/modalupdateLogic.js'
+
+import useAuth from '../Context/Store/useAuth.jsx'
+
+import {updateAlumnoUrl} from '../Helpers/Urls'
 
 const ModalUpdate = ({
    showModalUpdate,
@@ -14,6 +21,9 @@ const ModalUpdate = ({
    setShowModalUpdate,
    dataAlumno,
 }) => { 
+
+const context = useAuth()
+
       return ( 
          <Modal
             show={showModalUpdate}
@@ -47,13 +57,30 @@ const ModalUpdate = ({
                </Table>
             </Modal.Body> 
             <Modal.Footer>
-               <Button 
-                  variant='primary'
+               <Row
+                  className='mt-2'
                >
-               </Button>
+                  <Col>
+                     <Button 
+                        variant='outline-primary'
+                        onClick={() => handleClickAccept(updatedData,context.stateUser.token,updateAlumnoUrl)}
+                     >
+                        Aceptar
+                     </Button>
+                  </Col>
+                  <Col>
+                     <Button
+                        variant='outline-primary'
+                        onClick={() => handleShow(setShowModalUpdate)}
+                     >
+                        Cancelar
+                     </Button> 
+                  </Col>               
+
+               </Row>
             </Modal.Footer>
          </Modal>
-                )
+      )
 }
 
 export default ModalUpdate

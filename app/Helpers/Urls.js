@@ -11,3 +11,5 @@ export const verifyTokenUrl = '/Api/VerifyToken'
 export const addUserUrl = '/Api/AddUser'
 
 export const matriculaUrl = '/Api/Matricula'
+
+export const updateAlumnoUrl = '/Api/UpdateAlumno'
