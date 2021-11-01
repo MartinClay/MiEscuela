@@ -52,7 +52,7 @@ const TabDatosGenerales = ({
                   defaultValue={dataAlumno.N_DNI_ALUMNO}
                   aria-label='N_DNI_ALUMNO'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[0] = element}
+                  ref={(element) => modalEditRef.current[2] = element}
                /> 
             </Col>
             <Col
@@ -76,7 +76,7 @@ const TabDatosGenerales = ({
                   defaultValue={dataAlumno.NRO_LEGAJO}
                   aria-label='NRO LEGAJO'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[2] = element}
+                  ref={(element) => modalEditRef.current[13] = element}
 
                /> 
             </Col>
@@ -88,7 +88,7 @@ const TabDatosGenerales = ({
                   defaultValue={dataAlumno.CUIL}
                   aria-label='CUIL'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[3] = element}
+                  ref={(element) => modalEditRef.current[12] = element}
                /> 
             </Col>
          </Row>
@@ -102,7 +102,7 @@ const TabDatosGenerales = ({
                   placeholder={dataAlumno?.NIVEL}
                   aria-label="NIVEL"
                   disabled={switchEdit}
-                  ref={(element) => modalEditRef.current[4] = element}
+                  ref={(element) => modalEditRef.current[21] = element}
                >
                   <option 
                      value={dataAlumno.NIVEL}
@@ -128,7 +128,8 @@ const TabDatosGenerales = ({
                   placeholder={dataAlumno?.GRADO}
                   aria-label="GRADO"
                   disabled={switchEdit}
-                  ref={(element) => modalEditRef.current[5] = element}
+                  type='number'
+                  ref={(element) => modalEditRef.current[22] = element}
                >
                   <option 
                      value={dataAlumno.GRADO}
@@ -154,7 +155,7 @@ const TabDatosGenerales = ({
                   placeholder={dataAlumno?.DIVISION}
                   aria-label="DIVISION"
                   disabled={switchEdit}
-                  ref={(element) => modalEditRef.current[6] = element}
+                  ref={(element) => modalEditRef.current[23] = element}
                >
                   <option 
                      value={dataAlumno.DIVISION}
@@ -180,7 +181,7 @@ const TabDatosGenerales = ({
                   defaultValue={dataAlumno.DENOMINACION}
                   aria-label='DENOMINACION'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[7] = element}
+                  ref={(element) => modalEditRef.current[24] = element}
                /> 
             </Col>
          </Row>
@@ -202,16 +203,16 @@ const TabDatosGenerales = ({
                   defaultValue={dataAlumno.PROVINCIA_NACIMIENTO}
                   aria-label='PROVINCIA_NACIMIENTO'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[9] = element}
+                  ref={(element) => modalEditRef.current[10] = element}
                /> 
             </Col>
             <Col>
                <h6>Nacionalidad:</h6>
                <FormControl
                   defaultValue={dataAlumno.NACIONALIDAD}
-                  aria-label='DENOMINACION'
+                  aria-label='NACIONALIDAD'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[10] = element}
+                  ref={(element) => modalEditRef.current[9] = element}
                /> 
             </Col>
          </Row>
@@ -224,7 +225,7 @@ const TabDatosGenerales = ({
                   placeholder={dataAlumno?.SEXO}
                   aria-label="SEXO"
                   disabled={switchEdit}
-                  ref={(element) => modalEditRef.current[11] = element}
+                  ref={(element) => modalEditRef.current[6] = element}
                >
                   <option 
                      value={dataAlumno.SEXO}
@@ -254,7 +255,6 @@ const TabDatosGenerales = ({
                   }
                   aria-label='Edad (Real)'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[12] = element}
                /> 
             </Col>
             <Col>
@@ -267,7 +267,6 @@ const TabDatosGenerales = ({
                   }
                   aria-label='Edad al 30/06'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[13] = element}
                /> 
             </Col>
          </Row>

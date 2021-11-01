@@ -27,7 +27,7 @@ const TabDatosContacto = ({
                   defaultValue={dataAlumno.APELLIDO_TUTOR}
                   aria-label='APELLIDO_TUTOR'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[14] = element}
+                  ref={(element) => modalEditRef.current[25] = element}
                /> 
             </Col>
             <Col>
@@ -36,7 +36,7 @@ const TabDatosContacto = ({
                   defaultValue={dataAlumno.NOMBRE_TUTOR}
                   aria-label='NOMBRE_TUTOR'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[15] = element}
+                  ref={(element) => modalEditRef.current[26] = element}
                /> 
             </Col>
             <Col>
@@ -45,7 +45,7 @@ const TabDatosContacto = ({
                   defaultValue={dataAlumno.RELACION_TUTOR}
                   aria-label='RELACION_TUTOR'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[16] = element}
+                  ref={(element) => modalEditRef.current[29] = element}
                /> 
             </Col>
             <Col>
@@ -54,7 +54,7 @@ const TabDatosContacto = ({
                   defaultValue={dataAlumno.DNI_TUTOR}
                   aria-label='DNI_TUTOR'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[17] = element}
+                  ref={(element) => modalEditRef.current[27] = element}
                /> 
             </Col>
          </Row>
@@ -67,7 +67,7 @@ const TabDatosContacto = ({
                   defaultValue={dataAlumno.TEL_FIJO}
                   aria-label='TEL_FIJO'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[18] = element}
+                  ref={(element) => modalEditRef.current[19] = element}
                /> 
             </Col>
             <Col>
@@ -76,7 +76,7 @@ const TabDatosContacto = ({
                   defaultValue={dataAlumno.TEL_CELULAR}
                   aria-label='TEL_CELULAR'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[19] = element}
+                  ref={(element) => modalEditRef.current[20] = element}
                /> 
             </Col>
          </Row>
@@ -89,7 +89,7 @@ const TabDatosContacto = ({
                   defaultValue={dataAlumno.BARRIO}
                   aria-label='BARRIO'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[20] = element}
+                  ref={(element) => modalEditRef.current[16] = element}
                /> 
             </Col>
             <Col>
@@ -98,7 +98,7 @@ const TabDatosContacto = ({
                   defaultValue={dataAlumno.CALLE}
                   aria-label='CALLE'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[21] = element}
+                  ref={(element) => modalEditRef.current[14] = element}
                /> 
             </Col>
             <Col>
@@ -107,7 +107,7 @@ const TabDatosContacto = ({
                   defaultValue={dataAlumno.NRO}
                   aria-label='NRO'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[22] = element}
+                  ref={(element) => modalEditRef.current[15] = element}
                /> 
             </Col>
             <Col>
@@ -116,7 +116,7 @@ const TabDatosContacto = ({
                   defaultValue={dataAlumno.LOCALIDAD}
                   aria-label='LOCALIDAD'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[23] = element}
+                  ref={(element) => modalEditRef.current[17] = element}
                /> 
             </Col>
             <Col>
@@ -125,7 +125,7 @@ const TabDatosContacto = ({
                   defaultValue={dataAlumno.PROVINCIA}
                   aria-label='PROVINCIA'
                   readOnly={switchEdit}
-                  ref={(element) => modalEditRef.current[24] = element}
+                  ref={(element) => modalEditRef.current[18] = element}
                /> 
             </Col>
          </Row>

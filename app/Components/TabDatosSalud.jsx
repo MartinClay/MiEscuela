@@ -16,7 +16,8 @@ const TabDatosSalud = ({
    dataAlumno,
    setSwitchEdit,
    switchEdit,
-   modalEditRef
+   modalEditRef,
+   fechaNacimiento
 }) => { 
 
    return ( 
@@ -33,7 +34,7 @@ const TabDatosSalud = ({
                         placeholder={dataAlumno?.VACUNAS_AL_DIA}
                         aria-label="VACUNAS_AL_DIA"
                         disabled={switchEdit}
-                        ref={(element) => modalEditRef.current[25] = element}
+                        ref={(element) => modalEditRef.current[34] = element}
                      >
                         <option 
                            value={dataAlumno.VACUNAS_AL_DIA}
@@ -59,7 +60,7 @@ const TabDatosSalud = ({
                         placeholder={dataAlumno?.CERT_SALUD}
                         aria-label="CERT_SALUD"
                         disabled={switchEdit}
-                        ref={(element) => modalEditRef.current[26] = element}
+                        ref={(element) => modalEditRef.current[32] = element}
                      >
                         <option 
                            value={dataAlumno.CERT_SALUD}
@@ -85,7 +86,7 @@ const TabDatosSalud = ({
                         placeholder={dataAlumno?.CERT_BUCO_DENTAL}
                         aria-label="CERT_BUCO_DENTAL"
                         disabled={switchEdit}
-                        ref={(element) => modalEditRef.current[27] = element}
+                        ref={(element) => modalEditRef.current[33] = element}
                      >
                         <option 
                            value={dataAlumno.CERT_BUCO_DENTAL}
@@ -115,7 +116,7 @@ const TabDatosSalud = ({
                         placeholder={dataAlumno?.ANTIVARIOLICA}
                         aria-label="ANTIVARIOLICA"
                         disabled={switchEdit}
-                        ref={(element) => modalEditRef.current[28] = element}
+                        ref={(element) => modalEditRef.current[35] = element}
                      >
 
                         <option 
@@ -142,7 +143,7 @@ const TabDatosSalud = ({
                         placeholder={dataAlumno?.BCG}
                         aria-label="BCG"
                         disabled={switchEdit}
-                        ref={(element) => modalEditRef.current[29] = element}
+                        ref={(element) => modalEditRef.current[36] = element}
                      >
                         <option 
                            value={dataAlumno.BCG}
@@ -169,7 +170,7 @@ const TabDatosSalud = ({
                         placeholder={dataAlumno?.TRIPLE}
                         aria-label="TRIPLE"
                         disabled={switchEdit}
-                        ref={(element) => modalEditRef.current[30] = element}
+                        ref={(element) => modalEditRef.current[37] = element}
                      >
                         <option 
                            value={dataAlumno.TRIPLE}
@@ -200,7 +201,7 @@ const TabDatosSalud = ({
                         placeholder={dataAlumno?.DOBLE}
                         aria-label="DOBLE"
                         disabled={switchEdit}
-                        ref={(element) => modalEditRef.current[31] = element}
+                        ref={(element) => modalEditRef.current[38] = element}
                      >
                         <option 
                            value={dataAlumno.DOBLE}
@@ -226,7 +227,7 @@ const TabDatosSalud = ({
                         placeholder={dataAlumno?.SABIN}
                         aria-label="SABIN"
                         disabled={switchEdit}
-                        ref={(element) => modalEditRef.current[32] = element}
+                        ref={(element) => modalEditRef.current[39] = element}
                      >
                         <option 
                            value={dataAlumno.SABIN}
@@ -253,7 +254,7 @@ const TabDatosSalud = ({
                         placeholder={dataAlumno?.ANTI_SARAMPION}
                         aria-label="ANTI_SARAMPION"
                         disabled={switchEdit}
-                        ref={(element) => modalEditRef.current[33] = element}
+                        ref={(element) => modalEditRef.current[40] = element}
                      >
                         <option 
                            value={dataAlumno.ANTI_SARAMPION}
@@ -289,7 +290,7 @@ const TabDatosSalud = ({
                                           placeholder={dataAlumno?.OTRAS[0]}
                                           aria-label="OTRAS"
                                           disabled={switchEdit}
-                                          ref={(element) => modalEditRef.current[34] = element}
+                                          ref={(element) => modalEditRef.current[41] = element}
                                        >
                                           <option 
                                              value={dataAlumno?.OTRAS[0]}
@@ -312,7 +313,7 @@ const TabDatosSalud = ({
                                           placeholder={dataAlumno?.OTRAS[1]}
                                           aria-label="OTRAS"
                                           disabled={switchEdit}
-                                          ref={(element) => modalEditRef.current[35] = element}
+                                          ref={(element) => modalEditRef.current[41] = element}
                                        >
                                           <option 
                                              value={dataAlumno?.OTRAS[1]}

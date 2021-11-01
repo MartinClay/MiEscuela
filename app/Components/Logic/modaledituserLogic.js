@@ -21,9 +21,22 @@ export const handleSwitchEdit = (
 }
 
 export const handleUpdateData = (modalEditRef,fechaNacimiento,dataAlumno) => {
-   console.log(fechaNacimiento)
-   console.log(modalEditRef)
-   console.log(dataAlumno)
+   let newDataAlumno = {}
+   let updatedData = {}
+   for(let i = 0 ; i < Object.keys(dataAlumno).length - 2 ; i ++){
+      modalEditRef.current[i] !== undefined ? 
+         newDataAlumno = {...newDataAlumno , [Object.keys(dataAlumno)[i]] : modalEditRef.current[i].value}
+         :
+         newDataAlumno = {...newDataAlumno , [Object.keys(dataAlumno)[i]] : Object.values(dataAlumno)[i] 
+         }
+   }
+   for (let i = 0 ; i < Object.keys(dataAlumno).length - 2 ; i ++){
+      Object.values(dataAlumno)[i].toString() !== Object.values(newDataAlumno)[i] ?
+         updatedData = {...updatedData , [Object.keys(dataAlumno)[i]]: Object.values(newDataAlumno)[i]} 
+         :
+         null
+   }
+   console.log(updatedData)
 }
 
 export const handleChangeCalendar = (value,setFechaNacimiento) => {

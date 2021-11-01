@@ -103,6 +103,7 @@ const ModalEditAlumno = ({
                      switchEdit={switchEdit}
                      setSwitchEdit={setSwitchEdit}
                      modalEditRef={modalEditRef}
+                     fechaNacimiento={fechaNacimiento}
                   />
                </Tab>
                <Tab

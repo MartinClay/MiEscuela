@@ -3,11 +3,11 @@ import {
    useEffect,
    useRef
 } from 'react'
-
 import ModalEditAlumno from './ModalEditAlumno.jsx'
 import SelectFormStage1 from './SelectFormStage1.jsx'
 import SelectFormStage2 from './SelectFormStage2.jsx'
 import TableAlumnosMatricula from './TableAlumnosMatricula.jsx'
+import LoadingSpinner from './LoadingSpinner.jsx'
 
 import {Container} from 'react-bootstrap'
 
@@ -37,8 +37,12 @@ const Matricula = () => {
    },[])
 
    return ( 
-      <Container>
-         <ModalEditAlumno
+         <Container>
+            {datosAlumno.length === 0 ? 
+               <LoadingSpinner/>
+              :
+               <>
+               <ModalEditAlumno
             alumnoEditModal={alumnoEditModal}
             setAlumnoEditModal={setAlumnoEditModal}
             selectedAlumnoForEdit={selectedAlumnoForEdit}
@@ -75,6 +79,9 @@ const Matricula = () => {
             filtredDatosAlumnoStage1={filtredDatosAlumnoStage1}
             filtredDatosAlumnoStage2={filtredDatosAlumnoStage2}
          />
+               </>
+            }
+         
       </Container>
    )
 }
