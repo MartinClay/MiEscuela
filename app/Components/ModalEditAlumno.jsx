@@ -7,10 +7,8 @@ import {
 import {Modal} from 'react-bootstrap'
 
 import {
-   handleGetDataAlumno,
    handleShow,
-
-} from './Logic/modaledituserLogic.js'
+} from './Logic/modaleditalumnoLogic.js'
 
 import {
    Col,
@@ -19,8 +17,6 @@ import {
 } from 'react-bootstrap'
 
 import {createISODate} from './Logic/dateHandler'
-
-import useAuth from '../Context/Store/useAuth.jsx'
 
 import TabDatosGenerales from './TabDatosGenerales.jsx'
 import TabDatosContacto from './TabDatosContacto.jsx'
@@ -31,11 +27,13 @@ import TabRegistroModificaciones from './TabRegistroModificaciones.jsx'
 const ModalEditAlumno = ({
    alumnoEditModal,
    setAlumnoEditModal,
-   selectedAlumnoForEdit,
+   setShowModalUpdate,
+   setUpdatedData,
+   dataAlumno,
+   setDataAlumno,
+   setSelectedAlumnoForEdit,
 }) => { 
 
-   const context =  useAuth()
-   const [dataAlumno,setDataAlumno] = useState({})
    const [switchEdit,setSwitchEdit] = useState(true)
    const [fechaNacimiento,setFechaNacimiento] = useState()
    const modalEditRef = useRef([])
@@ -51,12 +49,7 @@ const ModalEditAlumno = ({
       <Modal 
          fullscreen={true}
          show={alumnoEditModal} 
-         onHide={()=> handleShow(setAlumnoEditModal,setDataAlumno)}
-         onShow={()=> handleGetDataAlumno(
-            context,
-            selectedAlumnoForEdit,
-            setDataAlumno,
-         )}
+         onHide={()=> handleShow(setAlumnoEditModal,setDataAlumno,setSelectedAlumnoForEdit)}
       >
          <Modal.Header 
             closeButton
@@ -81,6 +74,9 @@ const ModalEditAlumno = ({
                      setSwitchEdit={setSwitchEdit}
                      modalEditRef={modalEditRef}
                      fechaNacimiento={fechaNacimiento}
+                     setUpdatedData={setUpdatedData}
+                     setShowModalUpdate={setShowModalUpdate}
+                     setFechaNacimiento={setFechaNacimiento}
                   />
                </Tab>
                <Tab
@@ -92,6 +88,9 @@ const ModalEditAlumno = ({
                      switchEdit={switchEdit}
                      setSwitchEdit={setSwitchEdit}
                      modalEditRef={modalEditRef}
+                     setUpdatedData={setUpdatedData}
+                     setShowModalUpdate={setShowModalUpdate}
+
                   />
                </Tab>
                <Tab
@@ -104,6 +103,9 @@ const ModalEditAlumno = ({
                      setSwitchEdit={setSwitchEdit}
                      modalEditRef={modalEditRef}
                      fechaNacimiento={fechaNacimiento}
+                     setUpdatedData={setUpdatedData}
+                     setShowModalUpdate={setShowModalUpdate}
+
                   />
                </Tab>
                <Tab

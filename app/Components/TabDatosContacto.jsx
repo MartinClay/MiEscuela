@@ -8,7 +8,7 @@ import {
 import {
    handleUpdateData,
    handleSwitchEdit,
-} from './Logic/modaledituserLogic.js' 
+} from './Logic/modaleditalumnoLogic.js' 
 
 const TabDatosContacto = ({
    dataAlumno,
@@ -129,6 +129,28 @@ const TabDatosContacto = ({
                /> 
             </Col>
          </Row>
+         <Row
+            className='mt-2'
+         >
+            <Col>
+               <h6>Email Alumno:</h6>
+               <FormControl
+                  defaultValue={dataAlumno.EMAIL}
+                  aria-label='EMAIL'
+                  readOnly={switchEdit}
+                  ref={(element) => modalEditRef.current[11] = element}
+               />  
+            </Col>
+            <Col>
+               <h6>Email Tutor:</h6>
+               <FormControl
+                  defaultValue={dataAlumno.EMAIL_TUTOR}
+                  aria-label='EMAIL_TUTOR'
+                  readOnly={switchEdit}
+                  ref={(element) => modalEditRef.current[30] = element}
+               />  
+            </Col>
+         </Row>
          <Row>
             <Col
                className='mt-2 d-flex justify-content-end' 
@@ -143,7 +165,7 @@ const TabDatosContacto = ({
                   <Button
                      variant='outline-primary'
                      size='sm'
-                     onClick={() => handleUpdateData(modalEditRef,fechaNacimiento,dataAlumno)}
+                     onClick={() => handleUpdateData(modalEditRef,fechaNacimiento,dataAlumno,setSwitchEdit,updatedData,setShowModalUpdate,setUpdatedData)}
                   >Actualizar</Button>
                }
             </Col>

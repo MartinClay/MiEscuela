@@ -22,7 +22,9 @@ const TableAlumnosMatricula = ({
    filtredDatosAlumnoStage1,
    filtredDatosAlumnoStage2,
    setAlumnoEditModal,
-   setSelectedAlumnoForEdit
+   setSelectedAlumnoForEdit,
+   selectedAlumnoForEdit,
+   setDataAlumno,
 }) => { 
 
    return ( 

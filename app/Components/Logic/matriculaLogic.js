@@ -1,5 +1,21 @@
 import {ageCalculate,splitDate,ageCalculate3006} from './dateHandler'
 
+import {getMatriculaSingle} from '../../Hooks/getFetch'
+
+export const handleGetDataAlumno = (
+   context,
+   selectedAlumnoForEdit,
+   setDataAlumno
+) => {
+   getMatriculaSingle(
+      context.stateUser.token,
+      selectedAlumnoForEdit
+   ).then((res)=>{
+      setDataAlumno(res.data)
+   }
+   )
+}
+
 export const handleLastName = (
    event,
    datosAlumno,

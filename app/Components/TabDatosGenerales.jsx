@@ -10,7 +10,7 @@ import {
    handleChangeCalendar,
    handleUpdateData,
    handleSwitchEdit,
-} from './Logic/modaledituserLogic.js' 
+} from './Logic/modaleditalumnoLogic.js' 
 
 import {
    ageCalculate,
@@ -36,7 +36,11 @@ const TabDatosGenerales = ({
    switchEdit,
    modalEditRef,
    fechaNacimiento,
-   setSwitchEdit
+   setSwitchEdit,
+   setShowModalUpdate,
+   setUpdatedData,
+   updatedData,
+   setFechaNacimiento,
 }) => { 
 
    registerLocale('es',es)
@@ -47,7 +51,18 @@ const TabDatosGenerales = ({
             <Col
                className='mt-2'
             >
-               <h6>Nº DNI:</h6>
+               <h6>Tipo:</h6>
+               <FormControl
+                  defaultValue={dataAlumno.TIPO}
+                  aria-label='TIPO'
+                  readOnly={switchEdit}
+                  ref={(element) => modalEditRef.current[3] = element}
+               />
+            </Col>
+            <Col
+               className='mt-2'
+            >
+               <h6>Nº Documento:</h6>
                <FormControl
                   defaultValue={dataAlumno.N_DNI_ALUMNO}
                   aria-label='N_DNI_ALUMNO'
@@ -55,6 +70,7 @@ const TabDatosGenerales = ({
                   ref={(element) => modalEditRef.current[2] = element}
                /> 
             </Col>
+            
             <Col
                className='mt-2'
             >
@@ -270,6 +286,38 @@ const TabDatosGenerales = ({
                /> 
             </Col>
          </Row>
+         <Row
+               className='mt-2'
+         >
+            <Col
+            >
+               <h6>Estado:</h6>
+               <FormControl
+                  defaultValue={dataAlumno.ESTADO} 
+                  aria-label='ESTADO'
+                  readOnly={switchEdit}
+                  ref={(element) => modalEditRef.current[1] = element}
+               />  
+            </Col>
+            <Col>
+               <h6>Ingreso:</h6>
+               <FormControl
+                  defaultValue={dataAlumno.INGRESO} 
+                  aria-label='INGRESO'
+                  readOnly={switchEdit}
+                  ref={(element) => modalEditRef.current[43] = element}
+               />  
+            </Col>
+            <Col>
+               <h6>Egreso:</h6>
+               <FormControl
+                  defaultValue={dataAlumno.EGRESO} 
+                  aria-label='EGRESO'
+                  readOnly={switchEdit}
+                  ref={(element) => modalEditRef.current[44] = element}
+               />  
+            </Col>
+         </Row>
          <Row>
             <Col
                className='mt-2 d-flex justify-content-end'
@@ -284,7 +332,7 @@ const TabDatosGenerales = ({
                   <Button
                      variant='outline-primary'
                      size='sm'
-                     onClick={() => handleUpdateData(modalEditRef,fechaNacimiento,dataAlumno)}
+                     onClick={() => handleUpdateData(modalEditRef,fechaNacimiento,dataAlumno,setSwitchEdit,updatedData,setShowModalUpdate,setUpdatedData)}
                   >Actualizar</Button>
                }
             </Col>

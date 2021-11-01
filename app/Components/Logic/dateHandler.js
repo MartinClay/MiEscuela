@@ -54,3 +54,8 @@ export const createISODate = (date) => {
    const ISOdate = new Date(splitedDate[2],splitedDate[1] - 1,splitedDate[0])
    return ISOdate
 }
+
+export const createStringDate = (date) => {
+   const stringDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+   return stringDate
+}

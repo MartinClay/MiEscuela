@@ -8,7 +8,7 @@ import {
 import {
    handleUpdateData,
    handleSwitchEdit,
-} from './Logic/modaledituserLogic.js' 
+} from './Logic/modaleditalumnoLogic.js' 
 
 import {Vacunas} from '../Helpers/HardCodeData.js'
 
@@ -194,7 +194,6 @@ const TabDatosSalud = ({
                <Row
                   className='mt-2'
                >
-
                   <Col>
                      <h6>Doble:</h6>
                      <Form.Select
@@ -246,7 +245,6 @@ const TabDatosSalud = ({
                            null
                         )}
                      </Form.Select>
-
                   </Col>
                   <Col>
                      <h6>Anti sarampion:</h6>
@@ -274,6 +272,36 @@ const TabDatosSalud = ({
                         )}
                      </Form.Select>
                   </Col>
+                  <Row
+                     className='mt-2'
+                  >
+                     <Col>
+                        <h6>Examen visual:</h6>
+                        <Form.Select
+                           placeholder={dataAlumno?.EXAMEN_VISUAL}
+                           aria-label="EXAMEN_VISUAL"
+                           disabled={switchEdit}
+                           ref={(element) => modalEditRef.current[31] = element}
+                        >
+                           <option 
+                              value={dataAlumno.EXAMEN_VISUAL}
+                           >
+                              {dataAlumno.EXAMEN_VISUAL}
+                           </option>
+                           {Vacunas.map((dataMap)=> 
+                              dataMap !== dataAlumno.EXAMEN_VISUAL ? 
+                                 <option 
+                                    key={dataMap} 
+                                    value={dataMap}
+                                 >
+                                    {dataMap}
+                                 </option>
+                                 :
+                              null
+                           )}
+                        </Form.Select>     
+                     </Col>
+                  </Row>
                   <Row>
                      <Row>
                         <Col
@@ -281,60 +309,60 @@ const TabDatosSalud = ({
                            className='mt-2'
                         >
                            <h6>Otras:</h6>
-                           {
-                              dataAlumno.OTRAS === undefined ? 
-                                 null
-                                 :
-                                    <>
-                                       <Form.Select
-                                          placeholder={dataAlumno?.OTRAS[0]}
-                                          aria-label="OTRAS"
-                                          disabled={switchEdit}
-                                          ref={(element) => modalEditRef.current[41] = element}
-                                       >
-                                          <option 
-                                             value={dataAlumno?.OTRAS[0]}
-                                          >
-                                             {dataAlumno?.OTRAS[0]}
-                                          </option>
-                                          {Vacunas.map((dataMap)=> 
-                                             dataMap !== dataAlumno?.OTRAS[0] ? 
-                                                <option 
-                                                   key={dataMap} 
-                                                   value={dataMap}
-                                                >
-                                                   {dataMap}
-                                                </option>
-                                                :
-                                             null
-                                          )}
-                                       </Form.Select>
-                                       <Form.Select
-                                          placeholder={dataAlumno?.OTRAS[1]}
-                                          aria-label="OTRAS"
-                                          disabled={switchEdit}
-                                          ref={(element) => modalEditRef.current[41] = element}
-                                       >
-                                          <option 
-                                             value={dataAlumno?.OTRAS[1]}
-                                          >
-                                             {dataAlumno.OTRAS[1]}
-                                          </option>
-                                          {Vacunas.map((dataMap)=> 
-                                             dataMap !== dataAlumno.OTRAS[1] ? 
-                                                <option 
-                                                   key={dataMap} 
-                                                   value={dataMap}
-                                                >
-                                                   {dataMap}
-                                                </option>
-                                                :
-                                             null
-                                          )}
-                                       </Form.Select>
-                                    </>
-                           }
                         </Col>
+                        <Row>
+                           <Col>
+                              <Form.Select
+                                 placeholder={dataAlumno?.OTRAS_1}
+                                 aria-label="OTRAS_1"
+                                 disabled={switchEdit}
+                                 ref={(element) => modalEditRef.current[41] = element}
+                              >
+                                 <option 
+                                    value={dataAlumno?.OTRAS_1}
+                                 >
+                                    {dataAlumno?.OTRAS_1}
+                                 </option>
+                                 {Vacunas.map((dataMap)=> 
+                                    dataMap !== dataAlumno?.OTRAS_1 ? 
+                                       <option 
+                                          key={dataMap} 
+                                          value={dataMap}
+                                       >
+                                          {dataMap}
+                                       </option>
+                                       :
+                                    null
+                                 )}
+                              </Form.Select> 
+                           </Col>
+                           <Col> 
+                              <Form.Select
+                                 placeholder={dataAlumno?.OTRAS_2}
+                                 aria-label="OTRAS_2"
+                                 disabled={switchEdit}
+                                 ref={(element) => modalEditRef.current[42] = element}
+                              >
+                                 <option 
+                                    value={dataAlumno?.OTRAS_2}
+                                 >
+                                    {dataAlumno.OTRAS_2}
+                                 </option>
+                                 {Vacunas.map((dataMap)=> 
+                                    dataMap !== dataAlumno.OTRAS_2 ? 
+                                       <option 
+                                          key={dataMap} 
+                                          value={dataMap}
+                                       >
+                                          {dataMap}
+                                       </option>
+                                       :
+                                    null
+                                 )}
+                              </Form.Select>
+
+                           </Col>
+                        </Row>
                      </Row> 
                   </Row>
                </Row>
@@ -359,7 +387,7 @@ const TabDatosSalud = ({
                   <Button
                      variant='outline-primary'
                      size='sm'
-                     onClick={() => handleUpdateData(modalEditRef,fechaNacimiento,dataAlumno)}
+                     onClick={() => handleUpdateData(modalEditRef,fechaNacimiento,dataAlumno,setSwitchEdit,updatedData,setShowModalUpdate,setUpdatedData)}
                   >Actualizar</Button>
                }
             </Col>

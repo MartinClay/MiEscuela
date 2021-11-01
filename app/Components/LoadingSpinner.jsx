@@ -1,15 +1,15 @@
 import {
    Spinner,
    Col,
-   Row
+   Row,
+   Container
 } from 'react-bootstrap'
 
 const LoadingSpinner = () => { 
 
       return ( 
-         <Row>
             <Col
-               className='d-flex justify-content-center'
+               className='d-flex justify-content-center align-items-center'
             >
                <Spinner
                   className='mt-2'
@@ -17,7 +17,6 @@ const LoadingSpinner = () => {
                   variant='primary'
                />   
             </Col>
-         </Row>
                 )
 }
 
