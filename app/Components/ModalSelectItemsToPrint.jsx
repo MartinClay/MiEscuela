@@ -31,7 +31,7 @@ const handleClickModal = (
    setIsRender(true)
    setShowModalItemsToPrint(false)
    setShowModalPdf(true)
-   alert('Una gran cantidad de datos debe ser procesada, esto puede demorar hasta 1 minuto , por favor espere...')
+   alert('Una gran cantidad de datos debe ser procesada, esto puede demorar hasta 1 minuto , presione aceptar para continuar')
 }
 
 const ModalSelectItemsToPrint = ({

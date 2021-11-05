@@ -112,13 +112,18 @@ const InformeRatificacionSecundariaPDf = ({
 }) => {
 
    return (
-      <PDFViewer style={{height:'100vh',width:'100vw'}}>
-         <Document>
+      <PDFViewer style={{height:'100vh',width:'90vw'}}>
+         <Document
+            onRender={()=> setIsRender(false)}
+         >
             <Page
                size={'LEGAL'}
             >
                {filtredDatosAlumnoStage1.map((dato)=>
-               <View style={styles.container}>
+               <View 
+                  style={styles.container}
+                  key={dato._id}
+               >
                   <View style={styles.content}>
                      <View style={styles.header}>
                         <View>

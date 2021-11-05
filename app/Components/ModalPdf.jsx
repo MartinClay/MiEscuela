@@ -2,6 +2,9 @@ import {Modal} from 'react-bootstrap'
 
 import InformeRatificacionPrimariaPdf from './InformeRatificacionPrimariaPdf.jsx'
 import InformeRatificacionSecundariaPDf from './InformeRatificacionSecundariaPdf.jsx'
+import LoadingSpinner from './LoadingSpinner.jsx'
+
+import {handleClickLimpiarFiltrosStage1} from './Logic/matriculaLogic.js'
 
 const ModalPdf = ({
    selectedItems,
@@ -10,9 +13,32 @@ const ModalPdf = ({
    filtredDatosAlumnoStage1,
    setIsRender,
    modelo,
+   isRender,
+   setIsFiltredStage1,
+   setIsFiltredStage2,
+   setFiltredDatosAlumnoStage1,
+   setFiltredDatosAlumnoStage2,
+   matriculaRef,
+   setNivel,
+   setGrado,
+   setDivision,
+   setSelectedItems,
 }) => {
 
-   const handleClose = () => setShowModalPdf(false)
+   const handleClose = () => {
+      setShowModalPdf(false)
+      handleClickLimpiarFiltrosStage1(
+         setIsFiltredStage1,
+         setIsFiltredStage2,
+         setFiltredDatosAlumnoStage1,
+         setFiltredDatosAlumnoStage2,
+         matriculaRef,
+         setNivel,
+         setGrado,
+         setDivision,
+         setSelectedItems,
+      )
+   }
 
    return (
       <Modal 
@@ -25,6 +51,11 @@ const ModalPdf = ({
          >
          </Modal.Header>
          <Modal.Body>
+            {isRender ? 
+               <LoadingSpinner/>
+               :
+                  null
+            }
             {modelo === 'PRIMARIO' ? 
                <InformeRatificacionPrimariaPdf
                   selectedItems={selectedItems}
@@ -38,7 +69,6 @@ const ModalPdf = ({
                   setIsRender={setIsRender}
                />
             }
-               
          </Modal.Body>
       </Modal>
    )

@@ -9,12 +9,15 @@ export const handleClickAccept = (updatedData,token,apiUrl,id,dataRegistro) => {
 }
 
 export const createDataRegistro = (dataAlumno,updatedData,usuario) => {
-   console.log(dataAlumno) 
-   console.log(updatedData)
-   console.log(usuario)
    let dataRegistro = {}
+   dataRegistro = {
+      user: usuario,
+      fecha: new Date().toLocaleString(),
+      cambios:[]
+   } 
    
-   Object.keys(dataAlumno).map((dataMap,index)=>{
-      
+   Object.keys(updatedData).map((dataMap,index)=>{
+      dataRegistro.cambios.push(`Dato anterior: ${dataAlumno[dataMap]} | Dato nuevo: ${Object.values(updatedData)[index]}`)
    })
+   return dataRegistro
 }

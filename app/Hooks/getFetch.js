@@ -68,7 +68,6 @@ export const getMatriculaSingle = async (token,DNI) => {
       }           
    } 
    const url= `http://${baseUrl}:3000/${matriculaUrlSingle}/${DNI}` 
-   console.log(url)
    const dataRes = await axios.get(
       url,
       config

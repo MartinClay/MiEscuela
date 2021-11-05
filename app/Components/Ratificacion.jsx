@@ -54,12 +54,21 @@ const Ratificacion = () => {
                   isRender={isRender}
                />
                <ModalPdf
+                  isRender={isRender}
                   setIsRender={setIsRender}
                   setShowModalPdf={setShowModalPdf}
                   showModalPdf={showModalPdf}
                   selectedItems={selectedItems}
                   filtredDatosAlumnoStage1={filtredDatosAlumnoStage1}
                   modelo={modelo}
+                  setIsFiltredStage1={setIsFiltredStage1}
+                  setIsFiltredStage2={setIsFiltredStage2}
+                  setFiltredDatosAlumnoStage1={setFiltredDatosAlumnoStage1}
+                  setFiltredDatosAlumnoStage2={setFiltredDatosAlumnoStage2}
+                  matriculaRef={matriculaRef}
+                  setNivel={setNivel}
+                  setGrado={setGrado}
+                  setDivision={setDivision}
                />
                <ModalModelPdfSelection
                   showModalPdfSelection={showModalPdfSelection}

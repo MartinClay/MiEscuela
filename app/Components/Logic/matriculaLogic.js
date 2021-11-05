@@ -205,15 +205,17 @@ setIsFiltredStage1,
    matriculaRef,
    setNivel,
    setGrado,
-   setDivision
+   setDivision,
+   setSelectedItems,
 )=> {
    setNivel('Nivel')
    setGrado('Grado')
    setDivision('Division')
    setIsFiltredStage1(false)
-   setIsFiltredStage2(false)
+   setIsFiltredStage2(false);
    setFiltredDatosAlumnoStage1([])
    setFiltredDatosAlumnoStage2([])
+   setSelectedItems([])
    matriculaRef.current[0].options.selectedIndex = 0
    matriculaRef.current[1].options.selectedIndex = 0
    matriculaRef.current[2].options.selectedIndex = 0

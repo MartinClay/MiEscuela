@@ -71,7 +71,7 @@ const SelectFormStage1 = ({
                   )} 
                   ref={(element) => matriculaRef.current[1] = element}
                >
-                  <option>Grado</option>
+                  <option>Grado/Año</option>
                   {Grado.map((dataMap)=>
                   <option 
                      value={dataMap} 

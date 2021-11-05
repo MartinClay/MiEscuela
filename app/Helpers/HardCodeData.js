@@ -1,7 +1,7 @@
 export const Nivel = [
-   'SECUNDARIO',
+   'INICIAL',
    'PRIMARIO',
-   'INICIAL'
+   'SECUNDARIO',
 ]
 
 export const Sexo = [

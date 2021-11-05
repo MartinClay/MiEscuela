@@ -19,7 +19,7 @@ const Footer = () => {
       >
          <Row>
             <Col>
-               <h5>Escuela E.P.A. Nº 9 "Dr. Horacio de la Mota"</h5>
+               <h5>E.P.A. Nº 9 "Dr. Horacio de la Mota"</h5>
             </Col>
             <Col>
             </Col>
