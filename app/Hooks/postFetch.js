@@ -33,11 +33,17 @@ export const postFetchDeleteUser = async (
 export const postFetchUpdateAlumno = async (
    token,
    updatedData,
-   apiUrl
+   apiUrl,
+   id,
+   dataRegistro,
 
 ) => {
+   let objetToSend = {
+      _id : id, 
+      data : updatedData,
+      dataRegistro: dataRegistro,
+   }
    const url= `http://${baseUrl}:3000${apiUrl}`  
-   console.log(url)
    const config = {
       headers: {                    
          "Accept": "application/json",                    
@@ -48,7 +54,7 @@ export const postFetchUpdateAlumno = async (
    try{
       const resData = await axios.post(
          url,
-         updatedData,
+         objetToSend,
          config
       )
       return resData

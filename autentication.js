@@ -5,7 +5,7 @@ let verificarToken = (
    res, 
    next
 ) => {
-   let token = req.get("Authorization");//headers
+   let token = req.get("Authorization");
 
    jwt.verify(
       token, 

@@ -2,7 +2,8 @@ import axios from 'axios'
 import {baseUrl} from '../Context/Store/AuthProvider.jsx'
 import {
    usuariosUrl,
-   matriculaUrl
+   matriculaUrlSingle,
+   matriculaUrlActivo
 } from '../Helpers/Urls'
 
 export const getFetchUsuarios = async (token) => {
@@ -50,7 +51,7 @@ export const getMatricula = async (token) => {
          "Authorization": token                
       }           
    } 
-   const url= `http://${baseUrl}:3000${matriculaUrl}` 
+   const url= `http://${baseUrl}:3000${matriculaUrlActivo}` 
    const dataRes = await axios.get(
       url,
       config
@@ -66,7 +67,8 @@ export const getMatriculaSingle = async (token,DNI) => {
          "Authorization": token                
       }           
    } 
-   const url= `http://${baseUrl}:3000${matriculaUrl}/${DNI}` 
+   const url= `http://${baseUrl}:3000/${matriculaUrlSingle}/${DNI}` 
+   console.log(url)
    const dataRes = await axios.get(
       url,
       config

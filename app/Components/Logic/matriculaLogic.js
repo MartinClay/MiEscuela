@@ -157,7 +157,6 @@ export const handleClickApplyFilter = (
          newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivel)
          setIsFiltredStage1(true)
          setFiltredDatosAlumnoStage1(newArray)  
-         console.log(newArray)
          break
       case nivel !== 'Nivel' && grado !== 'Grado' && division === 'Division':
          newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivel && dataFilter.GRADO === parseInt(grado))
@@ -197,3 +196,26 @@ export const handleClickLimpiarFiltros = (
    matriculaRef.current[5].value = ''
    matriculaRef.current[6].value = ''
 }
+
+export const handleClickLimpiarFiltrosStage1 = (
+setIsFiltredStage1,
+   setIsFiltredStage2,
+   setFiltredDatosAlumnoStage1,
+   setFiltredDatosAlumnoStage2,
+   matriculaRef,
+   setNivel,
+   setGrado,
+   setDivision
+)=> {
+   setNivel('Nivel')
+   setGrado('Grado')
+   setDivision('Division')
+   setIsFiltredStage1(false)
+   setIsFiltredStage2(false)
+   setFiltredDatosAlumnoStage1([])
+   setFiltredDatosAlumnoStage2([])
+   matriculaRef.current[0].options.selectedIndex = 0
+   matriculaRef.current[1].options.selectedIndex = 0
+   matriculaRef.current[2].options.selectedIndex = 0
+}
+

@@ -2,25 +2,39 @@ import {
    Row,
    Col,
    Table,
-   Button,
-   CloseButton
+   CloseButton,
 } from 'react-bootstrap'
 
 import {
    handleDelete,
-   handleClickImprimir
+   conditionalButtonReder,
 } from './Logic/ratificacionLogic'
 
 const TableRatificacion = ({
-   setDatosAlumno,
-   datosAlumno,
-   setShowModalPdf
+   setFiltredDatosAlumnoStage1,
+   filtredDatosAlumnoStage1,
+   selectedItems,
+   setShowModalPdfSelection,
 }) => { 
    return ( 
       <> 
          <Row 
-            style={{marginTop:10}}
+            className='m-2 p-1 border border-primary'
          >
+            <Col 
+               className='d-flex justify-content-center'
+            >
+               Cantidad de registros:
+            </Col>
+            <Col 
+               className='d-flex justify-content-center'
+            >
+               {
+                     filtredDatosAlumnoStage1.length 
+               }
+            </Col>
+         </Row>
+
             <Col>
                <Table 
                   bordered 
@@ -37,7 +51,7 @@ const TableRatificacion = ({
                      </tr>
                   </thead>
                   <tbody>
-                     {datosAlumno.map(
+                     {filtredDatosAlumnoStage1.map(
                         (data) =>
                            <tr 
                               key={data.N_DNI_ALUMNO}
@@ -46,8 +60,8 @@ const TableRatificacion = ({
                                  <CloseButton 
                                     onClick={()=> handleDelete(
                                        data.N_DNI_ALUMNO,
-                                       setDatosAlumno,
-                                       datosAlumno
+                                       setFiltredDatosAlumnoStage1,
+                                       filtredDatosAlumnoStage1
                                     )}
                                  />
                               </th>
@@ -59,16 +73,10 @@ const TableRatificacion = ({
                   </tbody>
                </Table>
             </Col>
-         </Row>
          <Col 
-            className='d-flex justify-content-end'
+            className='d-flex justify-content-end m-2'
          >
-            <Button 
-               variant='primary' 
-               onClick={()=> handleClickImprimir(setShowModalPdf)}
-            >
-               Imprimir
-            </Button>
+            {conditionalButtonReder(selectedItems,filtredDatosAlumnoStage1,setShowModalPdfSelection)}
          </Col>
       </>
    )

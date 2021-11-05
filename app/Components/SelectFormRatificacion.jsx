@@ -20,6 +20,7 @@ import {
    generarInforme
 } from './Logic/ratificacionLogic'
 
+
 const SelectFormRatificacion = ({
    nivel,
    setNivel,
@@ -30,6 +31,7 @@ const SelectFormRatificacion = ({
    setDatosAlumno,
    setShowModalItems,
    context,
+   matriculaRef,
 }) => { 
 
    return ( 
@@ -38,6 +40,8 @@ const SelectFormRatificacion = ({
             <Col 
                className='d-flex justify-content-center'
             >
+               
+
                <DropdownButton 
                   title={nivel}
                   as={ButtonGroup}

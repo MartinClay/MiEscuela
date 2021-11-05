@@ -81,7 +81,7 @@ const TableAlumnosMatricula = ({
                                     <th>
                                        <Button 
                                           onClick={()=> handleEdit(
-                                             dataMap.N_DNI_ALUMNO,
+                                             dataMap._id,
                                              setAlumnoEditModal,
                                              setSelectedAlumnoForEdit
                                           )}
@@ -112,7 +112,7 @@ const TableAlumnosMatricula = ({
                                     <th>
                                        <Button 
                                           onClick={()=> handleEdit(
-                                             dataMap.N_DNI_ALUMNO,
+                                             dataMap._id,
                                              setAlumnoEditModal,
                                              setSelectedAlumnoForEdit
                                           )}

@@ -11,11 +11,6 @@ const TabRegistroModificaciones = ({
          <Col
                      className='mt-2 border'
                   >
-                     {dataAlumno.REGISTRO?.map((dataMap) => 
-                     <p
-                        key={dataMap === "" ? Math.random() : dataMap}
-                     >{dataMap}</p>
-                     )}
                   </Col>
       </>
    )

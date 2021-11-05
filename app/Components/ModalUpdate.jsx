@@ -9,6 +9,7 @@ import {
 import {
    handleShow,
    handleClickAccept,
+   createDataRegistro,
 } from './Logic/modalupdateLogic.js'
 
 import useAuth from '../Context/Store/useAuth.jsx'
@@ -20,9 +21,13 @@ const ModalUpdate = ({
    updatedData,
    setShowModalUpdate,
    dataAlumno,
+   setDatosAlumno,
 }) => { 
 
+
 const context = useAuth()
+
+let dataRegistro = createDataRegistro(dataAlumno,updatedData,context.stateUser.user)
 
       return ( 
          <Modal
@@ -63,7 +68,7 @@ const context = useAuth()
                   <Col>
                      <Button 
                         variant='outline-primary'
-                        onClick={() => handleClickAccept(updatedData,context.stateUser.token,updateAlumnoUrl)}
+                        onClick={() => handleClickAccept(updatedData,context.stateUser.token,updateAlumnoUrl,dataAlumno._id,dataRegistro)}
                      >
                         Aceptar
                      </Button>

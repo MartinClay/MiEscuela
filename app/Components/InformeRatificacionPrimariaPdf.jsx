@@ -80,18 +80,20 @@ const styles = StyleSheet.create ({
 
 const Pdf = ({
    datosAlumno,
-   selectedItems
+   selectedItems,
+   filtredDatosAlumnoStage1,
+   setIsRender,
 }) => (
    <PDFViewer 
       style={{height:'90vh',width:'90vw'}}
    >
       <Document
-         loading
+         onRender={()=> setIsRender(false)}
       >
          <Page 
             size={'LEGAL'}
          >
-            {datosAlumno.map((dato) => 
+            {filtredDatosAlumnoStage1.map((dato) => 
             <View 
                key={dato.N_DNI_ALUMNO} 
                style={styles.container}

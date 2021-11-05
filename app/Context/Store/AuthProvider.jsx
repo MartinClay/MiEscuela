@@ -25,7 +25,8 @@ window.addEventListener('beforeunload' ,(ev) => {
 
 const initialState = {
    isAuthenticated : false,
-   token: ''
+   token: '',
+   user: {},
 }
 
 const AuthProvider = (props) => {

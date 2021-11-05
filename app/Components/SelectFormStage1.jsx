@@ -11,7 +11,8 @@ import {
    handleGradoChange,
    handleDivisionChange,
    handleClickApplyFilter,
-   handleClickLimpiarFiltros
+   handleClickLimpiarFiltros,
+   handleClickLimpiarFiltrosStage1,
 } 
 from './Logic/matriculaLogic'
 
@@ -125,7 +126,7 @@ const SelectFormStage1 = ({
                      className='m-2' 
                      variant='outline-primary' 
                      size='sm' 
-                     onClick={()=> handleClickLimpiarFiltros(
+                     onClick={()=> handleClickLimpiarFiltrosStage1(
                         setIsFiltredStage1,
                         setIsFiltredStage2,
                         setFiltredDatosAlumnoStage1,

@@ -143,6 +143,10 @@ export const datosRatificacion2 = {
    DNI_ALUMNO:{
       label:'DNI Alumno',
       isTrue:true,
+   },
+   CUIL:{
+      label:'CUIL',
+      isTrue:true,
    }
 }
 
@@ -150,3 +154,8 @@ export const Role = [
    'admin',
    'secretaria'
 ]
+
+export const ModelPdf = [
+   'Primario',
+   'Secundario'
+] 

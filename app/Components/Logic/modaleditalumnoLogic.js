@@ -1,7 +1,5 @@
 import {createStringDate} from './dateHandler'
 
-
-
 export const handleSwitchEdit = (
    setSwitchEdit
 ) => {
@@ -26,12 +24,6 @@ export const handleUpdateData = (modalEditRef,fechaNacimiento,dataAlumno,setSwit
          :
          null
    }
-   Object.keys(dataAlumno).map((dataMap,index)=>{
-      console.log(`${index} ${dataMap}`)
-   })
-   console.log(newDataAlumno)
-   console.log(modalEditRef)
-   console.log(createStringDate(fechaNacimiento))
    if (Object.keys(changedData).length === 0)
       {alert('No se realizaron cambios')
          setSwitchEdit(true)}

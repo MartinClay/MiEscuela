@@ -1,12 +1,15 @@
 import {Modal} from 'react-bootstrap'
 
-import Pdf from './MyPdf.jsx'
+import InformeRatificacionPrimariaPdf from './InformeRatificacionPrimariaPdf.jsx'
+import InformeRatificacionSecundariaPDf from './InformeRatificacionSecundariaPdf.jsx'
 
 const ModalPdf = ({
    selectedItems,
-   datosAlumno,
    showModalPdf,
-   setShowModalPdf
+   setShowModalPdf,
+   filtredDatosAlumnoStage1,
+   setIsRender,
+   modelo,
 }) => {
 
    const handleClose = () => setShowModalPdf(false)
@@ -22,10 +25,20 @@ const ModalPdf = ({
          >
          </Modal.Header>
          <Modal.Body>
-            <Pdf
-               selectedItems={selectedItems}
-               datosAlumno={datosAlumno}
-            />
+            {modelo === 'PRIMARIO' ? 
+               <InformeRatificacionPrimariaPdf
+                  selectedItems={selectedItems}
+                  filtredDatosAlumnoStage1={filtredDatosAlumnoStage1}
+                  setIsRender={setIsRender}
+               />
+               :
+               <InformeRatificacionSecundariaPDf
+                  selectedItems={selectedItems}
+                  filtredDatosAlumnoStage1={filtredDatosAlumnoStage1}
+                  setIsRender={setIsRender}
+               />
+            }
+               
          </Modal.Body>
       </Modal>
    )

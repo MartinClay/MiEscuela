@@ -1,30 +1,28 @@
 const express = require('express')
 const app = express.Router()
 const {verificarToken} = require('../autentication')
-const bcrypt = require('bcrypt')
 
-const data = require('../models/usuarios')
+const data = require('../models/matricula')
 
 app.post('/', verificarToken, async (req,res) => {
 
-   {/*
-let sendData = new data({
-      usuario: req.body.usuario,
-      password: bcrypt.hashSync(
-         req.body.password, 
-         8
-      ),
-      role: req.body.role
-   });
-   await sendData.save((err)=> {
-      if (err) return res.status(500).send(err)
-      return res.status(200).send(sendData)
-   }
-   )
-})
+let _id = req.body._id
+let dataToSend = req.body.data
+let dataRegistro = req.body.dataRegistro
 
-*/}
-   console.log(req.body)
+   try{
+      const result = await data.findOneAndUpdate(
+      {_id : _id},
+      dataToSend,
+   )
+      const result2 = await data.findOneAndUpdate(
+         {_id : _id},
+         {$push: {REGISTRO: dataRegistro}},
+      )
+      res.json({message: 'Actualizacion realizada con exito', result})
+   } catch (err) {
+      res.status(500).json({error:'Hubo un problema en el lado del servidor'})
+   } 
 })
 
 module.exports = app

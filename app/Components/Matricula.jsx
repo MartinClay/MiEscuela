@@ -72,6 +72,8 @@ const Matricula = () => {
                   showModalUpdate={showModalUpdate}
                   updatedData={updatedData}
                   setShowModalUpdate={setShowModalUpdate}
+                  setDatosAlumno={setDatosAlumno}
+
                />
                <SelectFormStage1
                   setGrado={setGrado}                     
