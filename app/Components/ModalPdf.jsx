@@ -40,6 +40,7 @@ const ModalPdf = ({
       )
    }
 
+   console.log(modelo)
    return (
       <Modal 
          show={showModalPdf} 
@@ -56,7 +57,7 @@ const ModalPdf = ({
                :
                   null
             }
-            {modelo === 'PRIMARIO' ? 
+            {modelo === 'Primario' ? 
                <InformeRatificacionPrimariaPdf
                   selectedItems={selectedItems}
                   filtredDatosAlumnoStage1={filtredDatosAlumnoStage1}

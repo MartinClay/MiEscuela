@@ -8,6 +8,7 @@ import Menu from '../Components/menu.jsx'
 import Matricula from '../Components/Matricula.jsx'
 
 const MatriculaPage = () => {
+   
    return (
       <Container 
          className='d-flex-column' 

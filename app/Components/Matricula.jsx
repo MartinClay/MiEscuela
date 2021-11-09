@@ -32,6 +32,7 @@ const Matricula = () => {
    const [alumnoEditModal,setAlumnoEditModal] = useState(false)
    const [showModalUpdate,setShowModalUpdate] = useState(false)
    const [updatedData,setUpdatedData] = useState({})
+   const [switchEdit,setSwitchEdit] = useState(true)
    const matriculaRef = useRef([]) 
    const context  =  useAuth()
 
@@ -65,6 +66,8 @@ const Matricula = () => {
                   setUpdatedData={setUpdatedData}
                   setDataAlumno={setDataAlumno}
                   setSelectedAlumnoForEdit={setSelectedAlumnoForEdit}
+                  switchEdit={switchEdit}
+                  setSwitchEdit={setSwitchEdit}
                />
                <ModalUpdate 
                   dataAlumno={dataAlumno}
@@ -72,8 +75,10 @@ const Matricula = () => {
                   showModalUpdate={showModalUpdate}
                   updatedData={updatedData}
                   setShowModalUpdate={setShowModalUpdate}
-                  setDatosAlumno={setDatosAlumno}
-
+                  alumnoEditModal={alumnoEditModal}
+                  setAlumnoEditModal={setAlumnoEditModal}
+                  switchEdit={switchEdit}
+                  setSwitchEdit={setSwitchEdit}
                />
                <SelectFormStage1
                   setGrado={setGrado}                     
@@ -107,6 +112,8 @@ const Matricula = () => {
                   isFiltredStage2={isFiltredStage2}
                   filtredDatosAlumnoStage1={filtredDatosAlumnoStage1}
                   filtredDatosAlumnoStage2={filtredDatosAlumnoStage2}
+                  switchEdit={switchEdit}
+                  setSwitchEdit={setSwitchEdit}
                />
             </>
          }

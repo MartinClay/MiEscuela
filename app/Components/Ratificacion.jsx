@@ -69,6 +69,7 @@ const Ratificacion = () => {
                   setNivel={setNivel}
                   setGrado={setGrado}
                   setDivision={setDivision}
+                  setSelectedItems={setSelectedItems}
                />
                <ModalModelPdfSelection
                   showModalPdfSelection={showModalPdfSelection}

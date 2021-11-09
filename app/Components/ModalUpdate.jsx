@@ -21,7 +21,9 @@ const ModalUpdate = ({
    updatedData,
    setShowModalUpdate,
    dataAlumno,
-   setDatosAlumno,
+   alumnoEditModal,
+   setAlumnoEditModal,
+   setSwitchEdit,
 }) => { 
 
 
@@ -68,7 +70,7 @@ let dataRegistro = createDataRegistro(dataAlumno,updatedData,context.stateUser.u
                   <Col>
                      <Button 
                         variant='outline-primary'
-                        onClick={() => handleClickAccept(updatedData,context.stateUser.token,updateAlumnoUrl,dataAlumno._id,dataRegistro)}
+                        onClick={() => handleClickAccept(updatedData,context.stateUser.token,updateAlumnoUrl,dataAlumno._id,dataRegistro,setAlumnoEditModal,setShowModalUpdate,setSwitchEdit)}
                      >
                         Aceptar
                      </Button>

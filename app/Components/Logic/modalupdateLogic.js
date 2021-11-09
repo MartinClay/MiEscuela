@@ -4,8 +4,11 @@ export const handleShow = (setShowModalUpdate) => {
    setShowModalUpdate(false)
 }
 
-export const handleClickAccept = (updatedData,token,apiUrl,id,dataRegistro) => {
+export const handleClickAccept = (updatedData,token,apiUrl,id,dataRegistro,setAlumnoEditModal,setShowModalUpdate,setSwitchEdit) => {
    postFetchUpdateAlumno(token,updatedData,apiUrl,id,dataRegistro)
+   setShowModalUpdate(false)
+   setAlumnoEditModal(false)
+   setSwitchEdit(true)
 }
 
 export const createDataRegistro = (dataAlumno,updatedData,usuario) => {
@@ -17,7 +20,7 @@ export const createDataRegistro = (dataAlumno,updatedData,usuario) => {
    } 
    
    Object.keys(updatedData).map((dataMap,index)=>{
-      dataRegistro.cambios.push(`Dato anterior: ${dataAlumno[dataMap]} | Dato nuevo: ${Object.values(updatedData)[index]}`)
+      dataRegistro.cambios.push(`${dataMap} | Anterior: ${dataAlumno[dataMap]} | Nuevo: ${Object.values(updatedData)[index]}`)
    })
    return dataRegistro
 }

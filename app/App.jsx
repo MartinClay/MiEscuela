@@ -3,9 +3,11 @@ import AppRouter from './routes/AppRouter.jsx'
 import AuthProvider from './Context/Store/AuthProvider.jsx'
 function App () {
 
+   
    return (
       <AuthProvider>
-         <AppRouter/>
+         <AppRouter
+         />
       </AuthProvider>
    )
 }

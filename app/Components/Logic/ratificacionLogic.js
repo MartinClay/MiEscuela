@@ -23,7 +23,7 @@ export const updateLista = (data,setDatosAlumno) => {
 }
 
 export const handleChangeModel = (event,setModelo) => {
-   setModelo(event)
+   setModelo(event.target.value)
 }
 
 export const handleAcceptModel = (setShowModalPdfSelection,setShowModalItemsToPrint) => {

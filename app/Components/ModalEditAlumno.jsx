@@ -32,9 +32,10 @@ const ModalEditAlumno = ({
    dataAlumno,
    setDataAlumno,
    setSelectedAlumnoForEdit,
+   switchEdit,
+   setSwitchEdit,
 }) => { 
 
-   const [switchEdit,setSwitchEdit] = useState(true)
    const [fechaNacimiento,setFechaNacimiento] = useState()
    const modalEditRef = useRef([])
 
