@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express.Router()
 const {verificarToken} = require('../autentication')
+const bcrypt = require('bcrypt')
 
 const data = require('../models/usuarios')
-const dataDelete = require('../models/usuariosDelete')
 
 app.get('/', verificarToken, async (req,res) => {
    const dataRes = await data.find()
@@ -20,7 +20,7 @@ app.get('/:usuario',verificarToken,async(req,res) => {
 
 app.post('/Delete', verificarToken,async (req,res) => {
    let body = req.body
-   dataDelete.findOneAndRemove(
+   data.findOneAndRemove(
       {
          usuario:body.usuario
       },
@@ -32,6 +32,22 @@ app.post('/Delete', verificarToken,async (req,res) => {
       } 
       return res.status(200).send(response)
       }
+   )
+})
+
+app.post('/AddUser', verificarToken, async (req,res) => {
+   let sendData = new data({
+      usuario: req.body.usuario,
+      password: bcrypt.hashSync(
+         req.body.password, 
+         8
+      ),
+      role: req.body.role
+   });
+   await sendData.save((err)=> {
+      if (err) return res.status(500).send(err)
+      return res.status(200).send(sendData)
+   }
    )
 })
 

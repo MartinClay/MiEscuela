@@ -36,6 +36,27 @@ app.get('/Single/:_id',verificarToken,async(req,res) => {
    res.json(dataRes)
 })
 
+app.post('/UpdateAlumno', verificarToken, async (req,res) => {
+
+   let _id = req.body._id
+   let dataToSend = req.body.data
+   let dataRegistro = req.body.dataRegistro
+
+   try{
+      const result = await data.findOneAndUpdate(
+         {_id : _id},
+         dataToSend,
+      )
+      const result2 = await data.findOneAndUpdate(
+         {_id : _id},
+         {$push: {REGISTRO: dataRegistro}}
+      )
+      res.json({message: 'Actualizacion realizada con exito', result, result2})
+   } catch (err) {
+      res.status(500).json({error:'Hubo un problema en el lado del servidor'})
+   } 
+})
+
 
 
 module.exports = app

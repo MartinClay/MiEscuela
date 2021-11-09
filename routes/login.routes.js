@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 const {verificarToken} = require('../autentication')
 const login = require('../models/login')
 
+let jwtSignature = process.env.JWT_SIGNATURE
 
 app.post('/', async (req,res)=>{
     let body = req.body
@@ -39,7 +40,7 @@ app.post('/', async (req,res)=>{
             usuario:usuario,
             password:usuario.password,
             role:usuario.role
-        },'nemesis',{expiresIn:'1h'})
+        },jwtSignature,{expiresIn:'1h'})
 
         res.json({
             ok:true,

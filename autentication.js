@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-
+let jwtSignature = process.env.JWT_SIGNATURE
 let verificarToken = (
    req, 
    res, 
@@ -9,7 +9,7 @@ let verificarToken = (
 
    jwt.verify(
       token, 
-      "nemesis", 
+      jwtSignature, 
       (
          err, 
          decoded

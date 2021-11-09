@@ -8,7 +8,7 @@ export const usuariosUrl = '/Api/Usuarios'
 
 export const verifyTokenUrl = '/Api/VerifyToken'
 
-export const addUserUrl = '/Api/AddUser'
+export const addUserUrl = '/Api/Usuarios/AddUser'
 
 export const matriculaUrl = '/Api/Matricula'
 
@@ -16,4 +16,4 @@ export const matriculaUrlActivo = '/Api/Matricula/Activo'
 
 export const matriculaUrlSingle = 'Api/Matricula/Single'
 
-export const updateAlumnoUrl = '/Api/UpdateAlumno'
+export const updateAlumnoUrl = '/Api/Matricula/UpdateAlumno'
