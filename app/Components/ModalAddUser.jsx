@@ -16,7 +16,12 @@ import useAuth from '../Context/Store/useAuth.jsx'
 
 import {Role} from '../Helpers/HardCodeData'
 
-import {postFetchAddUser} from '../Hooks/postFetch.js'
+import {
+   handleClickRole,
+   handleChangeUser,
+   handleChangePassowrd,
+   handleClick,
+} from './Logic/modalAddUserLogic'
 
 import {addUserUrl} from '../Helpers/Urls'
 
@@ -42,36 +47,6 @@ const ModalAddUser = ({
    const [password,setPassword] = useState('')
    const [role,setRole] = useState('Seleccione tipo de usuario')
 
-   function handleClickRole(item){
-      setRole(item)
-   }
-
-   function handleChangeUser(event) {
-      setUsuario(event.target.value);
-   }
-
-   function handleChangePassowrd(event) {
-      setPassword(event.target.value)
-   }
-
-   function handleClick(){
-      postFetchAddUser(
-         context.stateUser.token,
-         usuario,
-         password,
-         role,
-         addUserUrl
-      ).then(res => {
-         if(res.statusText === 'OK') {
-            alert('Usuario añadido con exito')
-            handleClose()
-            setUsuariosModal(true)
-         }else {
-            alert(res.data.err.message)
-         }
-      })
-   }
-
    return ( 
       <Modal 
          show={addUserModal} 
@@ -96,7 +71,7 @@ const ModalAddUser = ({
                         <Form.Control 
                            placeholder='Ingerse Usuario' 
                            type='text' 
-                           onChange={handleChangeUser}
+                           onChange={(event)=> handleChangeUser(event,setUsuario)}
                         />
                         <Form.Text 
                            className='text-muted'
@@ -109,7 +84,7 @@ const ModalAddUser = ({
                         <Form.Control 
                            placeholder='Ingerse Contraseña' 
                            type='password' 
-                           onChange={handleChangePassowrd}
+                           onChange={(event)=> handleChangePassowrd(event,setPassword)}
                         />
                         <Form.Text 
                            className='text-muted'
@@ -126,7 +101,7 @@ const ModalAddUser = ({
                               (item) =>
                                  <Dropdown.Item 
                                     key={item} 
-                                    onClick={ () => handleClickRole(item)}
+                                    onClick={ ()=> handleClickRole(item,setRole)}
                                  >
                                     {item}
                                  </Dropdown.Item>
@@ -138,7 +113,7 @@ const ModalAddUser = ({
                            variant='primary' 
                            type='button' 
                            style={style.button} 
-                           onClick={handleClick}
+                           onClick={ ()=> handleClick(context,usuario,password,role,addUserUrl,setAddUserModal,setUsuariosModal)}
                         >
                            Añadir
                         </Button> 

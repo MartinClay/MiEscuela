@@ -159,3 +159,10 @@ export const ModelPdf = [
    'Primario',
    'Secundario'
 ] 
+
+export const  Denominacion = [
+   'AGUILA MORA',
+   'COLIBRIES',
+   'CONEJITOS',
+
+]

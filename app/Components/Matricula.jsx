@@ -17,7 +17,11 @@ import {handleGetDataAlumno} from './Logic/matriculaLogic.js'
 
 import useAuth from '../Context/Store/useAuth.jsx'
 
+import {createJson} from './createJson.js'
+
 const Matricula = () => { 
+
+   createJson()
 
    const [dataAlumno,setDataAlumno] = useState({})
    const [datosAlumno,setDatosAlumno] = useState([])

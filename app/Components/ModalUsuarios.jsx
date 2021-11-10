@@ -9,40 +9,14 @@ import {
    Button
 } from 'react-bootstrap'
 
-import {getFetchUsuarios} from '../Hooks/getFetch.js'
 import {FaUserEdit} from 'react-icons/fa'
 import useAuth from '../Context/Store/useAuth.jsx'
 
-
-function handleEdit(
-   dataMap,
-   userEditModal,
-   setUserEditModal,
-   setUsuariosModal,
-   setSelectedUser
-){
-   setUsuariosModal(false) 
-   setUserEditModal(true)
-   setSelectedUser(dataMap.usuario)
-}
-
-function handleAddUser(
-   setAddUserModal,
-   setUsuariosModal
-){
-   setUsuariosModal(false)
-   setAddUserModal(true) 
-}
-
-function upDateUsers(
-   token,
-   setDataUsuarios
-){
-   getFetchUsuarios(token).then((data) =>
-      setDataUsuarios(data.data)
-   )
-}
-
+import {
+   handleEdit,
+   handleAddUser,
+   upDateUsers,
+} from './Logic/modalUsuariosLogic'
 
 const ModalUsuarios = ({
    usuariosModal,

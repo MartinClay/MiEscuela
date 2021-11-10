@@ -12,16 +12,13 @@ import {
 
 import useAuth from '../Context/Store/useAuth.jsx'
 
-import {getFetchUsuarioSingle} from '../Hooks/getFetch.js'
-
 import {Role} from '../Helpers/HardCodeData.js'
 
-import {postFetchDeleteUser} from '../Hooks/postFetch'
-
-import {deleteFetchDeleteUser} from '../Hooks/deleteFetch'
-
-import {userDeleteUrl} from '../Helpers/Urls.js'
-
+import {
+   handleClose,
+   handleShow,
+   handleClickDelete,
+} from './Logic/modalEditUserLogic' 
 
 const ModalEditUser = ({
    userEditModal,
@@ -36,46 +33,14 @@ const ModalEditUser = ({
    const [switchPassword,setSwitchPassword] = useState(true)
    const [switchRole,setSwitchRole] = useState(true)
 
-   const handleClose = () => {
-      setSwitchRole(true)
-      setSwitchPassword(true)
-      setSwitchUsuario(true)
-      setUserEditModal(false)
-      setUsuariosModal(true)
-   }
-
-   const handleShow = () => {
-      getFetchUsuarioSingle(
-         context.stateUser.token,
-         selectedUser
-      ).then((res) => 
-         setDataUser(res.data)
-      )
-   }
-
-   const handleClickDelete = () => {
-      deleteFetchDeleteUser(
-         context.stateUser.token,
-         selectedUser,
-         userDeleteUrl
-      ).then((res) =>{
-         if(res.status === 200){
-            alert('Usuario eliminado con exito')
-         }
-      }
-      ) 
-      handleClose()
-   }
-
    const handleClickAccept = () => {
-
    }
 
    return ( 
       <Modal 
          show={userEditModal} 
-         onHide={handleClose} 
-         onShow={handleShow}>
+         onHide={()=> handleClose(setSwitchRole,setSwitchPassword,setSwitchUsuario,setUserEditModal,setUsuariosModal)} 
+         onShow={()=> handleShow(setDataUser,context,selectedUser)}>
          <Modal.Header 
             closeButton
          >
@@ -183,7 +148,7 @@ const ModalEditUser = ({
                   >
                      <Button 
                         variant='primary' 
-                        onClick={()=> handleClickDelete()}
+                        onClick={()=> handleClickDelete(context,selectedUser,userDeleteUrl)}
                      >
                         Eliminar Usuario
                      </Button>

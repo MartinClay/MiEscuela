@@ -6,8 +6,8 @@ import {
    Button
 } from 'react-bootstrap'
 
-
 import {handleChangeUser,handleChangePassowrd,handleClick} from './Logic/loginformLogic'
+
 
 const style = {
    form: {
@@ -25,7 +25,7 @@ const Loginform = ({
    setPassword,
    context,
 }) => {
-
+   
    return (
       <Container 
          style={style.form}
