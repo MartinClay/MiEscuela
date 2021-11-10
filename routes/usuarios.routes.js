@@ -5,19 +5,24 @@ const bcrypt = require('bcrypt')
 
 const data = require('../models/usuarios')
 
-app.get('/', verificarToken, async (req,res) => {
-   const dataRes = await data.find()
-   res.json(dataRes)
-   })
-
-app.get('/:usuario',verificarToken,async(req,res) => {
-   const dataRes = await data.findOne(
-   {
-      usuario:req.params.usuario
-   })
-   res.json(dataRes)
+app.get('/', verificarToken,(req,res) => {
+   data.find(
+      (err,data)=>
+      res.json(data)
+   )
 })
 
+app.get('/:usuario',verificarToken,(req,res) => {
+   data.findOne(
+   {
+      usuario:req.params.usuario
+   },
+      (err,data)=>
+      res.json(data)
+   )
+})
+
+{/*
 app.post('/Delete', verificarToken,async (req,res) => {
    let body = req.body
    data.findOneAndRemove(
@@ -34,8 +39,18 @@ app.post('/Delete', verificarToken,async (req,res) => {
       }
    )
 })
+*/}
 
-app.post('/AddUser', verificarToken, async (req,res) => {
+app.delete('/Delete/:id',verificarToken,(req,res) => {
+   data.findOneAndRemove({
+      usuario:req.params.id
+   },
+      (err,data)=>
+      res.json(data)
+   )
+})
+
+app.post('/AddUser', verificarToken,(req,res) => {
    let sendData = new data({
       usuario: req.body.usuario,
       password: bcrypt.hashSync(
@@ -44,10 +59,9 @@ app.post('/AddUser', verificarToken, async (req,res) => {
       ),
       role: req.body.role
    });
-   await sendData.save((err)=> {
-      if (err) return res.status(500).send(err)
-      return res.status(200).send(sendData)
-   }
+   sendData.save(
+      (err,data)=>
+      res.json(data)     
    )
 })
 

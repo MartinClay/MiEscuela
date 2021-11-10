@@ -7,7 +7,7 @@ const login = require('../models/login')
 
 let jwtSignature = process.env.JWT_SIGNATURE
 
-app.post('/', async (req,res)=>{
+app.post('/',(req,res)=>{
     let body = req.body
     login.findOne(
    {

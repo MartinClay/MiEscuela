@@ -79,6 +79,7 @@ const Matricula = () => {
                   setAlumnoEditModal={setAlumnoEditModal}
                   switchEdit={switchEdit}
                   setSwitchEdit={setSwitchEdit}
+                  setSelectedAlumnoForEdit={setSelectedAlumnoForEdit}
                />
                <SelectFormStage1
                   setGrado={setGrado}                     

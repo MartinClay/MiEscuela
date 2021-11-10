@@ -4,7 +4,7 @@ const {verificarToken} = require('../autentication')
 
 const data = require('../models/matricula')
 
-app.post('/Ratificacion',verificarToken, async (req,res) => {
+app.post('/Ratificacion',verificarToken,(req,res) => {
    let body =  req.body
    data.find(
       {
@@ -16,47 +16,44 @@ app.post('/Ratificacion',verificarToken, async (req,res) => {
    )
 })
 
-app.get('/Activo',verificarToken,async(req,res) => {
+app.get('/Activo',verificarToken,(req,res) => {
 
-   const dataRes = await data.find({ESTADO:'ACTIVO'})
-   res.json(dataRes)
+   data.find({ESTADO:'ACTIVO'},
+      (err,data)=>
+      res.json(data)
+   )
 })
 
-app.get('/Single',verificarToken,async(req,res)=> {
+app.get('/Single',verificarToken,(req,res)=> {
 
    res.json({message: 'Peticion sin identificador de _id'})
 })
 
-app.get('/Single/:_id',verificarToken,async(req,res) => {
+app.get('/Single/:_id',verificarToken,(req,res) => {
 
-   const dataRes = await data.findOne(
+   data.findOne(
    {
       _id : req.params._id
-   })
-   res.json(dataRes)
+   },
+      (err,data)=> 
+      res.json(data)
+   )
 })
 
-app.post('/UpdateAlumno', verificarToken, async (req,res) => {
+app.post('/UpdateAlumno', verificarToken,(req,res) => {
 
    let _id = req.body._id
    let dataToSend = req.body.data
    let dataRegistro = req.body.dataRegistro
-
-   try{
-      const result = await data.findOneAndUpdate(
-         {_id : _id},
-         dataToSend,
-      )
-      const result2 = await data.findOneAndUpdate(
-         {_id : _id},
-         {$push: {REGISTRO: dataRegistro}}
-      )
-      res.json({message: 'Actualizacion realizada con exito', result, result2})
-   } catch (err) {
-      res.status(500).json({error:'Hubo un problema en el lado del servidor'})
-   } 
+   dataToSend = {...dataToSend , $push: {REGISTRO: dataRegistro}}
+   data.findOneAndUpdate(
+      {_id : _id},
+      dataToSend,
+      (err,data)=> {
+         res.json(data)
+         console.log(err)
+      }
+   )
 })
-
-
 
 module.exports = app

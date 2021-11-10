@@ -12,7 +12,6 @@ let verificarToken = (
       jwtSignature, 
       (
          err, 
-         decoded
       ) => {
          if (err) {
             return res.status(401).json({

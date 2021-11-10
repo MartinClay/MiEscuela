@@ -17,3 +17,4 @@ export const matriculaUrlActivo = '/Api/Matricula/Activo'
 export const matriculaUrlSingle = 'Api/Matricula/Single'
 
 export const updateAlumnoUrl = '/Api/Matricula/UpdateAlumno'
+

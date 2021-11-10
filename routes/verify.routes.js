@@ -2,18 +2,20 @@ const express = require('express')
 const app = express.Router()
 const {verificarToken} = require('../autentication')
 
-app.get('/', verificarToken, async (req,res) => {
-   const dataRes = await data.find()
-   res.json(dataRes)
+app.get('/', verificarToken,(req,res) => {
+   data.find(
+      (err,data)=>
+      res.json(data)
+   )
    })
 
-app.post('/', verificarToken, async (req,res) => {
+app.post('/', verificarToken,(req,res) => {
         res.json({
             ok:true,
         })
 })
 
-app.post('/:usuario', async (req,res)=> {
+app.post('/:usuario',(req,res)=> {
    let body = req.body
 })
 

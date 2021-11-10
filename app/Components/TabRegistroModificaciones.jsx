@@ -17,7 +17,6 @@ dataAlumno?.REGISTRO?.sort((a,b)=>{
             }
             return 0
          })
-
    return ( 
       <
       >

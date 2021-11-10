@@ -7,7 +7,6 @@ import {
 } from '../Helpers/Urls'
 
 export const getFetchUsuarios = async (token) => {
-
    const config = {
       headers: {                    
          "Accept": "application/json",                    
@@ -16,11 +15,17 @@ export const getFetchUsuarios = async (token) => {
       }           
    } 
    const url= `http://${baseUrl}:3000${usuariosUrl}` 
+   try{
    const dataRes = await axios.get(
       url,
       config
    )
    return dataRes
+
+   }
+   catch(err) {
+      return (err.response)      
+   }
 }
 
 export const getFetchUsuarioSingle = async (
@@ -36,11 +41,17 @@ export const getFetchUsuarioSingle = async (
       }           
    } 
    const url= `http://${baseUrl}:3000${usuariosUrl}/${usuario}` 
-   const dataRes = await axios.get(
+   try{
+const dataRes = await axios.get(
       url,
       config
    )
    return dataRes
+   }
+   catch(err){
+      return (err.response)
+   }
+   
 }
 
 export const getMatricula = async (token) => {
@@ -52,11 +63,18 @@ export const getMatricula = async (token) => {
       }           
    } 
    const url= `http://${baseUrl}:3000${matriculaUrlActivo}` 
+   try{
    const dataRes = await axios.get(
       url,
       config
    )
    return dataRes
+   }
+   catch(err)
+   {
+      return(err.response)
+   }
+   
 }
 
 export const getMatriculaSingle = async (token,DNI) => {
@@ -68,9 +86,14 @@ export const getMatriculaSingle = async (token,DNI) => {
       }           
    } 
    const url= `http://${baseUrl}:3000/${matriculaUrlSingle}/${DNI}` 
+   try{
    const dataRes = await axios.get(
       url,
       config
    )
    return dataRes
+   }
+   catch(err) {
+      return (err.response)
+   }
 }

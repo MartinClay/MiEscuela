@@ -18,6 +18,8 @@ import {Role} from '../Helpers/HardCodeData.js'
 
 import {postFetchDeleteUser} from '../Hooks/postFetch'
 
+import {deleteFetchDeleteUser} from '../Hooks/deleteFetch'
+
 import {userDeleteUrl} from '../Helpers/Urls.js'
 
 
@@ -52,12 +54,15 @@ const ModalEditUser = ({
    }
 
    const handleClickDelete = () => {
-      postFetchDeleteUser(
+      deleteFetchDeleteUser(
          context.stateUser.token,
          selectedUser,
          userDeleteUrl
-      ).then((res) =>
-         alert(res.data.message)
+      ).then((res) =>{
+         if(res.status === 200){
+            alert('Usuario eliminado con exito')
+         }
+      }
       ) 
       handleClose()
    }

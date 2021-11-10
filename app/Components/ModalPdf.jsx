@@ -40,7 +40,6 @@ const ModalPdf = ({
       )
    }
 
-   console.log(modelo)
    return (
       <Modal 
          show={showModalPdf} 
