@@ -7,6 +7,9 @@ import Header from '../Components/header.jsx'
 import Menu from '../Components/menu.jsx'
 import Footer from '../Components/footer.jsx'
 
+
+
+
 const HomePage = () => {
    return (
       <Container 
@@ -23,7 +26,6 @@ const HomePage = () => {
          </Row>
       </Container>
    )
-
 }
 
 export default HomePage

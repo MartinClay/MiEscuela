@@ -144,27 +144,27 @@ export const handleEdit = (data,setAlumnoEditModal,setSelectedAlumnoForEdit) => 
 }
 
 export const handleClickApplyFilter = (
-   nivel,
-   grado,
-   division,
+   nivelState,
+   gradoState,
+   divisionState,
    datosAlumno,
    setIsFiltredStage1,
    setFiltredDatosAlumnoStage1
 )=> {
    let newArray = []     
    switch(true){
-      case nivel !== 'Nivel' && grado === 'Grado' && division === 'Division':
-         newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivel)
+      case nivelState !== 'Nivel' && gradoState === 'Grado' && divisionState === 'Division':
+         newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivelState)
          setIsFiltredStage1(true)
          setFiltredDatosAlumnoStage1(newArray)  
          break
-      case nivel !== 'Nivel' && grado !== 'Grado' && division === 'Division':
-         newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivel && dataFilter.GRADO === parseInt(grado))
+      case nivelState !== 'Nivel' && gradoState !== 'Grado' && divisionState === 'Division':
+         newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivelState && dataFilter.GRADO === parseInt(gradoState))
          setIsFiltredStage1(true)
          setFiltredDatosAlumnoStage1(newArray)
          break
-      case nivel !== 'Nivel' && grado !== 'Grado' && division !== 'Division':
-         newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivel && dataFilter.GRADO === parseInt(grado) && dataFilter.DIVISION === division)
+      case nivelState !== 'Nivel' && gradoState !== 'Grado' && divisionState !== 'Division':
+         newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivelState && dataFilter.GRADO === parseInt(gradoState) && dataFilter.DIVISION === divisionState)
          setIsFiltredStage1(true)
          setFiltredDatosAlumnoStage1(newArray)
          break
@@ -179,7 +179,7 @@ export const handleClickLimpiarFiltros = (
    matriculaRef,
    setNivel,
    setGrado,
-   setDivision
+   setDivision,
 )=> {
    setNivel('Nivel')
    setGrado('Grado')
@@ -206,7 +206,6 @@ setIsFiltredStage1,
    setNivel,
    setGrado,
    setDivision,
-   setSelectedItems,
 )=> {
    setNivel('Nivel')
    setGrado('Grado')
@@ -215,7 +214,6 @@ setIsFiltredStage1,
    setIsFiltredStage2(false);
    setFiltredDatosAlumnoStage1([])
    setFiltredDatosAlumnoStage2([])
-   setSelectedItems([])
    matriculaRef.current[0].options.selectedIndex = 0
    matriculaRef.current[1].options.selectedIndex = 0
    matriculaRef.current[2].options.selectedIndex = 0

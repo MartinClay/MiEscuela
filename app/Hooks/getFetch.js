@@ -3,7 +3,8 @@ import {baseUrl} from '../Context/Store/AuthProvider.jsx'
 import {
    usuariosUrl,
    matriculaUrlSingle,
-   matriculaUrlActivo
+   matriculaUrlActivo,
+   hardCodeData,
 } from '../Helpers/Urls'
 
 export const getFetchUsuarios = async (token) => {
@@ -14,7 +15,7 @@ export const getFetchUsuarios = async (token) => {
          "Authorization": token                
       }           
    } 
-   const url= `http://${baseUrl}:3000${usuariosUrl}` 
+   const url= `http://${baseUrl}:3000/${usuariosUrl}` 
    try{
    const dataRes = await axios.get(
       url,
@@ -40,7 +41,7 @@ export const getFetchUsuarioSingle = async (
          "Authorization": token                
       }           
    } 
-   const url= `http://${baseUrl}:3000${usuariosUrl}/${usuario}` 
+   const url= `http://${baseUrl}:3000/${usuariosUrl}/${usuario}` 
    try{
 const dataRes = await axios.get(
       url,
@@ -62,7 +63,7 @@ export const getMatricula = async (token) => {
          "Authorization": token                
       }           
    } 
-   const url= `http://${baseUrl}:3000${matriculaUrlActivo}` 
+   const url= `http://${baseUrl}:3000/${matriculaUrlActivo}` 
    try{
    const dataRes = await axios.get(
       url,
@@ -97,3 +98,25 @@ export const getMatriculaSingle = async (token,DNI) => {
       return (err.response)
    }
 }
+
+export const getHardCodeData = async (token) => {
+   const config = {
+      headers: {                    
+         "Accept": "application/json",                    
+         "Content-Type": "application/json",
+         "Authorization": token                
+      }           
+   } 
+   const url= `http://${baseUrl}:3000/${hardCodeData}` 
+   try{
+   const dataRes = await axios.get(
+      url,
+      config
+   )
+   return dataRes
+   }
+   catch(err) {
+      return (err.response)
+   }
+}
+

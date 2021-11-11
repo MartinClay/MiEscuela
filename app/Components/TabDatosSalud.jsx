@@ -10,7 +10,6 @@ import {
    handleSwitchEdit,
 } from './Logic/modaleditalumnoLogic.js' 
 
-import {Vacunas} from '../Helpers/HardCodeData.js'
 
 const TabDatosSalud = ({
    dataAlumno,
@@ -22,6 +21,7 @@ const TabDatosSalud = ({
    setShowModalUpdate,
    setUpdatedData,
 }) => { 
+
 
    return ( 
       <>
@@ -351,7 +351,7 @@ const TabDatosSalud = ({
                                  >
                                     {dataAlumno.OTRAS_2}
                                  </option>
-                                 {Vacunas.map((dataMap)=> 
+                                 {vacunas.map((dataMap)=> 
                                     dataMap !== dataAlumno.OTRAS_2 ? 
                                        <option 
                                           key={dataMap} 

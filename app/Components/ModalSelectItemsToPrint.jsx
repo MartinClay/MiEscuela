@@ -4,10 +4,6 @@ import {
    Button,
 } from 'react-bootstrap'
 
-import {
-   datosRatificacion2
-} from '../Helpers/HardCodeData.js'
-
 import LoadingSpinner from './LoadingSpinner.jsx'
 
 const handleClickModal = (

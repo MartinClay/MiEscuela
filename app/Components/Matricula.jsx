@@ -12,16 +12,12 @@ import ModalUpdate from './ModalUpdate.jsx'
 
 import {Container} from 'react-bootstrap'
 
-import {getMatricula} from '../Hooks/getFetch.js'
+import {getMatricula,getHardCodeData} from '../Hooks/getFetch.js'
 import {handleGetDataAlumno} from './Logic/matriculaLogic.js'
 
 import useAuth from '../Context/Store/useAuth.jsx'
 
-import {createJson} from './createJson.js'
-
 const Matricula = () => { 
-
-   createJson()
 
    const [dataAlumno,setDataAlumno] = useState({})
    const [datosAlumno,setDatosAlumno] = useState([])
@@ -30,9 +26,9 @@ const Matricula = () => {
    const [filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage1] = useState([])
    const [filtredDatosAlumnoStage2,setFiltredDatosAlumnoStage2] = useState([])
    const [selectedAlumnoForEdit,setSelectedAlumnoForEdit] = useState('')
-   const [grado,setGrado] = useState('Grado')
-   const [division, setDivision] = useState('Division')
-   const [nivel,setNivel] = useState('Nivel')
+   const [gradoState,setGrado] = useState('Grado')
+   const [divisionState, setDivision] = useState('Division')
+   const [nivelState,setNivel] = useState('Nivel')
    const [alumnoEditModal,setAlumnoEditModal] = useState(false)
    const [showModalUpdate,setShowModalUpdate] = useState(false)
    const [updatedData,setUpdatedData] = useState({})
@@ -41,9 +37,9 @@ const Matricula = () => {
    const context  =  useAuth()
 
    useEffect(()=> {
-      getMatricula(context.stateUser.token).then((res)=> 
-         setDatosAlumno(res.data)
-      ) 
+      getMatricula(context.stateUser.token).then((res) =>
+        setDatosAlumno(res.data)
+      ); 
    },[])
 
    useEffect(()=>{
@@ -86,12 +82,13 @@ const Matricula = () => {
                   setSelectedAlumnoForEdit={setSelectedAlumnoForEdit}
                />
                <SelectFormStage1
+                  context={context}
                   setGrado={setGrado}                     
-                  grado={grado}
+                  gradoState={gradoState}
                   setDivision={setDivision}
-                  division={division}
+                  divisionState={divisionState}
                   setNivel={setNivel}
-                  nivel={nivel}
+                  nivelState={nivelState}
                   matriculaRef={matriculaRef}
                   datosAlumno={datosAlumno}
                   setIsFiltredStage1={setIsFiltredStage1}

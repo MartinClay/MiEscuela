@@ -16,10 +16,11 @@ app.use(express.json());
 app.use(cors())
 
 //Routes
-app.use('/Api/LogIn',require('./routes/login.routes'))
-app.use('/Api/Matricula',require('./routes/matricula.routes'))
-app.use('/Api/Usuarios',require('./routes/usuarios.routes'))
-app.use('/Api/VerifyToken',require('./routes/verify.routes'))
+app.use('/api/logIn',require('./routes/login.routes'))
+app.use('/api/matricula',require('./routes/matricula.routes'))
+app.use('/api/usuarios',require('./routes/usuarios.routes'))
+app.use('/api/verifyToken',require('./routes/verify.routes'))
+app.use('/api/hardCodeData',require('./routes/hardCodeData.routes'))
 
 //Static files
 app.use(express.static(path.join(__dirname , 'public')));

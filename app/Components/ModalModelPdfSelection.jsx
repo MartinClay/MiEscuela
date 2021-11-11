@@ -4,8 +4,6 @@ import {
    Button,
 } from 'react-bootstrap'
 
-import {ModelPdf} from '../Helpers/HardCodeData.js'
-
 import {
    handleChangeModel,
    handleAcceptModel,

@@ -1,20 +1,21 @@
-export const userDeleteUrl = '/Api/Usuarios/Delete'
+export const userDeleteUrl = 'api/usuarios/delete'
 
-export const logInUrl = '/Api/LogIn'
+export const logInUrl = 'api/logIn'
 
-export const ratificacionUrl = '/Api/Matricula/Ratificacion'
+export const ratificacionUrl = 'api/matricula/ratificacion'
 
-export const usuariosUrl = '/Api/Usuarios'
+export const usuariosUrl = 'api/usuarios'
 
-export const verifyTokenUrl = '/Api/VerifyToken'
+export const verifyTokenUrl = 'api/verifyToken'
 
-export const addUserUrl = '/Api/Usuarios/AddUser'
+export const addUserUrl = 'api/usuarios/addUser'
 
-export const matriculaUrl = '/Api/Matricula'
+export const matriculaUrl = 'api/matricula'
 
-export const matriculaUrlActivo = '/Api/Matricula/Activo'
+export const matriculaUrlActivo = 'api/matricula/activo'
 
-export const matriculaUrlSingle = 'Api/Matricula/Single'
+export const matriculaUrlSingle = 'api/matricula/single'
 
-export const updateAlumnoUrl = '/Api/Matricula/UpdateAlumno'
+export const updateAlumnoUrl = 'api/matricula/updateAlumno'
 
+export const hardCodeData = 'api/hardCodeData'

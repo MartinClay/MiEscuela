@@ -16,17 +16,10 @@ import {
 } 
 from './Logic/matriculaLogic'
 
-import {
-   Grado,
-   Nivel,
-   Division
-} 
-from '../Helpers/HardCodeData.js'
-
 const SelectFormStage1 = ({
-   nivel,
-   grado,
-   division,
+   nivelState,
+   gradoState,
+   divisionState,
    setNivel,
    setGrado,
    setDivision,
@@ -35,8 +28,12 @@ const SelectFormStage1 = ({
    setIsFiltredStage1,
    setFiltredDatosAlumnoStage1,
    setIsFiltredStage2,
-   setFiltredDatosAlumnoStage2
+   setFiltredDatosAlumnoStage2,
+   context,
 }) => { 
+
+   const {grado,nivel,division} = context.stateHardCodeData.hardCodeData
+
    return ( 
       <Form>
          <Row 
@@ -52,7 +49,7 @@ const SelectFormStage1 = ({
                   ref={(element) => matriculaRef.current[0] = element}
                >
                   <option>Nivel</option>
-                  {Nivel.map((dataMap)=>
+                  {nivel.map((dataMap)=>
                   <option 
                      value={dataMap} 
                      key={dataMap}
@@ -72,7 +69,7 @@ const SelectFormStage1 = ({
                   ref={(element) => matriculaRef.current[1] = element}
                >
                   <option>Grado/Año</option>
-                  {Grado.map((dataMap)=>
+                  {grado.map((dataMap)=>
                   <option 
                      value={dataMap} 
                      key={dataMap}
@@ -92,7 +89,7 @@ const SelectFormStage1 = ({
                   ref={(element) => matriculaRef.current[2] = element}
                >
                   <option>Division</option>
-                  {Division.map((dataMap)=>
+                  {division.map((dataMap)=>
                   <option 
                      value={dataMap} 
                      key={dataMap}
@@ -113,9 +110,9 @@ const SelectFormStage1 = ({
                      variant='outline-primary'
                      size='sm' 
                      onClick={()=> handleClickApplyFilter(
-                        nivel,
-                        grado,
-                        division,
+                        nivelState,
+                        gradoState,
+                        divisionState,
                         datosAlumno,
                         setIsFiltredStage1,
                         setFiltredDatosAlumnoStage1
@@ -134,7 +131,7 @@ const SelectFormStage1 = ({
                         matriculaRef,
                         setNivel,
                         setGrado,
-                        setDivision
+                        setDivision,
                      )}>
                      Limpiar Filtros
                   </Button>

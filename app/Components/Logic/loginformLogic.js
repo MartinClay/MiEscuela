@@ -38,8 +38,10 @@ export const handleClick = (
          logoutUser(context.dispatch)
       }
    })
+   
 }
 
 const jwtToken = (token,context) => {
    context.dispatch(setCurrentUser(token))
 }
+

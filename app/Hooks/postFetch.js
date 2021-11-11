@@ -14,7 +14,7 @@ export const postFetchUpdateAlumno = async (
       data : updatedData,
       dataRegistro: dataRegistro,
    }
-   const url= `http://${baseUrl}:3000${apiUrl}`  
+   const url= `http://${baseUrl}:3000/${apiUrl}`  
    const config = {
       headers: {                    
          "Accept": "application/json",                    
@@ -42,7 +42,7 @@ export const postFetchAddUser = async (
    role,
    apiUrl
 ) => {
-   const url= `http://${baseUrl}:3000${apiUrl}`  
+   const url= `http://${baseUrl}:3000/${apiUrl}`  
 
    const dataPost = {
       usuario:usuario,
@@ -74,7 +74,7 @@ export const postFetchLogIn = async (
    password,
    apiUrl
 ) => {
-   const url= `http://${baseUrl}:3000${apiUrl}`  
+   const url= `http://${baseUrl}:3000/${apiUrl}`  
    const dataPost = {
       usuario:usuario,
       password:password
@@ -98,7 +98,7 @@ export const postFetchRatificacion = async (
    division,
    apiUrl
 ) => {
-   const url= `http://${baseUrl}:3000${apiUrl}`  
+   const url= `http://${baseUrl}:3000/${apiUrl}`  
    const dataPost = {
       NIVEL:nivel,
       GRADO:grado,
@@ -128,7 +128,7 @@ export const postFetchVerifyToken = async (
    token,
    apiUrl
 ) => {
-   const url= `http://${baseUrl}:3000${apiUrl}`  
+   const url= `http://${baseUrl}:3000/${apiUrl}`  
    const dataPost = {}
    const config = {
       headers: {                    

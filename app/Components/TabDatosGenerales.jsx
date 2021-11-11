@@ -18,12 +18,7 @@ import {
    splitDate
 } from './Logic/dateHandler'
 
-import {
-   Nivel,
-   Grado,
-   Division,
-   Sexo,
-} from '../Helpers/HardCodeData'
+import useAuth from '../Context/Store/useAuth.jsx'
 
 import DatePicker,{registerLocale,setDefaultLocale} from 'react-datepicker'
 
@@ -43,7 +38,12 @@ const TabDatosGenerales = ({
    setFechaNacimiento,
 }) => { 
 
+   const context = useAuth()
+   console.log(context)
+
    registerLocale('es',es)
+
+   const {nivel,grado,division,sexo,} = context.stateHardCodeData
 
    return ( 
       <> 
@@ -125,7 +125,7 @@ const TabDatosGenerales = ({
                   >
                      {dataAlumno.NIVEL}
                   </option>
-                  {Nivel.map((dataMap)=> 
+                  {nivel.map((dataMap)=> 
                      dataMap !== dataAlumno.NIVEL ? 
                         <option 
                            key={dataMap} 
@@ -152,7 +152,7 @@ const TabDatosGenerales = ({
                   >
                      {dataAlumno.GRADO}
                   </option>
-                  {Grado.map((dataMap)=> 
+                  {grado.map((dataMap)=> 
                      dataMap !== dataAlumno.GRADO ? 
                         <option 
                            key={dataMap} 
@@ -178,7 +178,7 @@ const TabDatosGenerales = ({
                   >
                      {dataAlumno.DIVISION}
                   </option>
-                  {Division.map((dataMap)=> 
+                  {division.map((dataMap)=> 
                      dataMap !== dataAlumno.DIVISION ? 
                         <option 
                            key={dataMap} 
@@ -248,7 +248,7 @@ const TabDatosGenerales = ({
                   >
                      {dataAlumno.SEXO}
                   </option>
-                  {Sexo.map((dataMap)=> 
+                  {sexo.map((dataMap)=> 
                      dataMap !== dataAlumno.SEXO ? 
                         <option 
                            key={dataMap} 
