@@ -11,6 +11,7 @@ export const handleGetDataAlumno = (
       context.stateUser.token,
       selectedAlumnoForEdit
    ).then((res)=>{
+      res.data?.REGISTRO?.reverse()
       setDataAlumno(res.data)
    }
    )

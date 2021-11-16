@@ -24,6 +24,8 @@ import TabDatosSalud from './TabDatosSalud.jsx'
 import TabObservaciones from './TabObservaciones.jsx'
 import TabRegistroModificaciones from './TabRegistroModificaciones.jsx'
 
+import useAuth from '../Context/Store/useAuth.jsx'
+
 const ModalEditAlumno = ({
    alumnoEditModal,
    setAlumnoEditModal,
@@ -38,6 +40,7 @@ const ModalEditAlumno = ({
 
    const [fechaNacimiento,setFechaNacimiento] = useState()
    const modalEditRef = useRef([])
+   const context = useAuth()
 
    useEffect (()=> {
       dataAlumno.FECHA_NACIMIENTO !== undefined ? 
@@ -78,6 +81,7 @@ const ModalEditAlumno = ({
                      setUpdatedData={setUpdatedData}
                      setShowModalUpdate={setShowModalUpdate}
                      setFechaNacimiento={setFechaNacimiento}
+                     context={context}
                   />
                </Tab>
                <Tab
@@ -93,6 +97,7 @@ const ModalEditAlumno = ({
                      setShowModalUpdate={setShowModalUpdate}
                      fechaNacimiento={fechaNacimiento}
                      setFechaNacimiento={setFechaNacimiento}
+                     context={context}
 
                   />
                </Tab>
@@ -109,7 +114,7 @@ const ModalEditAlumno = ({
                      setUpdatedData={setUpdatedData}
                      setShowModalUpdate={setShowModalUpdate}
                      setFechaNacimiento={setFechaNacimiento}
-
+                     context={context}
                   />
                </Tab>
                <Tab

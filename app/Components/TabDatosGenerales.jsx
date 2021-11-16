@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import {
    Button,
    Row,
@@ -18,9 +19,9 @@ import {
    splitDate
 } from './Logic/dateHandler'
 
-import useAuth from '../Context/Store/useAuth.jsx'
-
 import DatePicker,{registerLocale,setDefaultLocale} from 'react-datepicker'
+
+import {dniCheck} from './Logic/datosGeneralesLogic'
 
 import "react-datepicker/dist/react-datepicker.css"
 
@@ -36,14 +37,15 @@ const TabDatosGenerales = ({
    setUpdatedData,
    updatedData,
    setFechaNacimiento,
+   context,
 }) => { 
-
-   const context = useAuth()
-   console.log(context)
 
    registerLocale('es',es)
 
-   const {nivel,grado,division,sexo,} = context.stateHardCodeData
+   const {nivel,grado,division,sexo,estado,denominacion} = context.stateHardCodeData.hardCodeData
+
+   const [isValid,setIsValid] = useState(true)
+   const [isInvalid,setIsInvalid] = useState(false)
 
    return ( 
       <> 
@@ -68,6 +70,9 @@ const TabDatosGenerales = ({
                   aria-label='N_DNI_ALUMNO'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[2] = element}
+                  onChange={() => dniCheck(modalEditRef,setIsValid,setIsInvalid,false)}
+                  isValid={isValid}
+                  isInvalid={isInvalid}
                /> 
             </Col>
             
@@ -193,12 +198,30 @@ const TabDatosGenerales = ({
             </Col>
             <Col>
                <h6>Denominacion:</h6>
-               <FormControl
-                  defaultValue={dataAlumno.DENOMINACION}
-                  aria-label='DENOMINACION'
-                  readOnly={switchEdit}
+                
+               <Form.Select
+                  placeholder={dataAlumno?.DENOMINACION}
+                  aria-label="DENOMINACION"
+                  disabled={switchEdit}
                   ref={(element) => modalEditRef.current[24] = element}
-               /> 
+               >
+                  <option 
+                     value={dataAlumno.DENOMINACION}
+                  >
+                     {dataAlumno.DENOMINACION}
+                  </option>
+                  {denominacion.map((dataMap)=> 
+                     dataMap !== dataAlumno.DENOMINACION ? 
+                        <option 
+                           key={dataMap} 
+                           value={dataMap}
+                        >
+                           {dataMap}
+                        </option>
+                        :
+                     null
+                  )}
+               </Form.Select>
             </Col>
          </Row>
          <Row
@@ -270,7 +293,7 @@ const TabDatosGenerales = ({
                         dataAlumno.FECHA_NACIMIENTO
                   }
                   aria-label='Edad (Real)'
-                  readOnly={switchEdit}
+                  readOnly={true}
                /> 
             </Col>
             <Col>
@@ -282,7 +305,7 @@ const TabDatosGenerales = ({
                         dataAlumno.FECHA_NACIMIENTO
                   }
                   aria-label='Edad al 30/06'
-                  readOnly={switchEdit}
+                  readOnly={true}
                /> 
             </Col>
          </Row>
@@ -292,12 +315,30 @@ const TabDatosGenerales = ({
             <Col
             >
                <h6>Estado:</h6>
-               <FormControl
-                  defaultValue={dataAlumno.ESTADO} 
-                  aria-label='ESTADO'
-                  readOnly={switchEdit}
+               <Form.Select
+                  placeholder={dataAlumno?.ESTADO}
+                  aria-label="ESTADO"
+                  disabled={switchEdit}
                   ref={(element) => modalEditRef.current[1] = element}
-               />  
+               >
+                  <option 
+                     value={dataAlumno.ESTADO}
+                  >
+                     {dataAlumno.ESTADO}
+                  </option>
+                  {estado.map((dataMap)=> 
+                     dataMap !== dataAlumno.ESTADO ? 
+                        <option 
+                           key={dataMap} 
+                           value={dataMap}
+                        >
+                           {dataMap}
+                        </option>
+                        :
+                     null
+                  )}
+               </Form.Select>
+
             </Col>
             <Col>
                <h6>Ingreso:</h6>

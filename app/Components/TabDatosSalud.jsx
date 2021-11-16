@@ -20,9 +20,10 @@ const TabDatosSalud = ({
    updatedData,
    setShowModalUpdate,
    setUpdatedData,
+   context,
 }) => { 
 
-
+   const {vacunas}  = context.stateHardCodeData.hardCodeData
    return ( 
       <>
          <Row>
@@ -44,7 +45,7 @@ const TabDatosSalud = ({
                         >
                            {dataAlumno.VACUNAS_AL_DIA}
                         </option>
-                        {Vacunas.map((dataMap)=> 
+                        {vacunas.map((dataMap)=> 
                            dataMap !== dataAlumno.VACUNAS_AL_DIA ? 
                               <option 
                                  key={dataMap} 
@@ -70,7 +71,7 @@ const TabDatosSalud = ({
                         >
                            {dataAlumno.CERT_SALUD}
                         </option>
-                        {Vacunas.map((dataMap)=> 
+                        {vacunas.map((dataMap)=> 
                            dataMap !== dataAlumno.CERT_SALUD ? 
                               <option 
                                  key={dataMap} 
@@ -96,7 +97,7 @@ const TabDatosSalud = ({
                         >
                            {dataAlumno.CERT_BUCO_DENTAL}
                         </option>
-                        {Vacunas.map((dataMap)=> 
+                        {vacunas.map((dataMap)=> 
                            dataMap !== dataAlumno.CERT_BUCO_DENTAL ? 
                               <option 
                                  key={dataMap} 
@@ -127,7 +128,7 @@ const TabDatosSalud = ({
                         >
                            {dataAlumno.ANTIVARIOLICA}
                         </option>
-                        {Vacunas.map((dataMap)=> 
+                        {vacunas.map((dataMap)=> 
                            dataMap !== dataAlumno.ANTIVARIOLICA ? 
                               <option 
                                  key={dataMap} 
@@ -153,7 +154,7 @@ const TabDatosSalud = ({
                         >
                            {dataAlumno.BCG}
                         </option>
-                        {Vacunas.map((dataMap)=> 
+                        {vacunas.map((dataMap)=> 
                            dataMap !== dataAlumno.BCG ? 
                               <option 
                                  key={dataMap} 
@@ -180,7 +181,7 @@ const TabDatosSalud = ({
                         >
                            {dataAlumno.TRIPLE}
                         </option>
-                        {Vacunas.map((dataMap)=> 
+                        {vacunas.map((dataMap)=> 
                            dataMap !== dataAlumno.TRIPLE ? 
                               <option 
                                  key={dataMap} 
@@ -210,7 +211,7 @@ const TabDatosSalud = ({
                         >
                            {dataAlumno.DOBLE}
                         </option>
-                        {Vacunas.map((dataMap)=> 
+                        {vacunas.map((dataMap)=> 
                            dataMap !== dataAlumno.DOBLE ? 
                               <option 
                                  key={dataMap} 
@@ -236,7 +237,7 @@ const TabDatosSalud = ({
                         >
                            {dataAlumno.SABIN}
                         </option>
-                        {Vacunas.map((dataMap)=> 
+                        {vacunas.map((dataMap)=> 
                            dataMap !== dataAlumno.SABIN ? 
                               <option 
                                  key={dataMap} 
@@ -262,7 +263,7 @@ const TabDatosSalud = ({
                         >
                            {dataAlumno.ANTI_SARAMPION}
                         </option>
-                        {Vacunas.map((dataMap)=> 
+                        {vacunas.map((dataMap)=> 
                            dataMap !== dataAlumno.ANTI_SARAMPION ? 
                               <option 
                                  key={dataMap} 
@@ -291,7 +292,7 @@ const TabDatosSalud = ({
                            >
                               {dataAlumno.EXAMEN_VISUAL}
                            </option>
-                           {Vacunas.map((dataMap)=> 
+                           {vacunas.map((dataMap)=> 
                               dataMap !== dataAlumno.EXAMEN_VISUAL ? 
                                  <option 
                                     key={dataMap} 
@@ -326,7 +327,7 @@ const TabDatosSalud = ({
                                  >
                                     {dataAlumno?.OTRAS_1}
                                  </option>
-                                 {Vacunas.map((dataMap)=> 
+                                 {vacunas.map((dataMap)=> 
                                     dataMap !== dataAlumno?.OTRAS_1 ? 
                                        <option 
                                           key={dataMap} 
