@@ -26,7 +26,7 @@ const Matricula = () => {
    const [filtredDatosAlumnoStage1,setFiltredDatosAlumnoStage1] = useState([])
    const [filtredDatosAlumnoStage2,setFiltredDatosAlumnoStage2] = useState([])
    const [selectedAlumnoForEdit,setSelectedAlumnoForEdit] = useState('')
-   const [gradoState,setGrado] = useState('Grado')
+   const [gradoState,setGrado] = useState('Grado/Año')
    const [divisionState, setDivision] = useState('Division')
    const [nivelState,setNivel] = useState('Nivel')
    const [alumnoEditModal,setAlumnoEditModal] = useState(false)
@@ -37,8 +37,9 @@ const Matricula = () => {
    const context  =  useAuth()
 
    useEffect(()=> {
-      getMatricula(context.stateUser.token).then((res) =>
+      getMatricula(context.stateUser.token).then((res) =>{
         setDatosAlumno(res.data)
+      }
       ); 
    },[])
 

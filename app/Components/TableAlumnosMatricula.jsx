@@ -89,16 +89,16 @@ const TableAlumnosMatricula = ({
                                           <FaUserEdit/>
                                        </Button>
                                     </th>
-                                    <th>{dataMap.NOMBRE}</th>
-                                    <th>{dataMap.APELLIDO}</th>
-                                    <th>{dataMap.N_DNI_ALUMNO}</th>
-                                    <th>{dataMap.NIVEL}</th>
-                                    <th>{dataMap.GRADO}</th>
-                                    <th>{dataMap.DIVISION}</th>
+                                    <th>{dataMap.nombre}</th>
+                                    <th>{dataMap.apellido}</th>
+                                    <th>{dataMap.nDniAlumno}</th>
+                                    <th>{dataMap.nivel}</th>
+                                    <th>{dataMap.grado}</th>
+                                    <th>{dataMap.division}</th>
                                     <th>{
                                           ageCalculate3006(
                                              splitDate(
-                                                dataMap.FECHA_NACIMIENTO,
+                                                dataMap.fechaNacimiento,
                                                 3
                                              ))}
                                     </th>
@@ -120,16 +120,16 @@ const TableAlumnosMatricula = ({
                                           <FaUserEdit/>
                                        </Button>
                                     </th>
-                                    <th>{dataMap.NOMBRE}</th>
-                                    <th>{dataMap.APELLIDO}</th>
-                                    <th>{dataMap.N_DNI_ALUMNO}</th>
-                                    <th>{dataMap.NIVEL}</th>
-                                    <th>{dataMap.GRADO}</th>
-                                    <th>{dataMap.DIVISION}</th>
+                                    <th>{dataMap.nombre}</th>
+                                    <th>{dataMap.apellido}</th>
+                                    <th>{dataMap.nDniAlumno}</th>
+                                    <th>{dataMap.nivel}</th>
+                                    <th>{dataMap.grado}</th>
+                                    <th>{dataMap.division}</th>
                                     <th>{
                                        ageCalculate3006(
                                           splitDate(
-                                             dataMap.FECHA_NACIMIENTO,
+                                             dataMap.fechaNacimiento,
                                              3
                                        ))}
                                     </th>

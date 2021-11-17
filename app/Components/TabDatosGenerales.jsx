@@ -21,7 +21,7 @@ import {
 
 import DatePicker,{registerLocale,setDefaultLocale} from 'react-datepicker'
 
-import {dniCheck} from './Logic/datosGeneralesLogic'
+import {dniCheck,cuilCheck} from './Logic/datosGeneralesLogic'
 
 import "react-datepicker/dist/react-datepicker.css"
 
@@ -42,8 +42,8 @@ const TabDatosGenerales = ({
 
    registerLocale('es',es)
 
-   const {nivel,grado,division,sexo,estado,denominacion} = context.stateHardCodeData.hardCodeData
 
+   const {nivel,grado,division,sexo,estado,denominacion,tipoDNI} = context.stateHardCodeData.hardCodeData
    const [isValid,setIsValid] = useState(true)
    const [isInvalid,setIsInvalid] = useState(false)
 
@@ -54,20 +54,38 @@ const TabDatosGenerales = ({
                className='mt-2'
             >
                <h6>Tipo:</h6>
-               <FormControl
-                  defaultValue={dataAlumno.TIPO}
-                  aria-label='TIPO'
-                  readOnly={switchEdit}
+               <Form.Select
+                  placeholder={dataAlumno?.tipo}
+                  aria-label="tipo"
+                  disabled={switchEdit}
                   ref={(element) => modalEditRef.current[3] = element}
-               />
+               >
+                  <option 
+                     value={dataAlumno.tipo}
+                  >
+                     {dataAlumno.tipo}
+                  </option>
+                  {tipoDNI.map((dataMap)=> 
+                     dataMap !== dataAlumno.tipo ? 
+                        <option 
+                           key={dataMap} 
+                           value={dataMap}
+                        >
+                           {dataMap}
+                        </option>
+                        :
+                     null
+                  )}
+               </Form.Select>
+
             </Col>
             <Col
                className='mt-2'
             >
                <h6>Nº Documento:</h6>
                <FormControl
-                  defaultValue={dataAlumno.N_DNI_ALUMNO}
-                  aria-label='N_DNI_ALUMNO'
+                  defaultValue={dataAlumno.nDniAlumno}
+                  aria-label='nDniAlumno'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[2] = element}
                   onChange={() => dniCheck(modalEditRef,setIsValid,setIsInvalid,false)}
@@ -94,8 +112,8 @@ const TabDatosGenerales = ({
             >
                <h6>Nº Legajo:</h6>
                <FormControl
-                  defaultValue={dataAlumno.NRO_LEGAJO}
-                  aria-label='NRO LEGAJO'
+                  defaultValue={dataAlumno.nroLegajo}
+                  aria-label='nroLegajo'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[13] = element}
 
@@ -106,9 +124,9 @@ const TabDatosGenerales = ({
             >
                <h6>CUIL:</h6>
                <FormControl
-                  defaultValue={dataAlumno.CUIL}
+                  defaultValue={cuilCheck(dataAlumno.sexo,dataAlumno.nDniAlumno)}
                   aria-label='CUIL'
-                  readOnly={switchEdit}
+                  readOnly={true}
                   ref={(element) => modalEditRef.current[12] = element}
                /> 
             </Col>
@@ -120,18 +138,18 @@ const TabDatosGenerales = ({
             <Col>
                <h6>Nivel:</h6>
                <Form.Select
-                  placeholder={dataAlumno?.NIVEL}
-                  aria-label="NIVEL"
+                  placeholder={dataAlumno?.nivel}
+                  aria-label="nivel"
                   disabled={switchEdit}
                   ref={(element) => modalEditRef.current[21] = element}
                >
                   <option 
-                     value={dataAlumno.NIVEL}
+                     value={dataAlumno.nivel}
                   >
-                     {dataAlumno.NIVEL}
+                     {dataAlumno.nivel}
                   </option>
                   {nivel.map((dataMap)=> 
-                     dataMap !== dataAlumno.NIVEL ? 
+                     dataMap !== dataAlumno.nivel ? 
                         <option 
                            key={dataMap} 
                            value={dataMap}
@@ -146,19 +164,19 @@ const TabDatosGenerales = ({
             <Col>
                <h6>Grado:</h6>
                <Form.Select
-                  placeholder={dataAlumno?.GRADO}
-                  aria-label="GRADO"
+                  placeholder={dataAlumno?.grado}
+                  aria-label="grado"
                   disabled={switchEdit}
                   type='number'
                   ref={(element) => modalEditRef.current[22] = element}
                >
                   <option 
-                     value={dataAlumno.GRADO}
+                     value={dataAlumno.grado}
                   >
-                     {dataAlumno.GRADO}
+                     {dataAlumno.grado}
                   </option>
                   {grado.map((dataMap)=> 
-                     dataMap !== dataAlumno.GRADO ? 
+                     dataMap !== dataAlumno.grado ? 
                         <option 
                            key={dataMap} 
                            value={dataMap}
@@ -173,18 +191,18 @@ const TabDatosGenerales = ({
             <Col>
                <h6>Division:</h6>
                <Form.Select
-                  placeholder={dataAlumno?.DIVISION}
-                  aria-label="DIVISION"
+                  placeholder={dataAlumno?.division}
+                  aria-label="division"
                   disabled={switchEdit}
                   ref={(element) => modalEditRef.current[23] = element}
                >
                   <option 
-                     value={dataAlumno.DIVISION}
+                     value={dataAlumno.division}
                   >
-                     {dataAlumno.DIVISION}
+                     {dataAlumno.division}
                   </option>
                   {division.map((dataMap)=> 
-                     dataMap !== dataAlumno.DIVISION ? 
+                     dataMap !== dataAlumno.division ? 
                         <option 
                            key={dataMap} 
                            value={dataMap}
@@ -200,18 +218,18 @@ const TabDatosGenerales = ({
                <h6>Denominacion:</h6>
                 
                <Form.Select
-                  placeholder={dataAlumno?.DENOMINACION}
-                  aria-label="DENOMINACION"
+                  placeholder={dataAlumno?.denominacion}
+                  aria-label="denominacion"
                   disabled={switchEdit}
                   ref={(element) => modalEditRef.current[24] = element}
                >
                   <option 
-                     value={dataAlumno.DENOMINACION}
+                     value={dataAlumno.denominacion}
                   >
-                     {dataAlumno.DENOMINACION}
+                     {dataAlumno.denominacion}
                   </option>
                   {denominacion.map((dataMap)=> 
-                     dataMap !== dataAlumno.DENOMINACION ? 
+                     dataMap !== dataAlumno.denominacion ? 
                         <option 
                            key={dataMap} 
                            value={dataMap}
@@ -230,8 +248,8 @@ const TabDatosGenerales = ({
             <Col>
                <h6>Lugar de nacimiento:</h6>
                <FormControl
-                  defaultValue={dataAlumno.LUGAR_NACIMIENTO}
-                  aria-label='LUGAR_NACIMIENTO'
+                  defaultValue={dataAlumno.lugarNacimiento}
+                  aria-label='lugarNacimiento'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[8] = element}
                /> 
@@ -239,8 +257,8 @@ const TabDatosGenerales = ({
             <Col>
                <h6>Provincia de nacimiento:</h6>
                <FormControl
-                  defaultValue={dataAlumno.PROVINCIA_NACIMIENTO}
-                  aria-label='PROVINCIA_NACIMIENTO'
+                  defaultValue={dataAlumno.provinciaNacimiento}
+                  aria-label='provinciaNacimiento'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[10] = element}
                /> 
@@ -248,8 +266,8 @@ const TabDatosGenerales = ({
             <Col>
                <h6>Nacionalidad:</h6>
                <FormControl
-                  defaultValue={dataAlumno.NACIONALIDAD}
-                  aria-label='NACIONALIDAD'
+                  defaultValue={dataAlumno.nacionalidad}
+                  aria-label='nacionalidad'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[9] = element}
                /> 
@@ -261,18 +279,18 @@ const TabDatosGenerales = ({
             <Col>
                <h6>Sexo:</h6>
                <Form.Select
-                  placeholder={dataAlumno?.SEXO}
-                  aria-label="SEXO"
+                  placeholder={dataAlumno?.sexo}
+                  aria-label="sexo"
                   disabled={switchEdit}
                   ref={(element) => modalEditRef.current[6] = element}
                >
                   <option 
-                     value={dataAlumno.SEXO}
+                     value={dataAlumno.sexo}
                   >
-                     {dataAlumno.SEXO}
+                     {dataAlumno.sexo}
                   </option>
                   {sexo.map((dataMap)=> 
-                     dataMap !== dataAlumno.SEXO ? 
+                     dataMap !== dataAlumno.sexo ? 
                         <option 
                            key={dataMap} 
                            value={dataMap}
@@ -287,10 +305,10 @@ const TabDatosGenerales = ({
             <Col>
                <h6>Edad (Real):</h6>
                <FormControl
-                  defaultValue={dataAlumno.FECHA_NACIMIENTO ? 
-                        ageCalculate(splitDate(dataAlumno.FECHA_NACIMIENTO,3))
+                  defaultValue={dataAlumno.fechaNacimiento ? 
+                        ageCalculate(splitDate(dataAlumno.fechaNacimiento,3))
                         :
-                        dataAlumno.FECHA_NACIMIENTO
+                        dataAlumno.fechaNacimiento
                   }
                   aria-label='Edad (Real)'
                   readOnly={true}
@@ -299,10 +317,10 @@ const TabDatosGenerales = ({
             <Col>
                <h6>Edadal 30/06:</h6>
                <FormControl
-                  defaultValue={dataAlumno.FECHA_NACIMIENTO ? 
-                        ageCalculate3006(splitDate(dataAlumno.FECHA_NACIMIENTO,3))
+                  defaultValue={dataAlumno.fechaNacimiento ? 
+                        ageCalculate3006(splitDate(dataAlumno.fechaNacimiento,3))
                         :
-                        dataAlumno.FECHA_NACIMIENTO
+                        dataAlumno.fechaNacimiento
                   }
                   aria-label='Edad al 30/06'
                   readOnly={true}
@@ -316,18 +334,18 @@ const TabDatosGenerales = ({
             >
                <h6>Estado:</h6>
                <Form.Select
-                  placeholder={dataAlumno?.ESTADO}
-                  aria-label="ESTADO"
+                  placeholder={dataAlumno?.estado}
+                  aria-label="estado"
                   disabled={switchEdit}
                   ref={(element) => modalEditRef.current[1] = element}
                >
                   <option 
-                     value={dataAlumno.ESTADO}
+                     value={dataAlumno.estado}
                   >
-                     {dataAlumno.ESTADO}
+                     {dataAlumno.estado}
                   </option>
                   {estado.map((dataMap)=> 
-                     dataMap !== dataAlumno.ESTADO ? 
+                     dataMap !== dataAlumno.estado ? 
                         <option 
                            key={dataMap} 
                            value={dataMap}
@@ -343,8 +361,8 @@ const TabDatosGenerales = ({
             <Col>
                <h6>Ingreso:</h6>
                <FormControl
-                  defaultValue={dataAlumno.INGRESO} 
-                  aria-label='INGRESO'
+                  defaultValue={dataAlumno.ingreso} 
+                  aria-label='ingreso'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[43] = element}
                />  
@@ -352,8 +370,8 @@ const TabDatosGenerales = ({
             <Col>
                <h6>Egreso:</h6>
                <FormControl
-                  defaultValue={dataAlumno.EGRESO} 
-                  aria-label='EGRESO'
+                  defaultValue={dataAlumno.egreso} 
+                  aria-label='egreso'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[44] = element}
                />  

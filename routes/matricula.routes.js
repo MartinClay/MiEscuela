@@ -8,9 +8,9 @@ app.post('/Ratificacion',verificarToken,(req,res) => {
    let body =  req.body
    data.find(
       {
-         NIVEL: body.NIVEL, 
-         GRADO: body.GRADO , 
-         DIVISION: body.DIVISION},
+         nivel: body.NIVEL, 
+         grado: body.GRADO , 
+         division: body.DIVISION},
       (err,data)=>
       res.json(data)
    )
@@ -18,7 +18,7 @@ app.post('/Ratificacion',verificarToken,(req,res) => {
 
 app.get('/Activo',verificarToken,(req,res) => {
 
-   data.find({ESTADO:'ACTIVO'},
+   data.find({estado:'Activo'},
       (err,data)=>
       res.json(data)
    )
@@ -45,7 +45,7 @@ app.post('/UpdateAlumno', verificarToken,(req,res) => {
    let _id = req.body._id
    let dataToSend = req.body.data
    let dataRegistro = req.body.dataRegistro
-   dataToSend = {...dataToSend , $push: {REGISTRO: dataRegistro}}
+   dataToSend = {...dataToSend , $push: {registro: dataRegistro}}
    data.findOneAndUpdate(
       {_id : _id},
       dataToSend,
@@ -56,4 +56,18 @@ app.post('/UpdateAlumno', verificarToken,(req,res) => {
    )
 })
 
+app.post('/updateWholeDB', verificarToken,(req,res) => {
+
+   let _id = req.body._id
+   let dataToSend = req.body.data
+   let dataRegistro = req.body.dataRegistro
+   data.findOneAndUpdate(
+      {_id : _id},
+      dataToSend,
+      (err,data)=> {
+         res.json(data)
+         console.log(err)
+      }
+   )
+})
 module.exports = app

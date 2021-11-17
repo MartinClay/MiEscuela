@@ -35,6 +35,37 @@ export const postFetchUpdateAlumno = async (
    }
 }
 
+export const postUpdateWholeDB = async (
+   token,
+   updatedData,
+   apiUrl,
+   id,
+) => {
+   let objetToSend = {
+      _id : id, 
+      data : updatedData,
+   }
+   const url= `http://${baseUrl}:3000/${apiUrl}`  
+   const config = {
+      headers: {                    
+         "Accept": "application/json",                    
+         "Content-Type": "application/json",
+         "Authorization": token                
+      }           
+   }
+   try{
+      const resData = await axios.post(
+         url,
+         objetToSend,
+         config
+      )
+      return resData
+   }
+   catch(err) {
+      return(err.response)
+   }
+}
+
 export const postFetchAddUser = async (
    token,
    usuario,

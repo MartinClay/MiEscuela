@@ -54,20 +54,20 @@ const TableRatificacion = ({
                      {filtredDatosAlumnoStage1.map(
                         (data) =>
                            <tr 
-                              key={data.N_DNI_ALUMNO}
+                              key={data.nDniAlumno}
                            >
                               <th>
                                  <CloseButton 
                                     onClick={()=> handleDelete(
-                                       data.N_DNI_ALUMNO,
+                                       data.nDniAlumno,
                                        setFiltredDatosAlumnoStage1,
                                        filtredDatosAlumnoStage1
                                     )}
                                  />
                               </th>
-                              <th>{data.NOMBRE}</th>
-                              <th>{data.APELLIDO}</th>
-                              <th>{data.N_DNI_ALUMNO}</th>
+                              <th>{data.nombre}</th>
+                              <th>{data.apellido}</th>
+                              <th>{data.nDniAlumno}</th>
                            </tr>
                      )}   
                   </tbody>

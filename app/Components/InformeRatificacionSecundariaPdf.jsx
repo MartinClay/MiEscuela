@@ -148,16 +148,16 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[1] === 'NOMBRE' ? 
-                                    dato.NOMBRE 
+                                 selectedItems[1] === 'nombre' ? 
+                                    dato.nombre 
                                     : 
                                     '...............................................'
                               } 
                            </Text>
                            <Text>
                               {
-                                 selectedItems[0] === 'APELLIDO' ? 
-                                    dato.APELLIDO 
+                                 selectedItems[0] === 'apellido' ? 
+                                    dato.apellido 
                                     : 
                                     '...............................................'
                               } 
@@ -169,8 +169,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[22] === 'CUIL' ? 
-                                    dato.CUIL 
+                                 selectedItems[22] === 'cuil' ? 
+                                    dato.cuil 
                                     : 
                                     '.....................'
                               }   
@@ -180,8 +180,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[2] === 'NRO_LEGAJO' ? 
-                                    dato.NRO_LEGAJO 
+                                 selectedItems[2] === 'nroLegajo' ? 
+                                    dato.nroLegajo 
                                     : 
                                     '.....................'
                               }   
@@ -191,8 +191,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[8] === 'FECHA_NACIMIENTO' ? 
-                                    dato.FECHA_NACIMIENTO 
+                                 selectedItems[8] === 'fechaNacimiento' ? 
+                                    dato.fechaNacimiento 
                                     : 
                                     '......../......../........'
                               }   
@@ -206,8 +206,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[6] === 'LUGAR_NACIMIENTO' ? 
-                                    dato.LUGAR_NACIMIENTO 
+                                 selectedItems[6] === 'lugarNacimiento' ? 
+                                    dato.lugarNacimiento 
                                     : 
                                     '................................'
                               }   
@@ -223,8 +223,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[7] === 'PROVINCIA' ? 
-                                    dato.PROVINCIA 
+                                 selectedItems[7] === 'provincia' ? 
+                                    dato.provincia 
                                     : 
                                     '........................'
                               }   
@@ -236,8 +236,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[9] === 'CALLE' ? 
-                                    dato.CALLE 
+                                 selectedItems[9] === 'calle' ? 
+                                    dato.calle 
                                     : 
                                     '.....................'
                               }   
@@ -247,8 +247,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[10] === 'NRO' ? 
-                                    dato.NRO 
+                                 selectedItems[10] === 'nro' ? 
+                                    dato.nro 
                                     : 
                                     '..........'
                               }
@@ -258,8 +258,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[11] === 'BARRIO' ? 
-                                    dato.BARRIO 
+                                 selectedItems[11] === 'barrio' ? 
+                                    dato.barrio 
                                     : 
                                     '........................'
                               }   
@@ -269,8 +269,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[12] === 'MANZANA' ? 
-                                    dato.MANZANA 
+                                 selectedItems[12] === 'manzana' ? 
+                                    dato.manzana 
                                     : 
                                     '..........'
                               }
@@ -280,8 +280,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[13] === 'CASA_N' ? 
-                                    dato.CASA_N 
+                                 selectedItems[13] === 'casaN' ? 
+                                    dato.casaN 
                                     : 
                                     '..........'
                               }   
@@ -293,8 +293,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[14] === 'LOCALIDAD' ? 
-                                    dato.LOCALIDAD 
+                                 selectedItems[14] === 'localidad' ? 
+                                    dato.localidad 
                                     : 
                                     '.................................'
                               }   
@@ -304,8 +304,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[15] === 'TEL_FIJO' ? 
-                                    dato.TEL_FIJO 
+                                 selectedItems[15] === 'telFijo' ? 
+                                    dato.telFijo 
                                     : 
                                     '........................'
                               }
@@ -315,8 +315,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[16] === 'TEL_CELULAR' ? 
-                                    dato.TEL_CELULAR 
+                                 selectedItems[16] === 'telCelular' ? 
+                                    dato.telCelular 
                                     :
                                     '0.........15.....................'
                               }   
@@ -328,16 +328,16 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[17] === 'NOMBRE_TUTOR' ? 
-                                    dato.NOMBRE_TUTOR 
+                                 selectedItems[17] === 'nombreTutor' ? 
+                                    dato.nombreTutor 
                                     : 
                                     '.................................'
                               } 
                            </Text>
                            <Text>
                               {
-                                 selectedItems[18] === 'APELLIDO_TUTOR' ? 
-                                    dato.APELLIDO_TUTOR
+                                 selectedItems[18] === 'apellidoTutor' ? 
+                                    dato.apellidoTutor
                                     : 
                                     '................................'
                               } 
@@ -347,8 +347,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[19] === 'DNI_TUTOR' ? 
-                                    dato.DNI_TUTOR 
+                                 selectedItems[19] === 'dniTutor' ? 
+                                    dato.dniTutor 
                                     :
                                     '...............................'
                               }   
@@ -360,8 +360,8 @@ const InformeRatificacionSecundariaPDf = ({
                            </Text>
                            <Text>
                               {
-                                 selectedItems[20] === 'RELACION_TUTOR' ? 
-                                    dato.RELACION_TUTOR 
+                                 selectedItems[20] === 'relacionTutor' ? 
+                                    dato.relacionTutor 
                                     : 
                                     '.......................................'
                               }

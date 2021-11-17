@@ -43,8 +43,8 @@ const ModalEditAlumno = ({
    const context = useAuth()
 
    useEffect (()=> {
-      dataAlumno.FECHA_NACIMIENTO !== undefined ? 
-         setFechaNacimiento(createISODate(dataAlumno.FECHA_NACIMIENTO))
+      dataAlumno.fechaNacimiento !== undefined ? 
+         setFechaNacimiento(createISODate(dataAlumno.fechaNacimiento))
          :
          null
    },[dataAlumno])
@@ -62,7 +62,7 @@ const ModalEditAlumno = ({
                className='d-flex justify-content-center'
             >
                <h4>
-                  {dataAlumno.NOMBRE} {dataAlumno.APELLIDO}
+                  {dataAlumno.nombre} {dataAlumno.apellido}
                </h4>      
             </Col>
          </Modal.Header>

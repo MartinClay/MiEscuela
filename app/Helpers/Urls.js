@@ -19,3 +19,5 @@ export const matriculaUrlSingle = 'api/matricula/single'
 export const updateAlumnoUrl = 'api/matricula/updateAlumno'
 
 export const hardCodeData = 'api/hardCodeData'
+
+export const updateWholeDB = 'api/matricula/updateWholeDB'

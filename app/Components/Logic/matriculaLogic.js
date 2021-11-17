@@ -1,6 +1,8 @@
 import {ageCalculate,splitDate,ageCalculate3006} from './dateHandler'
-
+import {postUpdateWholeDB} from '../../Hooks/postFetch'
 import {getMatriculaSingle} from '../../Hooks/getFetch'
+import { updateWholeDB } from '../../Helpers/Urls'
+
 
 export const handleGetDataAlumno = (
    context,
@@ -11,7 +13,7 @@ export const handleGetDataAlumno = (
       context.stateUser.token,
       selectedAlumnoForEdit
    ).then((res)=>{
-      res.data?.REGISTRO?.reverse()
+      res.data?.registro?.reverse()
       setDataAlumno(res.data)
    }
    )
@@ -29,12 +31,12 @@ export const handleLastName = (
 )=> {
    let newArray = []
    if(event.target.value.length >= 3 && isFiltredStage1 === true){
-      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => dataFilter.APELLIDO.indexOf(event.target.value.toUpperCase()) > -1)
+      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => dataFilter.apellido.indexOf(toOwnName(event.target.value)) > -1)
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
    }
    if(event.target.value.length >= 3 && isFiltredStage1 === false){
-      newArray = datosAlumno.filter((dataFilter) => dataFilter.APELLIDO.indexOf(event.target.value.toUpperCase()) > -1)
+      newArray = datosAlumno.filter((dataFilter) => dataFilter.apellido.indexOf(toOwnName(event.target.value)) > -1)
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
    }
@@ -56,12 +58,12 @@ export const handleFirstName = (
 )=> {
    let newArray = []
    if(event.target.value.length >= 3 && isFiltredStage1 === true){
-      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => dataFilter.NOMBRE.indexOf(event.target.value.toUpperCase()) > -1)
+      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => dataFilter.nombre.indexOf(toOwnName(event.target.value)) > -1)
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
    }
    if(event.target.value.length >= 3 && isFiltredStage1 === false){
-      newArray = datosAlumno.filter((dataFilter) => dataFilter.NOMBRE.indexOf(event.target.value.toUpperCase()) > -1)
+      newArray = datosAlumno.filter((dataFilter) => dataFilter.nombre.indexOf(toOwnName(event.target.value)) > -1)
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
    }
@@ -95,13 +97,12 @@ export const handleEdad = (
 )=> {
    let newArray = []
    if(event.target.value.length >= 1 && isFiltredStage1 === true){
-      console.log('asdf')
-      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => ageCalculate(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
+      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => ageCalculate(splitDate(dataFilter.fechaNacimiento,3)) == parseInt(event.target.value))
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
    }
    if(event.target.value.length >= 1 && isFiltredStage1 === false){
-      newArray = datosAlumno.filter((dataFilter) => ageCalculate(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
+      newArray = datosAlumno.filter((dataFilter) => ageCalculate(splitDate(dataFilter.fechaNacimiento,3)) == parseInt(event.target.value))
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
    }
@@ -123,12 +124,12 @@ export const handleEdad3006 = (
 )=> {
    let newArray = []
    if(event.target.value.length >= 1 && isFiltredStage1 === true){
-      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => ageCalculate3006(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
+      newArray = filtredDatosAlumnoStage1.filter((dataFilter) => ageCalculate3006(splitDate(dataFilter.fechaNacimiento,3)) == parseInt(event.target.value))
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
    }
    if(event.target.value.length >= 1 && isFiltredStage1 === false){
-      newArray = datosAlumno.filter((dataFilter) => ageCalculate3006(splitDate(dataFilter.FECHA_NACIMIENTO,3)) == parseInt(event.target.value))
+      newArray = datosAlumno.filter((dataFilter) => ageCalculate3006(splitDate(dataFilter.fechaNacimiento,3)) == parseInt(event.target.value))
       setIsFiltredStage2(true)
       setFiltredDatosAlumnoStage2(newArray)
    }
@@ -154,18 +155,18 @@ export const handleClickApplyFilter = (
 )=> {
    let newArray = []     
    switch(true){
-      case nivelState !== 'Nivel' && gradoState === 'Grado' && divisionState === 'Division':
-         newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivelState)
+      case nivelState !== 'Nivel' && gradoState === 'Grado/Año' && divisionState === 'Division':
+         newArray = datosAlumno.filter((dataFilter) => dataFilter.nivel === nivelState)
          setIsFiltredStage1(true)
          setFiltredDatosAlumnoStage1(newArray)  
          break
-      case nivelState !== 'Nivel' && gradoState !== 'Grado' && divisionState === 'Division':
-         newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivelState && dataFilter.GRADO === parseInt(gradoState))
+      case nivelState !== 'Nivel' && gradoState !== 'Grado/Año' && divisionState === 'Division':
+         newArray = datosAlumno.filter((dataFilter) => dataFilter.nivel === nivelState && dataFilter.grado === parseInt(gradoState))
          setIsFiltredStage1(true)
          setFiltredDatosAlumnoStage1(newArray)
          break
-      case nivelState !== 'Nivel' && gradoState !== 'Grado' && divisionState !== 'Division':
-         newArray = datosAlumno.filter((dataFilter) => dataFilter.NIVEL === nivelState && dataFilter.GRADO === parseInt(gradoState) && dataFilter.DIVISION === divisionState)
+      case nivelState !== 'Nivel' && gradoState !== 'Grado/Año' && divisionState !== 'Division':
+         newArray = datosAlumno.filter((dataFilter) => dataFilter.nivel === nivelState && dataFilter.grado === parseInt(gradoState) && dataFilter.division === divisionState)
          setIsFiltredStage1(true)
          setFiltredDatosAlumnoStage1(newArray)
          break
@@ -218,5 +219,102 @@ setIsFiltredStage1,
    matriculaRef.current[0].options.selectedIndex = 0
    matriculaRef.current[1].options.selectedIndex = 0
    matriculaRef.current[2].options.selectedIndex = 0
+}
+
+export const toFirstUpperCase = (string) => { 
+   let stringToLower = string.toLowerCase()
+   if(stringToLower.length > 0){
+      return stringToLower[0].toUpperCase() + stringToLower.slice(1)
+   }else{
+      return 'Sin datos'
+   }
+}
+
+export const toOwnName = (string) => {
+   
+   let splitString = string.split(' ')
+   let returnString = ''
+   let spaceString = ''
+   splitString.map((dataMap,index)=> {
+      if(index === splitString.length - 1){
+         spaceString = ''
+      }else{
+         spaceString = ' '
+      }
+      if(dataMap.length > 0){
+         returnString = returnString + toFirstUpperCase(dataMap) + spaceString
+      }else {
+         splitString.splice(index,1)
+      }
+   })
+   return returnString
+}
+
+export const cleanEmptyStringArray = (dataArray) => {
+   let returnArray=[]
+   dataArray.map((dataMap,index)=>{
+      if(dataMap.length !== 0){
+         returnArray = [...returnArray,dataMap]
+      }
+   })
+   return returnArray
+}
+
+export const changeEntireDataBaseToLowerCase = (data,token) => {
+   let updatedData = {}
+   let id = ""
+   console.log(data)
+   data.map((dataMap,index)=> {
+      Object.keys(dataMap).map((dataMapKeys,indexKeys)=> {
+         switch(dataMapKeys){
+            case 'apellido':
+               updatedData = {...updatedData ,[dataMapKeys]: toOwnName(dataMap[dataMapKeys]) }
+               break
+            case 'apellidoTutor':
+               updatedData = {...updatedData ,[dataMapKeys]: toOwnName(dataMap[dataMapKeys]) }
+               break
+            case 'nombre':
+               updatedData = {...updatedData ,[dataMapKeys]: toOwnName(dataMap[dataMapKeys]) }
+               break
+            case 'localidad':
+               updatedData = {...updatedData ,[dataMapKeys]: toOwnName(dataMap[dataMapKeys]) }
+               break
+            case 'lugarNacimiento':
+               updatedData = {...updatedData ,[dataMapKeys]: toOwnName(dataMap[dataMapKeys]) }
+               break
+            case 'lugarNacimiento':
+               updatedData = {...updatedData ,[dataMapKeys]: toOwnName(dataMap[dataMapKeys]) }
+               break
+            case 'provincia':
+               updatedData = {...updatedData ,[dataMapKeys]: toOwnName(dataMap[dataMapKeys]) }
+               break
+            case 'provinciaNacimiento':
+               updatedData = {...updatedData ,[dataMapKeys]: toOwnName(dataMap[dataMapKeys]) }
+               break
+            case 'tipo':
+               break
+            case 'grado':
+               break
+            case 'observaciones':
+               updatedData = {...updatedData,[dataMapKeys]: cleanEmptyStringArray(dataMap[dataMapKeys])}
+               break
+            case 'registro':
+               updatedData = {...updatedData,[dataMapKeys]: cleanEmptyStringArray(dataMap[dataMapKeys])}
+               break
+            case 'registroSalud':
+               updatedData = {...updatedData,[dataMapKeys]: cleanEmptyStringArray(dataMap[dataMapKeys])}
+               break
+            case '_id':
+               id = dataMap[dataMapKeys]
+               break
+            default:
+               updatedData = {...updatedData ,[dataMapKeys]: toFirstUpperCase(dataMap[dataMapKeys]) }
+               break
+            
+         }
+            postUpdateWholeDB(token,updatedData,updateWholeDB,id)
+      })   
+   }) 
+   console.log(updatedData)
 }
 

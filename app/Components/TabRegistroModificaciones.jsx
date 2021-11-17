@@ -31,7 +31,7 @@ const TabRegistroModificaciones = ({
                </tr>
             </thead>
             <tbody>
-               {dataAlumno.REGISTRO?.map((dataMap,index)=>
+               {dataAlumno.registro?.map((dataMap,index)=>
                <tr
                   key={index}
                >

@@ -16,10 +16,11 @@ const ModalModelPdfSelecion = ({
    setModelo,
    showModalItemsToPrint,
    setShowModalItemsToPrint,
+   context
 }) => {
 
    const handleClose = () => setShowModalPdfSelection(false)
-
+   const modelPdf = context.stateHardCodeData.hardCodeData.modelPdf
    return (
       <Modal 
          show={showModalPdfSelection} 
@@ -39,7 +40,7 @@ const ModalModelPdfSelecion = ({
                   )} 
                >
                   <option>Modelo</option>
-                  {ModelPdf.map((dataMap)=>
+                  {modelPdf.map((dataMap)=>
                   <option 
                      value={dataMap} 
                      key={dataMap}

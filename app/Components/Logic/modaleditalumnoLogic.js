@@ -9,16 +9,16 @@ export const handleSwitchEdit = (
 export const handleUpdateData = (modalEditRef,fechaNacimiento,dataAlumno,setSwitchEdit,updatedData,setShowModalUpdate,setUpdatedData) => {
    let newDataAlumno = {}
    let changedData = {}
-   for(let i = 0 ; i < Object.keys(dataAlumno).length - 2 ; i ++){
+   for(let i = 0 ; i < Object.keys(dataAlumno).length - 3 ; i ++){
       modalEditRef.current[i] !== undefined ? 
          newDataAlumno = {...newDataAlumno , [Object.keys(dataAlumno)[i]] : modalEditRef.current[i].value}
          :
          newDataAlumno = {...newDataAlumno , [Object.keys(dataAlumno)[i]] : Object.values(dataAlumno)[i] 
          }
    }
-         newDataAlumno = {...newDataAlumno, FECHA_NACIMIENTO: createStringDate(fechaNacimiento)}
+         newDataAlumno = {...newDataAlumno, fechaNacimiento: createStringDate(fechaNacimiento)}
 
-   for (let i = 0 ; i < Object.keys(dataAlumno).length - 2 ; i ++){
+   for (let i = 0 ; i < Object.keys(dataAlumno).length - 3 ; i ++){
       Object.values(dataAlumno)[i].toString() !== Object.values(newDataAlumno)[i] ?
          changedData = {...changedData , [Object.keys(dataAlumno)[i]]: Object.values(newDataAlumno)[i]} 
          :

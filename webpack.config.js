@@ -28,17 +28,12 @@ module.exports = {
             use: ['style-loader','css-loader']
          },
          {
-            test: /\.(gif|png|jpe?g|svg)$/i,
-            use: [
-               'file-loader',
-               {
-                  loader: 'file-loader',
-                  options: {
-                     bypassOnDebug: true, // webpack@1.x
-                     disable: true, // webpack@2.x and newer
-                  },
-               },
-            ],
+            test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
          },
 {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,

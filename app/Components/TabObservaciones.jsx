@@ -24,7 +24,7 @@ const TabObservaciones = ({
                      <Col
                         className='mt-2 border'
                      >
-                        {dataAlumno.OBSERVACIONES?.map((dataMap) => 
+                        {dataAlumno.observaciones?.map((dataMap) => 
                         <p
                            key={dataMap === "" ? Math.random() : dataMap}
                         >{dataMap}</p>

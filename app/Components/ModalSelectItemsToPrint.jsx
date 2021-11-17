@@ -24,6 +24,7 @@ const handleClickModal = (
          setSelectedItems(selected)
       }
    }
+   console.log(selected)
    setIsRender(true)
    setShowModalItemsToPrint(false)
    setShowModalPdf(true)
@@ -36,12 +37,12 @@ const ModalSelectItemsToPrint = ({
    setSelectedItems,
    setShowModalPdf,
    setIsRender,
-   isRender
+   isRender,
+   context
 }) => { 
-
    const handleClose = () => setShowModalItemsToPrint(false)
    const handleShow = () => setShowModalItemsToPrint(true)
-
+   const datosRatificacion2 =  context.stateHardCodeData.hardCodeData.datosRatificacion2
    const ratificacionesRef = useRef([])
    return ( 
       <Modal 

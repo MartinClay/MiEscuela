@@ -29,8 +29,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>Apellido Tutor:</h6>
                <FormControl
-                  defaultValue={dataAlumno.APELLIDO_TUTOR}
-                  aria-label='APELLIDO_TUTOR'
+                  defaultValue={dataAlumno.apellidoTutor}
+                  aria-label='apellidoTutor'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[25] = element}
                /> 
@@ -38,8 +38,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>Nombre Tutor:</h6>
                <FormControl
-                  defaultValue={dataAlumno.NOMBRE_TUTOR}
-                  aria-label='NOMBRE_TUTOR'
+                  defaultValue={dataAlumno.nombreTutor}
+                  aria-label='nombreTutor'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[26] = element}
                /> 
@@ -47,8 +47,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>Relacion:</h6>
                <FormControl
-                  defaultValue={dataAlumno.RELACION_TUTOR}
-                  aria-label='RELACION_TUTOR'
+                  defaultValue={dataAlumno.relacionTutor}
+                  aria-label='relacionTutor'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[29] = element}
                /> 
@@ -56,8 +56,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>DNI Tutor:</h6>
                <FormControl
-                  defaultValue={dataAlumno.DNI_TUTOR}
-                  aria-label='DNI_TUTOR'
+                  defaultValue={dataAlumno.dniTutor}
+                  aria-label='dniTutor'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[27] = element}
                /> 
@@ -69,8 +69,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>Tel Fijo:</h6>
                <FormControl
-                  defaultValue={dataAlumno.TEL_FIJO}
-                  aria-label='TEL_FIJO'
+                  defaultValue={dataAlumno.telFijo}
+                  aria-label='telFijo'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[19] = element}
                /> 
@@ -78,8 +78,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>Tel Celular:</h6>
                <FormControl
-                  defaultValue={dataAlumno.TEL_CELULAR}
-                  aria-label='TEL_CELULAR'
+                  defaultValue={dataAlumno.telCelular}
+                  aria-label='telCelular'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[20] = element}
                /> 
@@ -91,8 +91,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>Barrio:</h6>
                <FormControl
-                  defaultValue={dataAlumno.BARRIO}
-                  aria-label='BARRIO'
+                  defaultValue={dataAlumno.barrio}
+                  aria-label='barrio'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[16] = element}
                /> 
@@ -100,8 +100,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>Calle:</h6>
                <FormControl
-                  defaultValue={dataAlumno.CALLE}
-                  aria-label='CALLE'
+                  defaultValue={dataAlumno.calle}
+                  aria-label='calle'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[14] = element}
                /> 
@@ -109,8 +109,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>NRO:</h6>
                <FormControl
-                  defaultValue={dataAlumno.NRO}
-                  aria-label='NRO'
+                  defaultValue={dataAlumno.nro}
+                  aria-label='nro'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[15] = element}
                /> 
@@ -118,8 +118,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>Localidad:</h6>
                <FormControl
-                  defaultValue={dataAlumno.LOCALIDAD}
-                  aria-label='LOCALIDAD'
+                  defaultValue={dataAlumno.localidad}
+                  aria-label='localidad'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[17] = element}
                /> 
@@ -127,8 +127,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>Provincia:</h6>
                <FormControl
-                  defaultValue={dataAlumno.PROVINCIA}
-                  aria-label='PROVINCIA'
+                  defaultValue={dataAlumno.provincia}
+                  aria-label='provincia'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[18] = element}
                /> 
@@ -140,8 +140,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>Email Alumno:</h6>
                <FormControl
-                  defaultValue={dataAlumno.EMAIL}
-                  aria-label='EMAIL'
+                  defaultValue={dataAlumno.email}
+                  aria-label='email'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[11] = element}
                />  
@@ -149,8 +149,8 @@ const TabDatosContacto = ({
             <Col>
                <h6>Email Tutor:</h6>
                <FormControl
-                  defaultValue={dataAlumno.EMAIL_TUTOR}
-                  aria-label='EMAIL_TUTOR'
+                  defaultValue={dataAlumno.emailTutor}
+                  aria-label='emailTutor'
                   readOnly={switchEdit}
                   ref={(element) => modalEditRef.current[30] = element}
                />  

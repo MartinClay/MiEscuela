@@ -84,6 +84,7 @@ const Pdf = ({
    filtredDatosAlumnoStage1,
    setIsRender,
 }) => (
+
    <PDFViewer 
       style={{height:'90vh',width:'90vw'}}
    >
@@ -95,7 +96,7 @@ const Pdf = ({
          >
             {filtredDatosAlumnoStage1.map((dato) => 
             <View 
-               key={dato.N_DNI_ALUMNO} 
+               key={dato.nDniAlumno} 
                style={styles.container}
             >
                <View 
@@ -137,8 +138,8 @@ const Pdf = ({
                         style={[styles.contentBodyText1,{width:'30vw'}]}
                      >
                         {
-                           selectedItems[0] === 'APELLIDO' ? 
-                              dato.APELLIDO 
+                           selectedItems[0] === 'apellido' ? 
+                              dato.apellido 
                               : 
                               ''
                         }
@@ -147,8 +148,8 @@ const Pdf = ({
                         style={[styles.contentBodyText1,{width:'30vw'}]}
                      >
                         {
-                           selectedItems[1] === 'NOMBRE' ? 
-                              dato.NOMBRE 
+                           selectedItems[1] === 'nombre' ? 
+                              dato.nombre 
                               : 
                               ''
                         }
@@ -157,8 +158,8 @@ const Pdf = ({
                         style={[styles.contentBodyText1,{width:'30vw'}]}
                      >
                         {
-                           selectedItems[2] === 'NRO_LEGAJO' ? 
-                              dato.NRO_LEGAJO 
+                           selectedItems[2] === 'nroLegajo' ? 
+                              dato.nroLegajo 
                               : 
                               ''
                         }
@@ -175,8 +176,8 @@ const Pdf = ({
                            style={[styles.contentBodyText1,{width:'10vw'}]}
                         >
                            {
-                              selectedItems[3] === 'GRADO' ? 
-                                 dato.GRADO 
+                              selectedItems[3] === 'grado' ? 
+                                 dato.grado 
                                  : 
                                  ''
                            }
@@ -190,8 +191,8 @@ const Pdf = ({
                            style={[styles.contentBodyText1,{width:'10vw'}]}
                         >
                            {
-                              selectedItems[4] === 'DIVISION' ? 
-                                 dato.DIVISION 
+                              selectedItems[4] === 'division' ? 
+                                 dato.division 
                                  : 
                                  ''
                            }
@@ -205,8 +206,8 @@ const Pdf = ({
                            style={[styles.contentBodyText1,{width:'20vw'}]}
                         >
                            {
-                              selectedItems[5] === 'DENOMINACION' ? 
-                                 dato.DENOMINACION 
+                              selectedItems[5] === 'denominacion' ? 
+                                 dato.denominacion 
                                  : 
                                  ''
                            }
@@ -223,8 +224,8 @@ const Pdf = ({
                               style={[styles.contentBodyText1,{width:'15vw'}]}
                            >
                               {
-                                 selectedItems[6] === 'LUGAR_NACIMIENTO' ? 
-                                    dato.LUGAR_NACIMIENTO 
+                                 selectedItems[6] === 'lugarNacimiento' ? 
+                                    dato.lugarNacimiento 
                                     : 
                                     ''
                               }
@@ -247,8 +248,8 @@ const Pdf = ({
                               style={[styles.contentBodyText1,{width:'15vw'}]}
                            >
                               {
-                                 selectedItems[7] === 'PROVINCIA' ? 
-                                    dato.PROVINCIA 
+                                 selectedItems[7] === 'provincia' ? 
+                                    dato.provincia 
                                     : 
                                     ''
                               }
@@ -262,8 +263,8 @@ const Pdf = ({
                               style={[styles.contentBodyText1,{width:'11vw'}]}
                            >
                               {
-                                 selectedItems[8] === 'FECHA_NACIMIENTO' ? 
-                                    splitDate(dato.FECHA_NACIMIENTO,0) 
+                                 selectedItems[8] === 'fechaNacimiento' ? 
+                                    splitDate(dato.fechaNacimiento,0) 
                                     : 
                                     ''
                               }
@@ -277,8 +278,8 @@ const Pdf = ({
                               style={[styles.contentBodyText1,{width:'11vw'}]}
                            >
                               {
-                                 selectedItems[8] === 'FECHA_NACIMIENTO' ? 
-                                    splitDate(dato.FECHA_NACIMIENTO,1) 
+                                 selectedItems[8] === 'fechaNacimiento' ? 
+                                    splitDate(dato.fechaNacimiento,1) 
                                     : 
                                     ''
                               }
@@ -292,8 +293,8 @@ const Pdf = ({
                               style={[styles.contentBodyText1,{width:'11vw'}]}
                            >
                               {
-                                 selectedItems[8] === 'FECHA_NACIMIENTO' ? 
-                                    splitDate(dato.FECHA_NACIMIENTO,2) 
+                                 selectedItems[8] === 'fechaNacimiento' ? 
+                                    splitDate(dato.fechaNacimiento,2) 
                                     : 
                                     ''
                               }
@@ -307,8 +308,8 @@ const Pdf = ({
                               style={[styles.contentBodyText1,{width:'11vw'}]}
                            >
                               {
-                                 selectedItems[8] === 'FECHA_NACIMIENTO' ? 
-                                    ageCalculate(splitDate(dato.FECHA_NACIMIENTO,3)) 
+                                 selectedItems[8] === 'fechaNacimiento' ? 
+                                    ageCalculate(splitDate(dato.fechaNacimiento,3)) 
                                     : 
                                     ''
                               }
@@ -322,8 +323,8 @@ const Pdf = ({
                               style={[styles.contentBodyText1,{width:'55vw'}]}
                            >
                               {
-                                 selectedItems[9] === 'CALLE' ? 
-                                    dato.CALLE 
+                                 selectedItems[9] === 'calle' ? 
+                                    dato.calle 
                                     : 
                                     ''
                               }
@@ -337,8 +338,8 @@ const Pdf = ({
                               style={[styles.contentBodyText1,{width:'10vw'}]}
                            >
                               {
-                                 selectedItems[10] === 'NRO' ? 
-                                    dato.NRO 
+                                 selectedItems[10] === 'nro' ? 
+                                    dato.nro 
                                     : 
                                     ''
                               }
@@ -352,8 +353,8 @@ const Pdf = ({
                               style={[styles.contentBodyText1,{width:'40vw'}]}
                            >
                               {
-                                 selectedItems[11] === 'BARRIO' ? 
-                                    dato.BARRIO 
+                                 selectedItems[11] === 'barrio' ? 
+                                    dato.barrio 
                                     : 
                                     ''
                               }
@@ -385,8 +386,8 @@ const Pdf = ({
                               style={[styles.contentBodyText1,{width:'15vw',fontSize:9}]}
                            >
                               {
-                                 selectedItems[14] === 'LOCALIDAD' ? 
-                                    dato.LOCALIDAD 
+                                 selectedItems[14] === 'localidad' ? 
+                                    dato.localidad 
                                     : 
                                     ''
                               }
@@ -400,8 +401,8 @@ const Pdf = ({
                               style={[styles.contentBodyText1,{width:'20vw'}]}
                            >
                               {
-                                 selectedItems[15] === 'TEL_FIJO' ? 
-                                    dato.TEL_FIJO 
+                                 selectedItems[15] === 'telFijo' ? 
+                                    dato.telFijo 
                                     : 
                                     ''
                               }
@@ -415,8 +416,8 @@ const Pdf = ({
                               style={[styles.contentBodyText1,{width:'25vw'}]}
                            >
                               {
-                                 selectedItems[16] === 'TEL_CELULAR' ? 
-                                    dato.TEL_CELULAR 
+                                 selectedItems[16] === 'telCelular' ? 
+                                    dato.telCelular 
                                     : 
                                     ''
                               }
@@ -433,8 +434,8 @@ const Pdf = ({
                                  style={[styles.contentBodyText1,{width:'65vw'}]}
                               >
                                  {
-                                    selectedItems[17] === 'NOMBRE_TUTOR' ? 
-                                       `${dato.NOMBRE_TUTOR} ${dato.APELLIDO_TUTOR}` 
+                                    selectedItems[17] === 'nombreTutor' ? 
+                                       `${dato.nombreTutor} ${dato.apellidoTutor}` 
                                        : 
                                        ''
                                  }
@@ -447,8 +448,8 @@ const Pdf = ({
                               <Text 
                                  style={[styles.contentBodyText1,{width:'65vw'}]}
                               >{
-                                 selectedItems[19] === 'DNI_TUTOR' ? 
-                                    dato.DNI_TUTOR 
+                                 selectedItems[19] === 'dniTutor' ? 
+                                    dato.dniTutor 
                                     : 
                                     ''
                                  }
@@ -462,8 +463,8 @@ const Pdf = ({
                                  style={[styles.contentBodyText1,{width:'65vw'}]}
                               >
                                  {
-                                    selectedItems[20] === 'RELACION_TUTOR' ? 
-                                       dato.RELACION_TUTOR 
+                                    selectedItems[20] === 'realacionTutor' ? 
+                                       dato.realacionTutor 
                                        : 
                                        ''
                                  }
@@ -581,15 +582,15 @@ const Pdf = ({
                                  >
                                     En mi carácter de Tutor del Alumno: 
                                     {
-                                       selectedItems[0] === 'APELLIDO' && selectedItems[1] === 'NOMBRE' ? 
-                                          `${dato.NOMBRE} ${dato.APELLIDO}` 
+                                       selectedItems[0] === 'apellido' && selectedItems[1] === 'nombre' ? 
+                                          `${dato.nombre} ${dato.apellido}` 
                                           : 
                                           '....................................................................................'
                                     }
                                     , DNI: 
                                     {
-                                       selectedItems[21] === 'DNI_ALUMNO' ? 
-                                          dato.N_DNI_ALUMNO 
+                                       selectedItems[21] === 'nDniAlumno' ? 
+                                          dato.nDniAlumno 
                                           : 
                                           '...................................................................................................' 
                                     }

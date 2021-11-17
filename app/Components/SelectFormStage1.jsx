@@ -61,7 +61,7 @@ const SelectFormStage1 = ({
             </Col>
             <Col>
                <Form.Select 
-                  aria-label='Grado' 
+                  aria-label='Grado/Año' 
                   onChange={(event) => handleGradoChange(
                      event,
                      setGrado

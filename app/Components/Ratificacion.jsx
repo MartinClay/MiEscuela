@@ -52,6 +52,7 @@ const Ratificacion = () => {
                   setShowModalPdf={setShowModalPdf}
                   setIsRender={setIsRender}
                   isRender={isRender}
+                  context={context}
                />
                <ModalPdf
                   isRender={isRender}
@@ -78,20 +79,22 @@ const Ratificacion = () => {
                   setShowModalItemsToPrint={setShowModalItemsToPrint}
                   modelo={modelo}
                   setModelo={setModelo}
+                  context={context}
                />
                <SelectFormStage1
                   setGrado={setGrado}                     
-                  grado={grado}
+                  gradoState={grado}
                   setDivision={setDivision}
-                  division={division}
+                  divisionState={division}
                   setNivel={setNivel}
-                  nivel={nivel}
+                  nivelState={nivel}
                   matriculaRef={matriculaRef}
                   datosAlumno={datosAlumno}
                   setIsFiltredStage1={setIsFiltredStage1}
                   setFiltredDatosAlumnoStage1={setFiltredDatosAlumnoStage1}
                   setIsFiltredStage2={setIsFiltredStage2}
                   setFiltredDatosAlumnoStage2={setFiltredDatosAlumnoStage2}
+                  context={context}
                />
                <TableRatificacion
                   filtredDatosAlumnoStage1={filtredDatosAlumnoStage1}

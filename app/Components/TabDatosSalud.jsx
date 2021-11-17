@@ -35,18 +35,18 @@ const TabDatosSalud = ({
                   <Col>
                      <h6>Vacunas al dia:</h6>
                      <Form.Select
-                        placeholder={dataAlumno?.VACUNAS_AL_DIA}
-                        aria-label="VACUNAS_AL_DIA"
+                        placeholder={dataAlumno?.vacunasAlDia}
+                        aria-label="vacunasAlDia"
                         disabled={switchEdit}
                         ref={(element) => modalEditRef.current[34] = element}
                      >
                         <option 
-                           value={dataAlumno.VACUNAS_AL_DIA}
+                           value={dataAlumno.vacunasAlDia}
                         >
-                           {dataAlumno.VACUNAS_AL_DIA}
+                           {dataAlumno.vacunasAlDia}
                         </option>
                         {vacunas.map((dataMap)=> 
-                           dataMap !== dataAlumno.VACUNAS_AL_DIA ? 
+                           dataMap !== dataAlumno.vacunasAlDia ? 
                               <option 
                                  key={dataMap} 
                                  value={dataMap}
@@ -61,18 +61,18 @@ const TabDatosSalud = ({
                   <Col>
                      <h6>Certificado de Salud:</h6>
                      <Form.Select
-                        placeholder={dataAlumno?.CERT_SALUD}
-                        aria-label="CERT_SALUD"
+                        placeholder={dataAlumno?.certSalud}
+                        aria-label="certSalud"
                         disabled={switchEdit}
                         ref={(element) => modalEditRef.current[32] = element}
                      >
                         <option 
-                           value={dataAlumno.CERT_SALUD}
+                           value={dataAlumno.certSalud}
                         >
-                           {dataAlumno.CERT_SALUD}
+                           {dataAlumno.certSalud}
                         </option>
                         {vacunas.map((dataMap)=> 
-                           dataMap !== dataAlumno.CERT_SALUD ? 
+                           dataMap !== dataAlumno.certSalud ? 
                               <option 
                                  key={dataMap} 
                                  value={dataMap}
@@ -87,18 +87,18 @@ const TabDatosSalud = ({
                   <Col>
                      <h6>Certificado buco dental:</h6>
                      <Form.Select
-                        placeholder={dataAlumno?.CERT_BUCO_DENTAL}
-                        aria-label="CERT_BUCO_DENTAL"
+                        placeholder={dataAlumno?.certBucoDental}
+                        aria-label="certBucoDental"
                         disabled={switchEdit}
                         ref={(element) => modalEditRef.current[33] = element}
                      >
                         <option 
-                           value={dataAlumno.CERT_BUCO_DENTAL}
+                           value={dataAlumno.certBucoDental}
                         >
-                           {dataAlumno.CERT_BUCO_DENTAL}
+                           {dataAlumno.certBucoDental}
                         </option>
                         {vacunas.map((dataMap)=> 
-                           dataMap !== dataAlumno.CERT_BUCO_DENTAL ? 
+                           dataMap !== dataAlumno.certBucoDental ? 
                               <option 
                                  key={dataMap} 
                                  value={dataMap}
@@ -117,19 +117,19 @@ const TabDatosSalud = ({
                   <Col>
                      <h6>Antivariolica:</h6>
                      <Form.Select
-                        placeholder={dataAlumno?.ANTIVARIOLICA}
-                        aria-label="ANTIVARIOLICA"
+                        placeholder={dataAlumno?.antivariolica}
+                        aria-label="antivariolica"
                         disabled={switchEdit}
                         ref={(element) => modalEditRef.current[35] = element}
                      >
 
                         <option 
-                           value={dataAlumno.ANTIVARIOLICA}
+                           value={dataAlumno.antivariolica}
                         >
-                           {dataAlumno.ANTIVARIOLICA}
+                           {dataAlumno.antivariolica}
                         </option>
                         {vacunas.map((dataMap)=> 
-                           dataMap !== dataAlumno.ANTIVARIOLICA ? 
+                           dataMap !== dataAlumno.antivariolica ? 
                               <option 
                                  key={dataMap} 
                                  value={dataMap}
@@ -144,18 +144,18 @@ const TabDatosSalud = ({
                   <Col>
                      <h6>BCG:</h6>
                      <Form.Select
-                        placeholder={dataAlumno?.BCG}
-                        aria-label="BCG"
+                        placeholder={dataAlumno?.bcg}
+                        aria-label="bcg"
                         disabled={switchEdit}
                         ref={(element) => modalEditRef.current[36] = element}
                      >
                         <option 
-                           value={dataAlumno.BCG}
+                           value={dataAlumno.bcg}
                         >
-                           {dataAlumno.BCG}
+                           {dataAlumno.bcg}
                         </option>
                         {vacunas.map((dataMap)=> 
-                           dataMap !== dataAlumno.BCG ? 
+                           dataMap !== dataAlumno.bcg ? 
                               <option 
                                  key={dataMap} 
                                  value={dataMap}
@@ -171,18 +171,18 @@ const TabDatosSalud = ({
                   <Col>
                      <h6>Triple:</h6>
                      <Form.Select
-                        placeholder={dataAlumno?.TRIPLE}
-                        aria-label="TRIPLE"
+                        placeholder={dataAlumno?.triple}
+                        aria-label="triple"
                         disabled={switchEdit}
                         ref={(element) => modalEditRef.current[37] = element}
                      >
                         <option 
-                           value={dataAlumno.TRIPLE}
+                           value={dataAlumno.triple}
                         >
-                           {dataAlumno.TRIPLE}
+                           {dataAlumno.triple}
                         </option>
                         {vacunas.map((dataMap)=> 
-                           dataMap !== dataAlumno.TRIPLE ? 
+                           dataMap !== dataAlumno.triple ? 
                               <option 
                                  key={dataMap} 
                                  value={dataMap}
@@ -201,18 +201,18 @@ const TabDatosSalud = ({
                   <Col>
                      <h6>Doble:</h6>
                      <Form.Select
-                        placeholder={dataAlumno?.DOBLE}
-                        aria-label="DOBLE"
+                        placeholder={dataAlumno?.doble}
+                        aria-label="doble"
                         disabled={switchEdit}
                         ref={(element) => modalEditRef.current[38] = element}
                      >
                         <option 
-                           value={dataAlumno.DOBLE}
+                           value={dataAlumno.doble}
                         >
-                           {dataAlumno.DOBLE}
+                           {dataAlumno.doble}
                         </option>
                         {vacunas.map((dataMap)=> 
-                           dataMap !== dataAlumno.DOBLE ? 
+                           dataMap !== dataAlumno.doble ? 
                               <option 
                                  key={dataMap} 
                                  value={dataMap}
@@ -227,18 +227,18 @@ const TabDatosSalud = ({
                   <Col>
                      <h6>Sabin:</h6>
                      <Form.Select
-                        placeholder={dataAlumno?.SABIN}
-                        aria-label="SABIN"
+                        placeholder={dataAlumno?.sabin}
+                        aria-label="sabin"
                         disabled={switchEdit}
                         ref={(element) => modalEditRef.current[39] = element}
                      >
                         <option 
-                           value={dataAlumno.SABIN}
+                           value={dataAlumno.sabin}
                         >
-                           {dataAlumno.SABIN}
+                           {dataAlumno.sabin}
                         </option>
                         {vacunas.map((dataMap)=> 
-                           dataMap !== dataAlumno.SABIN ? 
+                           dataMap !== dataAlumno.sabin ? 
                               <option 
                                  key={dataMap} 
                                  value={dataMap}
@@ -253,18 +253,18 @@ const TabDatosSalud = ({
                   <Col>
                      <h6>Anti sarampion:</h6>
                      <Form.Select
-                        placeholder={dataAlumno?.ANTI_SARAMPION}
-                        aria-label="ANTI_SARAMPION"
+                        placeholder={dataAlumno?.antiSarampion}
+                        aria-label="antiSarampion"
                         disabled={switchEdit}
                         ref={(element) => modalEditRef.current[40] = element}
                      >
                         <option 
-                           value={dataAlumno.ANTI_SARAMPION}
+                           value={dataAlumno.antiSarampion}
                         >
-                           {dataAlumno.ANTI_SARAMPION}
+                           {dataAlumno.antiSarampion}
                         </option>
                         {vacunas.map((dataMap)=> 
-                           dataMap !== dataAlumno.ANTI_SARAMPION ? 
+                           dataMap !== dataAlumno.antiSarampion ? 
                               <option 
                                  key={dataMap} 
                                  value={dataMap}
@@ -282,18 +282,18 @@ const TabDatosSalud = ({
                      <Col>
                         <h6>Examen visual:</h6>
                         <Form.Select
-                           placeholder={dataAlumno?.EXAMEN_VISUAL}
-                           aria-label="EXAMEN_VISUAL"
+                           placeholder={dataAlumno?.examenVisual}
+                           aria-label="examenVisual"
                            disabled={switchEdit}
                            ref={(element) => modalEditRef.current[31] = element}
                         >
                            <option 
-                              value={dataAlumno.EXAMEN_VISUAL}
+                              value={dataAlumno.examenVisual}
                            >
-                              {dataAlumno.EXAMEN_VISUAL}
+                              {dataAlumno.examenVisual}
                            </option>
                            {vacunas.map((dataMap)=> 
-                              dataMap !== dataAlumno.EXAMEN_VISUAL ? 
+                              dataMap !== dataAlumno.examenVisual ? 
                                  <option 
                                     key={dataMap} 
                                     value={dataMap}
@@ -317,18 +317,18 @@ const TabDatosSalud = ({
                         <Row>
                            <Col>
                               <Form.Select
-                                 placeholder={dataAlumno?.OTRAS_1}
-                                 aria-label="OTRAS_1"
+                                 placeholder={dataAlumno?.otras1}
+                                 aria-label="otras1"
                                  disabled={switchEdit}
                                  ref={(element) => modalEditRef.current[41] = element}
                               >
                                  <option 
-                                    value={dataAlumno?.OTRAS_1}
+                                    value={dataAlumno?.otras1}
                                  >
-                                    {dataAlumno?.OTRAS_1}
+                                    {dataAlumno?.otras1}
                                  </option>
                                  {vacunas.map((dataMap)=> 
-                                    dataMap !== dataAlumno?.OTRAS_1 ? 
+                                    dataMap !== dataAlumno?.otras1 ? 
                                        <option 
                                           key={dataMap} 
                                           value={dataMap}
@@ -342,18 +342,18 @@ const TabDatosSalud = ({
                            </Col>
                            <Col> 
                               <Form.Select
-                                 placeholder={dataAlumno?.OTRAS_2}
-                                 aria-label="OTRAS_2"
+                                 placeholder={dataAlumno?.otras2}
+                                 aria-label="otras2"
                                  disabled={switchEdit}
                                  ref={(element) => modalEditRef.current[42] = element}
                               >
                                  <option 
-                                    value={dataAlumno?.OTRAS_2}
+                                    value={dataAlumno?.otras2}
                                  >
-                                    {dataAlumno.OTRAS_2}
+                                    {dataAlumno.otras2}
                                  </option>
                                  {vacunas.map((dataMap)=> 
-                                    dataMap !== dataAlumno.OTRAS_2 ? 
+                                    dataMap !== dataAlumno.otras2 ? 
                                        <option 
                                           key={dataMap} 
                                           value={dataMap}
